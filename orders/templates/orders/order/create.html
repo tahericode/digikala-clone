@@ -1,0 +1,119 @@
+{% extends 'details/base.html' %}
+{% load static %}{% load crispy_forms_tags %}
+{% block title %}صورت حساب{% endblock title %}
+{% block page_title %}صورت حساب{% endblock page_title %}
+{% block content %}
+<!-- Start Checkout Area -->
+<section class="checkout-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="user-actions">
+                    
+                    <span>برای ثبت سفارش اطلاعات خود را وارد کنید</span>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST">
+        {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="billing-details">
+                        <h3 class="title">جزئیات صورتحساب</h3>
+                        <div class="bar"></div>
+
+                        <div class="row">
+                           
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>نام کوچک <span class="required">*</span></label>
+                                    {{form.first_name|as_crispy_field}}
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>نام خانوادگی <span class="required">*</span></label>
+                                    {{form.last_name|as_crispy_field}}
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>آدرس ایمیل <span class="required">*</span></label>
+                                    {{form.email|as_crispy_field}}
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <label>کد پستی / زیپ <span class="required">*</span></label>
+                                    {{form.postal_code|as_crispy_field}}
+                                </div>
+                            </div>
+
+                    
+
+                            <div class="col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label>آدرس <span class="required">*</span></label>
+                                    {{form.address|as_crispy_field}}
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label>خانه / شهر <span class="required">*</span></label>
+                                    {{form.city|as_crispy_field}}
+                                </div>
+                            </div>
+
+
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="order-details">
+                        <h3 class="title">سفارش شما</h3>
+                        <div class="bar"></div>
+
+                        <div class="order-table table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">نام محصول</th>
+                                        <th scope="col">مجموع</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                {% for item in cart %}
+                                    <tr>
+                                        <td class="product-name">
+                                            <a href="#">{{item.product.name}}</a>
+                                        </td>
+
+                                        <td class="product-total">
+                                            <span class="subtotal-amount">تومان {{item.total_price}}</span>
+                                        </td>
+                                    </tr>
+                                {% endfor %}    
+                                </tbody>
+                            </table>
+                        </div>
+
+                       
+
+                        <button type="submit" href="#" class="btn btn-primary order-btn">محل سفارش</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- End Checkout Area -->
+{% endblock content %}

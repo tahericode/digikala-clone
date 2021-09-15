@@ -1,0 +1,92 @@
+{% extends "details/base.html" %}{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<!-- add meta title -->
+{% block title %} ثبت نام {% endblock title%}
+<!-- End meta title -->
+
+
+<!-- add meta tags -->
+{% block meta %}
+<meta name="description" content="ثبت نام">
+<meta name="keywords" content="ثبت نام"> {% endblock meta %}
+<!-- End meta tags -->
+
+
+
+<!-- add header -->
+{% block header %} ثبت نام {% endblock header %}
+<!-- End header -->
+
+
+
+<!-- Start Register Area -->
+{% block content %}
+<section class="login-area ptb-100">
+    <div class="container">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="login-image">
+                    <img src="{% static 'details/assets/img/marketing.png' %}" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="login-form">
+                    <h3>خوش آمدید!</h3>
+                    <p>لطفا ثبت نام بفرمایید </p>
+
+                    <form action="." method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+
+                                    <td> {{ user_form.username|as_crispy_field }} </td>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+
+                                    <td> {{ user_form.email|as_crispy_field }} </td>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+
+                                    <td> {{ user_form.password|as_crispy_field }} </td>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+
+                                    <td> {{ user_form.password2|as_crispy_field }} </td>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-primary" value="ثبت نام کن"  />
+                                <input type="hidden" name="next" value="{{ next }}" />
+                                <br>
+                                <span>در حال حاضر یک کاربر ثبت شده است؟ <a href="{% url 'login' %}">ورود</a></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Login Area -->
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,85 @@
+{% extends "details/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+
+
+
+<!-- add meta title -->
+{% block title %} {% trans "ورود" %} {% endblock title%}
+<!-- End meta title -->
+
+
+<!-- add meta tags -->
+{% block meta %}
+<meta name="description" content="ورود">
+<meta name="keywords" content="ورود"> {% endblock meta %}
+<!-- End meta tags -->
+
+
+
+<!-- add header -->
+{% block header %} {% trans "ورود کاربر" %} {% endblock header %}
+<!-- End header -->
+
+<!-- Start Login Area -->
+{% block content %}
+
+<section class="login-area ptb-100">
+    <div class="container">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="login-image">
+                    <img src="{% static 'details/assets/img/marketing.png' %}" alt="image">
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <div class="login-form">
+                    <h3>{% trans "خوش آمدید!" %}</h3>
+                    <p>{% trans "لطفا وارد حساب کاربری خود شوید." %}</p>
+                    {% if form.errors %}
+                    <p>{% trans "نام کابری یا رمز عبور شما اشباه است لظفا دوباره امتحان کنيد!" %}</p>
+                    {% endif %}
+
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+
+                                    <td> {{ form.username|as_crispy_field }} </td>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+
+                                    <td> {{ form.password|as_crispy_field }} </td>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-primary" value="{% trans 'هم اکنون وارد شوید!' %}" />
+                                <input type="hidden" name="next" value="{{ next }}" />
+                                <br>
+                                <p class="forgot-password"><a href="{% url 'password_reset' %}">{% trans "فراموشی رمز عبور؟" %}</a>
+                                    <br>
+                                    <span><a href="{% url 'register' %}">{% trans "ثبت نام کن!" %}</a></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Login Area -->
+
+
+
+
+
+{% endblock content %}

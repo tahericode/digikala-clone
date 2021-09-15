@@ -1,0 +1,354 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- add meta tags -->
+	{% block meta %}
+	<meta name="description" content="عوض کردن رمز عبور">
+	<meta name="keywords" content="عوض کردن رمز عبور"> {% endblock meta %}
+	<!-- End meta tags -->
+	<!-- Bootstrap Min CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/bootstrap.min.css' %}">
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/animate.css' %}">
+	<!-- IcoFont Min CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/icofont.min.css' %}">
+	<!-- Meanmenu Min CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/meanmenu.css' %}">
+	<!-- Magnific Popup Min CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/magnific-popup.min.css' %}">
+	<!-- Owl Carousel Min CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/owl.carousel.min.css' %}">
+	<!-- NiceSelect Min CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/nice-select.css' %}">
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/style.css' %}">
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" href="{% static 'details/assets/css/responsive.css' %}">
+	
+	<title>{% block title %}فزوشگاه آنلاین {% endblock title %}</title>
+	
+	<link rel="icon" type="image/png" href="{% static 'details/assets/img/favicon.png' %}">
+</head>
+
+<body>
+	<!-- Start Preloader Area -->
+	<div class="preloader-area">
+		<div class="lds-hourglass"></div>
+	</div>
+	<!-- End Preloader Area -->
+
+	<!-- Start Navbar Area -->
+	<header id="header">
+		<div class="crake-mobile-nav">
+			<div class="logo">
+				<img src="{% static 'details/assets/img/logo.png' %}" alt="">
+			</div>
+		</div>
+
+		<div class="crake-nav">
+			<div class="container">
+				<nav class="navbar navbar-expand-md navbar-light">
+					<a class="navbar-brand" href="/"><img src="{% static 'details/assets/img/logo.png' %}"
+							alt="logo"></a>
+
+					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+						<ul class="navbar-nav nav ml-auto">
+
+							<li class="nav-item"><a href="{% url 'details:homePage' %}" class="nav-link">خانه</a></li>
+							<li class="nav-item"><a href="{% url 'shop:product_list' %}" class="nav-link">محصولات</a></li>
+
+							<li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">بلاگ</a></li>
+							<li class="nav-item"><a href="{% url 'details:questions' %}" class="nav-link">سوالات متداول</a></li>
+							<li class="nav-item"><a href="{% url 'details:about_us' %}" class="nav-link">درباره ما</a></li>
+							<li class="nav-item"><a href="{% url 'details:contact_us' %}" class="nav-link">تماس</a></li>
+
+
+							<ul class="navbar-nav nav ml-auto">
+								<li class="nav-item"><a href="#" class="nav-link">کاربری</a>
+									<ul class="dropdown_menu">
+										
+										{% if request.user.is_authenticated %}
+											<li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link">داشبورد</a></li>
+											<li class="nav-item"><a href="{% url 'edit' %}" class="nav-link">ویرایش اطلاعات</a></li>
+
+											<li class="nav-item"><a href="{% url 'password_change' %}" class="nav-link">تغییر رمز عبور</a></li>
+										{% endif %}
+									</ul>
+								</li>
+							</ul>
+
+							
+
+							{% if request.user.is_authenticated %}
+								<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">خروج</a></li>
+							{% else %}
+
+							<li class="nav-item"><a href="{% url 'login' %}" class="nav-link">ورود</a></li>
+							<li class="nav-item"><a href="{% url 'register' %}" class="nav-link">ثبت نام</a></li>
+							{% endif %}
+
+						</ul>
+					</div>
+					<div class="mr-auto others-option">
+						<ul class="navbar-nav">
+							<li class="nav-item cart-wrapper">
+                                <a href="{% url 'cart:cart_detail' %}">
+                                    <i class="icofont-shopping-cart cart-icon"></i>
+									{% with total_items=cart|length %} 
+									{% if cart|length > 0 %}
+                                    <span> {{ total_items }} </span> 
+									{% else %}
+                                    <span> 0 </span> 
+									{% endif %} 
+									{% endwith %}
+                                </a>
+                            </li>
+
+							<li data-toggle="modal" data-target="#myModal2">
+								<div class="side-menu">
+									<span class="bar-1"></span>
+									<span class="bar-2"></span>
+									<span class="bar-3"></span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- End Navbar Area -->
+
+	<!-- Start Sidebar Modal -->
+	<div class="sidebar-modal">
+		<div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+								aria-hidden="true"><i class="icofont-close"></i></span></button>
+
+						<h2 class="modal-title" id="myModalLabel2"><a href="/"><img
+									src="{% static 'details/assets/img/logo.png' %}" alt="logo"></a></h2>
+					</div>
+
+					<div class="modal-body">
+						<div class="sidebar-modal-widget">
+							<h3 class="title">لینک های اضافی</h3>
+
+							<ul>
+
+								{% if request.user.is_authenticated %}
+								<li><a href="{% url 'details:contact_us' %}">تماس</a></li>
+								<li><a href="{% url 'dashboard' %}">داشبورد</a></li>
+								<li><a href="logout">خروج</a></li>
+								{% else %}
+								<li><a href="{% url 'login' %}">ورود</a></li>
+								<li ><a href="{% url 'register' %}">ثبت نام</a></li>
+								{% endif %}
+							</ul>
+						</div>
+
+						<div class="sidebar-modal-widget">
+							<h3 class="title">اطلاعات تماس</h3>
+
+							<ul class="contact-info">
+								<li>
+									<i class="icofont-google-map"></i>
+									آدرس
+									<span>کالیفرنیا/ ساختمان علارور</span>
+								</li>
+								<li>
+									<i class="icofont-email"></i>
+									ایمیل
+									<span>admin@crake.com</span>
+								</li>
+								<li>
+									<i class="icofont-phone"></i>
+									تلفن
+									<span>+123 456 7890</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="sidebar-modal-widget">
+							<h3 class="title">ارتباط با ما</h3>
+
+							<ul class="social-list">
+								<li><a href="#"><i class="icofont-facebook"></i></a></li>
+								<li><a href="#"><i class="icofont-twitter"></i></a></li>
+								<li><a href="#"><i class="icofont-instagram"></i></a></li>
+								<li><a href="#"><i class="icofont-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div><!-- modal-content -->
+			</div><!-- modal-dialog -->
+		</div><!-- modal -->
+	</div>
+	<!-- End Sidebar Modal -->
+
+	
+	<!-- Start Page Title Area -->
+        <section class="page-title-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>{% block page_title %} {% endblock page_title %}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shape1"><img src="{% static 'details/assets/img/shape1.png' %}" alt="img"></div>
+			<div class="shape2"><img src="{% static 'details/assets/img/shape2.png' %}" alt="img"></div>
+			<div class="shape3"><img src="{% static 'details/assets/img/shape3.png' %}" alt="img"></div>
+			<div class="shape6"><img src="{% static 'details/assets/img/shape6.png' %}" alt="img"></div>
+			<div class="shape8 rotateme"><img src="{% static 'details/assets/img/shape8.svg' %}" alt="shape"></div>
+            <div class="shape9"><img src="{% static 'details/assets/img/shape9.svg' %}" alt="shape"></div>
+
+            <!-- Bubble Animte -->
+            <div class="bubble-animate">
+                <div class="circle small square1"></div>
+                <div class="circle small square2"></div>
+                <div class="circle small square3"></div>
+                <div class="circle small square4"></div>
+                <div class="circle small square5"></div>
+                <div class="circle medium square1"></div>
+                <div class="circle medium square2"></div>
+                <div class="circle medium square3"></div>
+                <div class="circle medium square4"></div>
+                <div class="circle medium square5"></div>
+                <div class="circle large square1"></div>
+                <div class="circle large square2"></div>
+                <div class="circle large square3"></div>
+                <div class="circle large square4"></div>
+            </div>
+        </section>
+		<!-- End Page Title Area -->
+		
+
+
+	{% block content %}{% endblock content %}
+
+
+	<!-- Start Footer Area -->
+	<footer class="footer-area ptb-100 pb-0 bg-image">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="single-footer-widget">
+						<a href="#" class="logo"><img src="{% static 'details/assets/img/logo2.png' %}" alt="logo2"></a>
+						<p>برنامه روزانه، هفته یا ماه را پیش ببرید و وضعیت پروژه را در یک نگاه ببینید. جستجو و فیلتر
+							برای تمرکز بر روی هر چیزی یک پروژه واحد فردی.</p>
+
+						<ul class="social-list">
+							<li><a href="#"><i class="icofont-facebook"></i></a></li>
+							<li><a href="#"><i class="icofont-twitter"></i></a></li>
+							<li><a href="#"><i class="icofont-instagram"></i></a></li>
+							<li><a href="#"><i class="icofont-linkedin"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="single-footer-widget pl-5">
+						<h3>شرکت</h3>
+
+						<ul class="list">
+							<li><a href="{% url 'details:about_us' %}">درباره</a></li>
+							<li><a href="{% url 'blog:post_list' %}">مقالات</a></li>
+							{% if request.user.is_authenticated %}
+							{% else %}
+							<li><a href="{% url 'login' %}">ورود</a></li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="single-footer-widget">
+						<h3>محصولات</h3>
+
+						<ul class="list">
+							<li><a href="{% url 'shop:product_list' %}">محصولات</a></li>
+							
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-6">
+					<div class="single-footer-widget">
+						<h3>پشتیبانی</h3>
+
+						<ul class="list">
+							<li><a href="{% url 'details:about_us' %}">درباره</a></li>
+							<li><a href="{% url 'details:contact_us' %}">تماس</a></li>
+							<li><a href="{% url 'details:questions' %}">سوالات متداول</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="copyright-area">
+			<div class="container">
+				<div class="row h-100 justify-content-center align-items-center">
+					<div class="col-lg-6 col-md-6">
+						<p>کپی رایت @ 2019 کراک. تمام حقوق محفوظ است.</p>
+					</div>
+
+					<div class="col-lg-6 col-md-6">
+						<ul>
+							<li><a href="#">شرایط و ضوابط</a></li>
+							<li><a href="#">سیاست حفظ حریم خصوصی</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Area -->
+
+	<!-- Back Top top -->
+	<div class="back-to-top">بالا</div>
+	<!-- End Back Top top -->
+
+	<!-- Jquery Min JS -->
+	<script src="{% static 'details/assets/js/jquery.min.js' %}"></script>
+	<!-- Popper Min JS -->
+	<script src="{% static 'details/assets/js/popper.min.js' %}"></script>
+	<!-- Bootstrap Min JS -->
+	<script src="{% static 'details/assets/js/bootstrap.min.js' %}"></script>
+	<!-- Meanmenu Min JS -->
+	<script src="{% static 'details/assets/js/jquery.meanmenu.min.js' %}"></script>
+	<!-- WOW Min JS -->
+	<script src="{% static 'details/assets/js/wow.min.js' %}"></script>
+	<!-- Tilt Min JS -->
+	<script src="{% static 'details/assets/js/tilt.jquery.min.js' %}"></script>
+	<!-- Magnific Popup Min JS -->
+	<script src="{% static 'details/assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<!-- Owl Carousel Min JS -->
+	<script src="{% static 'details/assets/js/owl.carousel.min.js' %}"></script>
+	<!-- Waypoints Min Js -->
+	<script src="{% static 'details/assets/js/waypoints.min.js' %}"></script>
+	<!-- Jquery CounterUp Min JS -->
+	<script src="{% static 'details/assets/js/jquery.counterup.min.js' %}"></script>
+	<!-- NiceSelect Min Js -->
+	<script src="{% static 'details/assets/js/jquery.nice-select.min.js' %}"></script>
+	<!-- ajaxChimp Min JS -->
+	<script src="{% static 'details/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+	<!-- Form Validator Min JS -->
+	<script src="{% static 'details/assets/js/form-validator.min.js' %}"></script>
+	<!-- Contact Form Min JS -->
+	<script src="{% static 'details/assets/js/contact-form-script.js' %}"></script>
+	<!-- Main JS -->
+	<script src="{% static 'details/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+{% extends 'details/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block page_title %}تماس با من{% endblock page_title %}
+{% block content %}
+
+<!-- Start Contact Info Area -->
+<section class="contact-info-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="contact-info-box">
+                    <div class="icon">
+                        <i class="icofont-email"></i>
+                    </div>
+                    <h3>ایمیل اینجا</h3>
+                    <p><a href="#">admin@crake.com</a></p>
+                    <p><a href="#">info@crake.com</a></p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="contact-info-box">
+                    <div class="icon">
+                        <i class="icofont-google-map"></i>
+                    </div>
+                    <h3>اینجا را ببینید</h3>
+                    <p>کالیفرنیا/ خیابان تالیس</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                <div class="contact-info-box">
+                    <div class="icon">
+                        <i class="icofont-phone"></i>
+                    </div>
+                    <h3>اینجا تماس بگیرید</h3>
+                    <p><a href="#">+123 456 7890</a></p>
+                    <p><a href="#">+241 452 4526</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Contact Info Area -->
+
+<!-- Map -->
+<div id="map"></div>
+
+<!-- Start Contact Area -->
+<section class="contact-area ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>با ما در تماس باشید</h2>
+            <div class="bar"></div>
+            <p>همه چیز در ذهن شما. ما خوشحال خواهیم شد که به شما کمک کنیم!</p>
+        </div>
+
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <img src="{% static 'details/assets/img/marketing.png' %}" alt="image">
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <form  method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                {{contact_form.name|as_crispy_field}}
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                {{contact_form.email|as_crispy_field}}
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6">
+                            {{contact_form.tel|as_crispy_field}}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6">
+                            <div class="form-group">
+                                {{contact_form.subject|as_crispy_field}}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                {{contact_form.description|as_crispy_field}}
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <button type="submit" class="btn btn-primary">ارسال پیام</button>
+                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Contact Area -->
+{% endblock content %}
