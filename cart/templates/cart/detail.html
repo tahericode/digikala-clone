@@ -70,7 +70,7 @@
                                 <div class="coupon-box">
                                     <form action="{% url 'coupons:apply' %}" method="post">
                                     {% csrf_token %}
-                                        {{ coupon_apply_form|crispy }}
+                                        {{ coupon_apply_form|crispy_forms_field }}
                                         <button type="submit">کد کوپن را اعمال کنید</button>
                                     </form>
                                 </div>
@@ -82,15 +82,24 @@
                         </div>
                     </div>
 
-                    <div class="cart-totals">
-                        <h3>مجموع سبد</h3>
+                    <div class="cart-totals ">
 
-                        <ul>
-                            <li>کل حجم: <span>{{cart.get_total_price}} تومان</span></li>
-                            <li>جمع: <span>{{cart.get_total_price}} تومان</span></li>
-                        </ul>
-                        <a href="{% url 'orders:order_create' %}" class="btn btn-primary">تایید کنید</a>
-                    </div>
+                    <h3>مجموع سبد</h3>
+                    {% if cart.coupon %}
+                    <ul>
+                        <li>{% trans "مجموع مبالغ: " %} <span>{{ cart.get_total_price|floatformat:"0 "|intcomma  }} تومان </span></li>
+                        <li>{% trans "مبلغ تخفیف: " %} <span>{{ cart.get_discount|floatformat:"0 "|intcomma  }} تومان </span></li>
+                        <li>{% trans "مبلغ قابل پرداخت: " %} <span>{{ cart.get_total_price_after_discount|floatformat:"0 "|intcomma  }} تومان </span></li>
+                    </ul>
+                    {% else %}
+                    <ul>
+                        <li>{% trans "مجموع مبالغ: " %} <span>{{ cart.get_total_price|floatformat:"0 "|intcomma  }} تومان </span></li>
+                        <li>{% trans "مبلغ قابل پرداخت: " %} <span>{{ cart.get_total_price_after_discount|floatformat:"0 "|intcomma  }} تومان </span></li>
+                    </ul>
+                    {% endif %} {% if cart|length > 0 %}
+                    <a href="{% url 'orders:order_create' %} " class="btn btn-primary ">تایید کنید </a> {% endif %}
+                </div>
+
                 </form>
             </div>
         </div>
