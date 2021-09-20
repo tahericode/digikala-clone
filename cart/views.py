@@ -31,7 +31,7 @@ def cart_detail(request):
 
 
 
-    return render(request, 'cart/detail.html', {'cart':cart})
+    return render(request, 'cart/detail.html', {'cart':cart, 'coupon_apply_form': coupon_apply_form})
     
 
 

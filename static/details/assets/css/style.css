@@ -74,13 +74,14 @@ Default CSS
 	src: url('../font/IRANSansWeb_Lightd41d.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
 		 url('../font/IRANSansWeb_Light.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
 		 url('../font/IRANSansWeb_Light.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-		 url('../font/IRANSansWeb_Light.ttf') format('truetype');
+		 url('../font/Vazir.ttf') format('truetype');
 }
 
 body {
 	font-family: IRANSans;
     font-weight: normal;
     font-style: normal;
+    overflow-x: hidden;
 }
 
 a {
@@ -4842,7 +4843,7 @@ Blog Details CSS
   margin-bottom: 0;
 }
 
-.-details-area .post-comments .single-comment {
+.blog-details-area .post-comments .single-comment {
   position: relative;
   padding-right: 95px;
   margin-top: 30px;
@@ -5614,6 +5615,12 @@ Product CSS
   font-size: 23px;
   font-weight: 700;
   margin-bottom: 15px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .single-product .product-content .row h5 {
@@ -6382,6 +6389,7 @@ FAQ CSS
   background: #f5f9ff;
   font-size: 20px;
   font-weight: 700;
+  text-align: center;
 }
 
 .faq-accordion .accordion .accordion-item .accordion-title:hover, .faq-accordion .accordion .accordion-item .accordion-title.active, .faq-accordion .accordion .accordion-item .accordion-title:focus {
@@ -6810,7 +6818,16 @@ Checkout CSS
   color: #818992;
   border-color: #eaedff;
   font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+.order-details .order-table table tbody tr td p {
+margin-right: 0.6em;
+}
+
+
+
 
 .order-details .order-table table tbody tr td.product-name a {
   color: #818992;
@@ -6895,6 +6912,13 @@ Checkout CSS
   display: block;
   margin-top: 25px;
 }
+
+.order-btn__prefix{
+  width: 90%;
+  margin: 0 auto;
+}
+
+
 
 /*================================================
 Contact Us CSS
@@ -7150,4 +7174,14 @@ Back To Top CSS
   bottom: 1.25%;
   visibility: visible;
 }
+
+/* user profile image */
+.user-profile__img{
+  width: 5rem !important;
+  height: 5rem !important;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1em;
+}
+
 /*# sourceMappingURL=style.css.map */

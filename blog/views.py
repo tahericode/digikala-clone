@@ -1,53 +1,53 @@
-from django.shortcuts import render,get_object_or_404
-from . import models
-from .forms import CommentForm
-from taggit.models import Tag
-from django.db.models import Count
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
+from .models import Post, PostCategory
+from django.core.paginator import Paginator
+from .forms import CommentForm 
+from django.db.models import Q
+# Create your views here.
 
+#Post list view
+def post_list(request, category_slug=None):
+    post_category = None
+    post_categories = PostCategory.objects.all()
+    posts =  Post.published.all()
 
-
-def post_list(request, category_slug=None, tag_slug=None):
-    category = None
-    tag = None
-    categories = models.Category.objects.all()
-    posts = models.Post.published.all()
-    latest_posts = models.Post.objects.filter(status='published').order_by('-created')
-    
-
-    if tag_slug:
-        tag = get_object_or_404(Tag, slug=tag_slug)
-        posts = posts.filter(tags__in = [tag])
-
+    #show post by category__slug
     if category_slug:
-        category = get_object_or_404(models.Category, slug = category_slug)
-        posts = posts.filter(category = category)
+        post_category = get_object_or_404(PostCategory, slug=category_slug)
+        posts = posts.filter(category=post_category)
+
+
+    query = request.GET.get("q")
+    if query:
+        posts = posts.filter(Q(title__icontains=query) | Q(category__name__icontains=query)).distinct()   
+
+    #last added post for show in Recent posts
+    last_posts = posts[:4]
+    # add Paginator
+    paginator = Paginator(posts, 4) # number of show products in each page
+    page_number = request.GET.get('page')
+    pots_of_each_page = paginator.get_page(page_number) # page_obj = products in each page
 
     context = {
-        'category':category,
-        'categories':categories,
-        'posts':posts,
-        'latest_posts':latest_posts,
-        'tag': tag,
+        'post_category': post_category,
+        'post_categories': post_categories,
+        'posts': pots_of_each_page,
+        'last_posts': last_posts,
     }
-    
-    return render(request,'blog/post/list.html', context)
+    return render(request, 'blog/post/list.html', context)
 
 
 
-def post_detail(request, year, month, day, post):
-    post = get_object_or_404(models.Post,
-                            slug=post,
-                            status='published',
-                            publish__year=year,
-                            publish__month=month,
-                            publish__day=day)
-   
-    # List of similar posts
-    post_tag_ids = post.tags.values_list('id', flat=True)
-    similar_posts = models.Post.published.filter(tags__in = post_tag_ids).exclude(id = post.id)
-    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
+#Product Detail view
+def post_detail(request, year, month, day, slug):
+    post = get_object_or_404(Post, slug=slug, status='published', publish__year=year, publish__month=month, publish__day=day)
 
-    # List of active comments for this post
+    #query for login user to show user characteristics
+    if not request.user.is_anonymous :
+        user = User.objects.get(username=request.user.username)
+
+    #list of active comments for this post
     comments = post.comments.filter(active=True)
     new_comment = None
 
@@ -55,21 +55,22 @@ def post_detail(request, year, month, day, post):
         # A comment was posted
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-            # Create Comment object but don't save to database yet
+            #Create Comment object but don,t save to database yet
             new_comment = comment_form.save(commit=False)
-            # Assign the current post to the comment
+            # Assign the current Product to the comment
             new_comment.post = post
-            # Save the comment to the database
+            new_comment.user = user
+            #Save the comment to the datebase
             new_comment.save()
     else:
         comment_form = CommentForm()
+
+    #Context for render page
     context = {
-        'post':post,
+        'post': post,
         'comments': comments,
         'new_comment': new_comment,
-        'comment_form': comment_form,
-        'similar_posts': similar_posts,
-       
+        'comment_form': comment_form, 
     }
+
     return render(request, 'blog/post/detail.html', context)
-        

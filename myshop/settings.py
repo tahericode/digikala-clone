@@ -47,10 +47,16 @@ INSTALLED_APPS = [
     'taggit',
     'crispy_forms',
     'phonenumber_field',
+    'jalali_date',
     'account',
     'payment',
     'coupons',
+    'message',
 ]
+
+CKEDITOR_UPLOAD_PATH = 'ck-uploads/'
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -119,9 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa-ir'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -153,3 +159,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CART_SESSION_ID = 'cart'
 
+
+
+#login with email and username
+AUTHENTICATION_BACKENDS = ('account.backend.EmailorUsernameModelBackend',)

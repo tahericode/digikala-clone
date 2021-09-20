@@ -68,9 +68,9 @@
                         <div class="row h-100 justify-content-center align-items-center">
                             <div class="col-lg-7 col-md-7">
                                 <div class="coupon-box">
-                                    <form action="{% url 'coupons:apply' %}" method="post">
+                                    <form action="{% url 'coupons:apply' %}" method="POST">
                                     {% csrf_token %}
-                                        {{ coupon_apply_form|crispy_forms_field }}
+                                        {{ coupon_apply_form|crispy }}
                                         <button type="submit">کد کوپن را اعمال کنید</button>
                                     </form>
                                 </div>
@@ -87,14 +87,14 @@
                     <h3>مجموع سبد</h3>
                     {% if cart.coupon %}
                     <ul>
-                        <li>{% trans "مجموع مبالغ: " %} <span>{{ cart.get_total_price|floatformat:"0 "|intcomma  }} تومان </span></li>
-                        <li>{% trans "مبلغ تخفیف: " %} <span>{{ cart.get_discount|floatformat:"0 "|intcomma  }} تومان </span></li>
-                        <li>{% trans "مبلغ قابل پرداخت: " %} <span>{{ cart.get_total_price_after_discount|floatformat:"0 "|intcomma  }} تومان </span></li>
+                        <li>مجموع مبالغ: <span>{{ cart.get_total_price|floatformat:"0 "  }} تومان </span></li>
+                        <li>مبلغ تخفیف:  <span>{{ cart.get_discount|floatformat:"0 "  }} تومان </span></li>
+                        <li>مبلغ قابل پرداخت: <span>{{ cart.get_total_price_after_discount|floatformat:"0 "  }} تومان </span></li>
                     </ul>
                     {% else %}
                     <ul>
-                        <li>{% trans "مجموع مبالغ: " %} <span>{{ cart.get_total_price|floatformat:"0 "|intcomma  }} تومان </span></li>
-                        <li>{% trans "مبلغ قابل پرداخت: " %} <span>{{ cart.get_total_price_after_discount|floatformat:"0 "|intcomma  }} تومان </span></li>
+                        <li>مجموع مبالغ: <span>{{ cart.get_total_price|floatformat:"0 "  }} تومان </span></li>
+                        <li>مبلغ قابل پرداخت: <span>{{ cart.get_total_price_after_discount|floatformat:"0 "  }} تومان </span></li>
                     </ul>
                     {% endif %} {% if cart|length > 0 %}
                     <a href="{% url 'orders:order_create' %} " class="btn btn-primary ">تایید کنید </a> {% endif %}

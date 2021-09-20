@@ -1,4 +1,5 @@
 {% extends 'details/base.html' %}
+{% load static jalali_tags %}   
 {% load static %}
 {% load crispy_forms_tags %}
 {% block title %}{{product.name}}{% endblock title %}
@@ -11,17 +12,13 @@
             <div class="row h-100 justify-content-center align-items-center">
                 <div class="col-lg-4 col-md-12">
                     <div class="product-img-slides">
+                        {% for image in product.productImages.all %}
                         <div class="product-img">
-                            <a href="#"><img src="assets/img/shop-it    em1.jpg" alt="product-img"></a>
+                            <a href="#"><img src="{{image.image.url}}" alt="product-img"></a>
                         </div>
+                        {% endfor %}
 
-                        <div class="product-img">
-                            <a href="#"><img src="assets/img/shop-item2.jpg" alt="product-img"></a>
-                        </div>
-
-                        <div class="product-img">
-                            <a href="#"><img src="assets/img/shop-item3.jpg" alt="product-img"></a>
-                        </div>
+                    
                     </div>
                 </div>
 
@@ -34,7 +31,7 @@
 
                         <ul class="product-categories">
                             <li>دسته بندی ها:</li>
-                            <li><a href="{% url 'shop:product_list_by_category' product.category %}">{{product.category}}</a></li>
+                            <li><a href="{{product.category.get_absolute_url}}">{{product.category}}</a></li>
                             
                         </ul>
 
@@ -45,32 +42,24 @@
                             {% csrf_token %}
                         </form>
 
-                        <ul class="share-social">
-                            <li>اشتراک:</li>
-                            <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                            <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                            <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-                            <li><a href="#"><i class="icofont-instagram"></i></a></li>
-                        </ul>
+                        
                     </div>
                 </div>
+            </div>
+            <br/>
+             <div class="widget widget_tag_cloud">
+                <h3 class="widget-title">برچسب های محبوب</h3>
+                <div class="bar"></div>
+            </div>
+
+            <div class="tagcloud">
+                {% for tag in product.tags.all%}
+                <a href="{% url 'shop:product_list_by_tag' tag.slug %}">{{tag}}</a>
+                {% endfor %}
             </div>
 
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <br/>
-                    <br/>
-                    <br/>
-                    <div class="widget widget_tag_cloud">
-                        <h3 class="widget-title">برچسب های محبوب</h3>
-                        <div class="bar"></div>
-                        
-                        <div class="tagcloud">
-                            {% for tag in product.tags.all%}
-                            <a href="{% url 'shop:product_list_by_tag' tag.slug %}">{{tag}}</a>
-                            
-                            {% endfor %}
-                        </div>
                     <div class="shop-details-tabs">
                         <ul id="tabs">
                             <li class="active" id="tab_1">توضیحات</li>
@@ -93,21 +82,25 @@
                                 <h3>نظرات</h3>
                                 {% for comment in comments %}
                                 <div class="single-comment">
+                               
                                     <div class="comment-content">
-                                        <h4>{{comment.name}}</h4>
+                                        <br/>
+                                        <h5>{{comment.name}}</h5>
                                         <p>{{comment.body|safe}}</p>
-                                        <span>{{comment.created}}</span>
+                                        <span> زمان ثبت دیدگاه : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</</span>
                                     </div>
                                 </div>
+                                <br/>
                                 {% endfor %}
 
-                                
+                                {% if user.is_authenticated %}
                                  {% if new_comment %}
                                 <div class="leave-a-reply">
+                                <br/>
                                 <p>پیام شما با موفقیت ثبت شد</p>
                                 </div>
                                 {% else %}
-                                <form class="review-form" method="post">
+                                <form class="review-form" method="POST" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -133,6 +126,11 @@
                                         </div>
                                     </div>
                                 </form>
+                                {% endif %}
+                                {% else %}
+                                <div class="leave-a-reply">
+                                    <h5>برای ثبت دیدگاه خود ابتدا باید <a href="{% url 'register' %}">ثبت نام</a> کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت <a href="{% url 'login' %}">ورود</a> کنید.</h5>
+                                </div>
                                 {% endif %}
                             </div>
                         </div>

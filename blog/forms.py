@@ -1,16 +1,10 @@
-from django.db import models
-from django.db.models import fields
-from django.forms import forms
-from django.forms.fields import EmailField
-from django.forms.widgets import TextInput, Textarea
-from .models import Comment
 from django import forms
+from .models import Comment
+from django.utils.translation import gettext_lazy as _
 
+#Create Comment Form
 class CommentForm(forms.ModelForm):
-    name = forms.CharField(label=False, max_length=50, widget=TextInput(attrs={'placeholder':'نام و نام خانوادگی'}))
-    email = forms.EmailField(label=False, max_length=60, widget=TextInput(attrs={'placeholder':'ایمیل'}))
-    body = forms.CharField(label=False, widget=Textarea(attrs={'placeholder':'نظرا خود را وارد کنید'}))
+    body = forms.CharField(label=False, widget=forms.Textarea(attrs={'placeholder':_('دیدگاه خود را ثبت کنید')}))
     class Meta:
         model = Comment
-        fields = ('name', 'email', 'body')
-            
+        fields = ('body',)

@@ -27,6 +27,8 @@ urlpatterns = [
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),
     path('coupons/', include('coupons.urls', namespace='coupons')),
+    #CkEditor url for upload 
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:

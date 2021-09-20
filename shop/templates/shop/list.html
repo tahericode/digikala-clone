@@ -65,15 +65,38 @@
                     </div>
                     {% endfor %}
 
-                    
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pagination-area">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+
+                                    {% with products.number|stringformat:"i" as pgnumber %} {% with myfilter='page='|add:pgnumber|add:'&' request_query=request.META.QUERY_STRING %} {% if products.has_previous %}
+                                    <li class="page-item"><a class="page-link" href="?page=1&{{ request_query|cut:myfilter }}"><i class="icofont-double-left"></i></a></li>
+                                    <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}&{{ request_query|cut:myfilter }}">قبلی</a></li>
+
+                                    {% endif %}
+
+                                    <li class="page-item"><a class="page-link" href="#">{{ products.number }}</a></li>
+                                    {% if products.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}&{{ request_query|cut:myfilter}}">بعدی</a></li>
+                                    <li class="page-item"><a class="page-link" href="?page={{ products.paginator.num_pages }}&{{ request_query|cut:myfilter }}"><i class="icofont-double-right"></i></a></li>
+                                    {% endif %} {% endwith %} {% endwith %}
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar-area">
                     <div class="widget widget-search">
-                        <form>
-                            <input type="text" class="form-control" placeholder="جستجو">
+                        <form action="{% url 'shop:product_list' %}" method="get">
+
+                            <input name="q" type="search" class="form-control" placeholder="جستجو">
                             <button type="submit"><i class="icofont-search-2"></i></button>
                         </form>
                     </div>
@@ -115,21 +138,6 @@
 
                            
                         </ul>
-                    </div>
-
-                    <div class="widget widget_tag_cloud">
-                        <h3 class="widget-title">برچسب های محبوب</h3>
-                        <div class="bar"></div>
-
-                        <div class="tagcloud">
-                            <a href="#">هنر</a>
-                            <a href="#">کتاب</a>
-                            <a href="#">ساعت</a>
-                            <a href="#">تلویزیون</a>
-                            <a href="#">جایزه</a>
-                            <a href="#">تلویزیون هوشمند</a>
-                            <a href="#">طراح</a>
-                        </div>
                     </div>
                 </div>
             </div>

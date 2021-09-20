@@ -37,13 +37,13 @@
 
             <div class="col-lg-6 col-md-12">
                 <div class="login-form">
-                    <h3>{% trans "خوش آمدید!" %}</h3>
-                    <p>{% trans "لطفا وارد حساب کاربری خود شوید." %}</p>
+                    <h3>خوش آمدید!</h3>
+                    <p>لطفا وارد حساب کاربری خود شوید.</p>
                     {% if form.errors %}
-                    <p>{% trans "نام کابری یا رمز عبور شما اشباه است لظفا دوباره امتحان کنيد!" %}</p>
+                    <p>نام کابری یا رمز عبور شما اشباه است لظفا دوباره امتحان کنيد!</p>
                     {% endif %}
 
-                    <form action="{% url 'login' %}" method="POST">
+                    <form action="{% url 'login' %}" method="POST" autocomplete="off">
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-12">
@@ -62,12 +62,12 @@
 
 
                             <div class="col-lg-12">
-                                <input type="submit" class="btn btn-primary" value="{% trans 'هم اکنون وارد شوید!' %}" />
+                                <input type="submit" class="btn btn-primary" value="هم اکنون وارد شوید!" />
                                 <input type="hidden" name="next" value="{{ next }}" />
                                 <br>
-                                <p class="forgot-password"><a href="{% url 'password_reset' %}">{% trans "فراموشی رمز عبور؟" %}</a>
+                                <p class="forgot-password"><a href="{% url 'password_reset' %}">فراموشی رمز عبور؟</a>
                                     <br>
-                                    <span><a href="{% url 'register' %}">{% trans "ثبت نام کن!" %}</a></span>
+                                    <span><a href="{% url 'register' %}">ثبت نام کن!</a></span>
                             </div>
                         </div>
                     </form>

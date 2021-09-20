@@ -67,7 +67,7 @@ def register(request):
 @login_required
 def edit(request):
     # Query for show user image in form
-    user = get_object_or_404(User, username=request.user.username)
+    # user = get_object_or_404(User, username=request.user.username)
     if request.method == 'POST':
         #Update user & profile object 
         user_form = UserEditForm(instance=request.user, data=request.POST)
@@ -80,6 +80,6 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     
-    return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form, 'user': user})
+    return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
 

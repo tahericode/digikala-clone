@@ -67,7 +67,7 @@
 							<li class="nav-item"><a href="{% url 'details:about_us' %}" class="nav-link">درباره ما</a></li>
 							<li class="nav-item"><a href="{% url 'details:contact_us' %}" class="nav-link">تماس</a></li>
 
-
+							{% if request.user.is_authenticated %}
 							<ul class="navbar-nav nav ml-auto">
 								<li class="nav-item"><a href="#" class="nav-link">کاربری</a>
 									<ul class="dropdown_menu">
@@ -81,6 +81,7 @@
 									</ul>
 								</li>
 							</ul>
+							{% endif %}
 
 							
 
@@ -146,7 +147,7 @@
 								{% if request.user.is_authenticated %}
 								<li><a href="{% url 'details:contact_us' %}">تماس</a></li>
 								<li><a href="{% url 'dashboard' %}">داشبورد</a></li>
-								<li><a href="logout">خروج</a></li>
+								<li><a href="{% url 'logout' %}">خروج</a></li>
 								{% else %}
 								<li><a href="{% url 'login' %}">ورود</a></li>
 								<li ><a href="{% url 'register' %}">ثبت نام</a></li>

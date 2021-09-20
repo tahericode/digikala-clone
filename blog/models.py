@@ -1,87 +1,83 @@
 from django.db import models
-from ckeditor.fields import RichTextField
-from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.urls import reverse
-from taggit.managers import TaggableManager
+from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.translation import gettext_lazy as _
+# Create your models here.
+# Create PostCategory Model
+class PostCategory(models.Model):
+    name = models.CharField(_('نام دسته بندی'), max_length=200, db_index=True)
+    slug = models.SlugField(_('slug'), max_length=200, unique=True)
 
-
-class PublishedManager(models.Manager):
-    def get_queryset(self):
-        return super(PublishedManager,self).get_queryset().filter(status = 'published')
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, db_index=True, unique=True)
+    class Meta:
+        ordering = ('name',)
+        verbose_name =  _('دسته بندی پست')
+        verbose_name_plural = _('دسته بندی پست ها')
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse('blog:post_list_by_category', args=[self.slug])
     
+    def get_absolute_url(self):
+        return reverse("blog:post_list_by_category", args=[self.slug])
 
 
+# model manager
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super(PublishedManager, self).get_queryset().filter(status='published')
+
+
+# Create Post Model
 class Post(models.Model):
     STATUS_CHOICES = (
-        ('draft','Draft'),
-        ('published', 'published'),
+        ('draft', 'در انتظار'),
+        ('published', 'منتشر شده'),
     )
-    tags = TaggableManager()
-    category = models.ForeignKey(Category, related_name='blog', on_delete=models.DO_NOTHING)
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200, unique_for_date='publish')
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
-    image = models.ImageField(upload_to='blogs/%Y/%m/%d', blank=True)
-    short_desc = models.CharField(max_length=500, db_index=True)
-    body = RichTextField()
-    publish = models.DateTimeField(default=timezone.now)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateField(auto_now=True)
-    status = models.CharField(max_length=10,
-                            choices=STATUS_CHOICES,
-                            default='draft')
-    objects = models.Manager() #The default manager
-    published = PublishedManager() #Our custom manager
-
+    category = models.ForeignKey(PostCategory, on_delete=models.CASCADE, related_name='blogs', verbose_name=_('دسته بندی'))
+    title = models.CharField(_('عنوان'), max_length=250)
+    slug = models.SlugField(_('slug'), max_length=250, unique_for_date='publish')
+    author = models.CharField(_('نویسنده'), max_length=250)
+    image = models.ImageField(_('عکس اصلی'), upload_to='blog/%Y/%m/%d', blank=True)
+    short_description = RichTextUploadingField(_('توضیحات مختصر'), blank=True, null=True)
+    long_description = RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True)
+    publish = models.DateTimeField(_('تاریخ انتشار'), default=timezone.now)
+    created = models.DateTimeField(_('زمان ساخت'), auto_now_add=True)
+    updated = models.DateTimeField(_('زمان به روز رسانی'), auto_now=True)
+    status = models.CharField(_('وضعیت انتشار'), max_length=10, choices=STATUS_CHOICES, default='draft')
+    #add model manager
+    objects = models.Manager() # the default manager
+    published = PublishedManager() # Our custom manager
+    #Seo fields
+    meta_title = models.CharField(_('meta_title'), max_length=350, blank=True, null=True)
+    meta_description = models.TextField(_('meta_description'), max_length=350, blank=True, null=True)
+    meta_keywords = models.TextField(_('meta_keywords'), max_length=350, blank=True, null=True)
+    alt_image = models.TextField(_('alt_image'), max_length=350, blank=True, null=True)
+    
     class Meta:
-        ordering = ('-created',)
-
-
-    def get_absolute_url(self):
-        return reverse('blog:post_detail', 
-                        args=[self.publish.year,
-                        self.publish.month,
-                        self.publish.day,
-                        self.slug])
-
-
+        ordering = ('-publish',)
+        verbose_name =  _('پست')
+        verbose_name_plural = _('پست ها')
     
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog:post_detail', args=[self.publish.year, self.publish.month, self.publish.day, self.slug])
 
+
+# Create Comment Model
 class Comment(models.Model):
-    post = models.ForeignKey(Post,
-                            on_delete=models.CASCADE,
-                            related_name='comments')
-
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
-    body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    active = models.BooleanField(default=False)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', verbose_name=_('پست مورد نظر'))
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_comments', verbose_name=_('کاربر'))
+    body = models.TextField(_('دیدگاه مورد نظر'))
+    created = models.DateTimeField(_('زمان ساخت'), auto_now_add=True)
+    updated = models.DateTimeField(_('زمان به روز رسانی'), auto_now=True)
+    active = models.BooleanField(_('فعال بودن نمایش دیدگاه در سایت'), default=False)
 
     class Meta:
         ordering = ('created',)
-    
+        verbose_name =  _('دیدگاه های پست')
+        verbose_name_plural = _('دیدگاه های پست ها')
     def __str__(self):
-        return f'Comment by {self.name} on {self.post}'
-
-
-
-
-
+        return 'Comment by {} on {}'.format(self.user, self.post)
