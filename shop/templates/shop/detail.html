@@ -1,6 +1,7 @@
 {% extends 'details/base.html' %}
 {% load static jalali_tags %}   
 {% load static %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}{{product.name}}{% endblock title %}
 {% block page_title %}{{product.name}}{% endblock page_title %}
@@ -25,20 +26,28 @@
                 <div class="col-lg-8 col-md-12">
                     <div class="product-entry-summary">
                         <h3>{{product.name}}</h3>
-                        <h4>{{product.price}} تومان</h4>
+                        <h4>{{product.price}} {% trans "تومان" %}</h4>
 
                         <p>{{product.description|safe}}</p>
 
                         <ul class="product-categories">
-                            <li>دسته بندی ها:</li>
+                            <li>{% trans "دسته بندی ها:" %}</li>
                             <li><a href="{{product.category.get_absolute_url}}">{{product.category}}</a></li>
                             
                         </ul>
-
+                        <br/>
+                        {% if product.stock < 10 %}
+                        <p style="color: rgb(192, 49, 49);">{{product.stock}} عدد در انبار موجود است</p>  
+                        {% endif %}
+                        
                         <form action=" {% url "cart:cart_add" product.id %}", method="post">
                             {{cart_product_form}}
                             <br/>
-                            <button type="submit" class="btn btn-primary">افزودن به سبد خرید</button>
+                            {% if product.stock != 0 %}
+                            <button type="submit" class="btn btn-primary">{% trans "افزودن به سبد خرید" %}</button>
+                            {% else %}
+                            <p>این محصول در انبار موجود نمیباشد</p>
+                            {% endif %}
                             {% csrf_token %}
                         </form>
 
@@ -48,7 +57,7 @@
             </div>
             <br/>
              <div class="widget widget_tag_cloud">
-                <h3 class="widget-title">برچسب های محبوب</h3>
+                <h3 class="widget-title">{% trans "برچسب های محبوب" %}</h3>
                 <div class="bar"></div>
             </div>
 
@@ -62,12 +71,12 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="shop-details-tabs">
                         <ul id="tabs">
-                            <li class="active" id="tab_1">توضیحات</li>
-                            <li class="inactive" id="tab_2">نظرات</li>
+                            <li class="active" id="tab_1">{% trans "توضیحات" %}</li>
+                            <li class="inactive" id="tab_2">{% trans "نظرات" %}</li>
                         </ul>
                         <div class="content show" id="tab_1_content">
                             <div class="shop-description">
-                                <h3>توضیحات</h3>
+                                <h3>{% trans "توضیحات" %}</h3>
                                 <p>{{product.description|safe}}</p>
                             </div>
                         </div>
@@ -79,7 +88,7 @@
 
                         <div class="content" id="tab_2_content">
                             <div class="shop-reviews">
-                                <h3>نظرات</h3>
+                                <h3>{% trans "نظرات" %}</h3>
                                 {% for comment in comments %}
                                 <div class="single-comment">
                                
@@ -87,7 +96,7 @@
                                         <br/>
                                         <h5>{{comment.name}}</h5>
                                         <p>{{comment.body|safe}}</p>
-                                        <span> زمان ثبت دیدگاه : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</</span>
+                                        <span> {% trans "زمان ثبت دیدگاه" %} : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</</span>
                                     </div>
                                 </div>
                                 <br/>
@@ -97,7 +106,7 @@
                                  {% if new_comment %}
                                 <div class="leave-a-reply">
                                 <br/>
-                                <p>پیام شما با موفقیت ثبت شد</p>
+                                <p>{% trans "پیام شما با موفقیت ثبت شد" %}</p>
                                 </div>
                                 {% else %}
                                 <form class="review-form" method="POST" enctype="multipart/form-data">
@@ -122,14 +131,14 @@
                                         </div>
 
                                         <div class="col-lg-12 col-md-12">
-                                            <button type="submit" class="btn btn-primary">ارسال</button>
+                                            <button type="submit" class="btn btn-primary">{% trans "ارسال" %}</button>
                                         </div>
                                     </div>
                                 </form>
                                 {% endif %}
                                 {% else %}
                                 <div class="leave-a-reply">
-                                    <h5>برای ثبت دیدگاه خود ابتدا باید <a href="{% url 'register' %}">ثبت نام</a> کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت <a href="{% url 'login' %}">ورود</a> کنید.</h5>
+                                    <h5>{% trans "برای ثبت دیدگاه خود ابتدا باید" %} <a href="{% url 'register' %}">{% trans "ثبت نام" %}</a> {% trans "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت" %} <a href="{% url 'login' %}">ورود</a> کنید.</h5>
                                 </div>
                                 {% endif %}
                             </div>
@@ -141,40 +150,74 @@
     </div>
 
     <div class="row">
-                {% for product in similar_products %}
+        {% for product in similar_products %}
+        <div class="col-lg-4 col-md-6">
+            <div class="single-product">
+                <a href="{{product.get_absolute_url}}"><div class="product-img">
+                    <img src="{% if product.image %}{{product.image.url}}{% else%}{%static 'details/assets/img/marketing-shape/no_image.png' %}{% endif %}" alt="item"></a>
+                </div>
+
+                <div class="product-content">
+                    <h3>
+                        <a href="{{product.get_absolute_url}}">{{product.title}} </a>
+                    </h3>
+
+                    <div class="row h-100 justify-content-center align-items-center">
+                        <div class="col-lg-5">
+                            <h5> {{product.price}} {% trans "تومان" %} </h5>
+                        </div>
+
+                        <div class="col-lg-7">
+                            <ul>
+                                <li><i class="icofont-star"></i></li>
+                                <li><i class="icofont-star"></i></li>
+                                <li><i class="icofont-star"></i></li>
+                                <li><i class="icofont-star"></i></li>
+                                <li><i class="icofont-star"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}   
+    </div>
+
+
+    <div class="shop-related-prodcut">
+        <div class="container">
+            <div class="section-title">
+                <h2>{% trans "محصولات مرتبط" %}</h2>
+                <div class="bar"></div>
+            </div>
+            {% if recommended_products %}
+            <div class="row">
+                {% for p in recommended_products %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single-product">
-                        <a href="{{product.get_absolute_url}}"><div class="product-img">
-                            <img src="{% if product.image %}{{product.image.url}}{% else%}{%static 'details/assets/img/marketing-shape/no_image.png' %}{% endif %}" alt="item"></a>
+                        <div class="product-img">
+                            <a href="{{ p.get_absolute_url }}">
+                            <img src="{{ p.image.url }}" alt="item">
+                            </a>
+
+                            <a href="{{ p.get_absolute_url }}" class="add-to-cart-btn">{% trans "افزودن به سبد خرید" %} <i class="icofont-shopping-cart"></i></a>
                         </div>
 
                         <div class="product-content">
                             <h3>
-                                <a href="{{product.get_absolute_url}}">{{product.title}} </a>
+                                <a href="#">{{p.name}}</a>
                             </h3>
 
-                            <div class="row h-100 justify-content-center align-items-center">
-                                <div class="col-lg-5">
-                                    <h5> {{product.price}} تومان </h5>
-                                </div>
-
-                                <div class="col-lg-7">
-                                    <ul>
-                                        <li><i class="icofont-star"></i></li>
-                                        <li><i class="icofont-star"></i></li>
-                                        <li><i class="icofont-star"></i></li>
-                                        <li><i class="icofont-star"></i></li>
-                                        <li><i class="icofont-star"></i></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
                 {% endfor %}
 
-                
             </div>
+            {% endif %}
+        </div>
+    </div>
 </section>
 <!-- End Shop Details Area -->
 {% endblock content %}

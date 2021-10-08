@@ -1,23 +1,25 @@
-from shop.views import product_detail
 from django.db import models
-
 from shop.models import Product
+from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50, verbose_name='نام ')
-    last_name = models.CharField(max_length=50, verbose_name='نام خانوادگی')
-    email = models.EmailField(verbose_name='ایمیل')
-    address = models.CharField(max_length=250, verbose_name='ادرس')
-    postal_code = models.CharField(max_length=20, verbose_name='کدپستی')
-    city = models.CharField(max_length=100, verbose_name='شهر')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ انتشار')
-    updated = models.DateField(auto_now=True, verbose_name='تاریخ بروزرسانی')
-    paid = models.BooleanField(default=False, verbose_name='پرداختی')
+    user = models.ForeignKey(User ,on_delete=models.CASCADE )
+    first_name = models.CharField(_('نام'), max_length=50)
+    last_name = models.CharField(_('نام خانوادگی'), max_length=50)
+    email = models.EmailField(_('ایمیل'))
+    address = models.CharField(_('ادرس'), max_length=250)
+    postal_code = models.CharField(_('کدپستی'), max_length=20)
+    city = models.CharField(_('شهر'), max_length=100)
+    created = models.DateTimeField(_('تاریخ انتشار'), auto_now_add=True)
+    updated = models.DateField(_('تاریخ بروزرسانی'), auto_now=True)
+    paid = models.BooleanField(_('پرداختی'), default=False)
 
     class Meta:
         ordering = ('-created',)
-        verbose_name = 'سفارش'
-        verbose_name_plural = 'سفارشات'
+        verbose_name = _('سفارش')
+        verbose_name_plural = _('سفارشات')
 
     def __str__(self):
         return 'Order {}'.format(self.id)
@@ -26,13 +28,17 @@ class Order(models.Model):
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())
 
+    def get_absolute_url(self):
+        return reverse('orders:detailOrderTracking', args=[self.id])
+    
+
 
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name='سفارش')
-    product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE, verbose_name='محضول')
-    price = models.DecimalField(max_digits=10, decimal_places=0, verbose_name='قیمت')
-    quantity = models.PositiveIntegerField(default=1, verbose_name='تعداد')
+    order = models.ForeignKey( Order, related_name='items', on_delete=models.CASCADE, verbose_name=_('سفارش'))
+    product = models.ForeignKey( Product, related_name='order_items', on_delete=models.CASCADE, verbose_name=_('محضول'))
+    price = models.DecimalField(_('قیمت'), max_digits=10, decimal_places=0)
+    quantity = models.PositiveIntegerField(_('تعداد'), default=1)
 
     def __str__(self):
         return '{}'.format(self.id)

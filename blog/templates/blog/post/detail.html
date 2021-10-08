@@ -1,5 +1,5 @@
 {% extends "details/base.html" %} {% load static jalali_tags %} {% load i18n %} {% load crispy_forms_tags %}
-
+{% load i18n %}
 
 <!-- add meta title -->
 {% block title %} {{ post.meta_title }} {% endblock title%}
@@ -15,7 +15,7 @@
 
 
 <!-- add header -->
-{% block header %} {{ post.meta_title }} {% endblock header %}
+{% block header %}{{ post.meta_title }} {% endblock header %}
 <!-- End header -->
 
 <!-- Start Post Details Area -->
@@ -52,7 +52,7 @@
                         <div class="comment-content">
                             <h4>{{ comment.user.first_name }} {{ comment.user.last_name }}</h4>
                             <p>{{ comment.body|linebreaks }}</p>
-                            <span> زمان ثبت دیدگاه : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</</span>
+                            <span> {% trans "زمان ثبت دیدگاه" %} : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</span>
                         </div>
                     </div>
                     <hr> {% endfor %}
@@ -66,7 +66,7 @@
                         {% if new_comment %}
                         <h5>{% trans "دیدگاه شما موفقیت ثبت شد." %}</h5>
                         {% else %}
-                        <h3>دیدگاه شما</h3>
+                        <h3>{% trans "دیدگاه شما" %}</h3>
                         <div class="row">
 
 
@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="col-lg-12 col-md-12">
-                                <button type="submit" class="btn btn-primary">ثبت دیدگاه</button>
+                                <button type="submit" class="btn btn-primary">{% trans "ثبت دیدگاه" %}</button>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                 </form>
                 {% else %}
                 <div class="leave-a-reply">
-                    <h5>برای ثبت دیدگاه خود ابتدا باید <a href="{% url 'register' %}">ثبت نام</a> کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت <a href="{% url 'login' %}">ورود</a> کنید.</h5>
+                    <h5>{% trans "برای ثبت دیدگاه خود ابتدا باید" %} <a href="{% url 'register' %}">{% trans "ثبت نام" %}</a> {% trans "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت" %} <a href="{% url 'login' %}">{% trans "ورود" %}</a> {% trans "کنید." %}</h5>
                 </div>
                 {% endif %}
             </div>

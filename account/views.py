@@ -5,8 +5,9 @@ from .forms import UserRegistrationForm, CustomAuthForm, UserEditForm, ProfileEd
 from django.contrib.auth.decorators import login_required
 from .models import Profile
 from django.contrib.auth.models import User
-# from userprofile.models import UserProfile
-
+from .forms import UserRegistrationForm
+from django.shortcuts import redirect
+from .models import Profile
 
 # def user_login(request):
 #     if request.method =='POST':
@@ -37,11 +38,7 @@ def dashboard(request):
 
 
 
-from django.shortcuts import render
-from .forms import UserRegistrationForm
 
-from django.shortcuts import redirect
-from .models import Profile
 
 def register(request):
     if request.method == 'POST':

@@ -8,6 +8,7 @@ from taggit.models import Tag
 from django.db.models import Count
 from .forms import CommentForm
 from django.db.models import Q
+from .recommender import Recommender
 
 
 def product_list(request, category_slug=None, tag_slug=None):
@@ -28,9 +29,9 @@ def product_list(request, category_slug=None, tag_slug=None):
         category = get_object_or_404(Category, slug = category_slug)
         products = products.filter(category = category)
         #show post by category__slug
-        query = request.GET.get("q")
-        if query:
-            products = products.filter(Q(title__icontains=query) | Q(category__name__icontains=query)).distinct()
+    query = request.GET.get("q")
+    if query:
+        products = products.filter(Q(name__icontains=query) | Q(category__name__icontains=query)).distinct()
 
 
 
@@ -60,14 +61,8 @@ def product_list(request, category_slug=None, tag_slug=None):
 def product_detail(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug, available = True)
     cart_product_form = CartAddProductForm()
-
-    # List of similar posts
-    product_tags_ids=product.tags.values_list('id', flat=True)
-    similar_products = Product.objects.filter(available=True,
-                                            tags__in=product_tags_ids,).exclude(id=product.id)
-    similar_products = similar_products.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
-
-
+    r = Recommender()
+    recommended_products = r.suggest_products_for([product], 4)
 
     # List of active comments for this post
     comments = product.comments.filter(active=True)
@@ -95,7 +90,8 @@ def product_detail(request, id, slug):
         'comments': comments,
         'new_comment': new_comment,
         'comment_form': comment_form,
-        'similar_posts': similar_products,
+        # 'similar_posts': similar_products,
+        'recommended_products': recommended_products,
 
     }
     return render(request, 'shop/detail.html', context)

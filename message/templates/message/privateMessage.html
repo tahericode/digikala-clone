@@ -1,0 +1,68 @@
+{% extends "details/base.html" %}
+{% load static %}
+{% load static jalali_tags %}
+{% load i18n %}
+{% block page_title %}پیام های عمومی{% endblock page_title %}
+{% block content %}
+
+
+{% if request.user.is_authenticated %}
+{% if user %}
+<section class="cart-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">{% trans "موضوع" %}</th>
+                                <th scope="col">{% trans "بخش" %}</th>
+                                <th scope="col">{% trans "زمان ارسال" %}</th>
+                                <th scope="col">{% trans "مشاهده" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for message in messages %}
+                            <tr>
+
+                                <td class="product-name">
+                                    <p>{{message.subject}}</p>
+                                </td>
+
+                                <td class="product-price">
+                                    <p>{{message.section}}</p>
+                                </td>
+
+                                <td class="product-quantity">
+                                    <p>{{message.publish|to_jalali:'%Y/%m/%d '}}</p>
+                                </td>
+                
+                                <td class="product-quantity">
+                                    <a href="{{message.get_absolute_url}}">مشاهده</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+
+{% else %}
+<div class="blog-details-area">
+<div class="navbar navbar-expand-md navbar-light">  
+<div class="leave-a-reply">
+    <h5>{% trans "برای ثبت دیدگاه خود ابتدا باید" %} <a href="{% url 'register' %}">{% trans "ثبت نام" %}</a> {% trans "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت" %} <a href="{% url 'login' %}">{% trans "ورود" %}</a> {% trans "کنید." %}</h5>
+</div>
+</div>  
+</div>
+{% endif %}
+
+
+
+{% endblock content %}

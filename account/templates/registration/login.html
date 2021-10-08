@@ -25,7 +25,15 @@
 
 <!-- Start Login Area -->
 {% block content %}
-
+{% if user.is_authenticated %}
+<div class="text-center container">
+    <br>
+    <br>
+    <h1 style="border: solid; border-radius: 2em; padding-top: 1em; padding-bottom: 1em; background-color: rgb(233, 227, 227);">شما به حساب کاربری خود وارد شده اید</h1>
+    <br>
+    <h2 class="btn btn-warning" style="font-size: 2em;border-radius: 1em;"><a href="{% url 'dashboard' %}">ورود به داشبورد</a></h2>
+</div>
+{% else %}
 <section class="login-area ptb-100">
     <div class="container">
         <div class="row h-100 justify-content-center align-items-center">
@@ -76,6 +84,7 @@
         </div>
     </div>
 </section>
+{% endif %}
 <!-- End Login Area -->
 
 

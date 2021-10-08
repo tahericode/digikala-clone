@@ -1,7 +1,8 @@
 {% extends 'details/base.html' %}
 {% load static %}
+{% load i18n %}
 {% load crispy_forms_tags %}
-{% block page_title %}تماس با من{% endblock page_title %}
+{% block page_title %}{% trans "تماس با من" %}{% endblock page_title %}
 {% block content %}
 
 <!-- Start Contact Info Area -->
@@ -13,7 +14,7 @@
                     <div class="icon">
                         <i class="icofont-email"></i>
                     </div>
-                    <h3>ایمیل اینجا</h3>
+                    <h3>{% trans "ایمیل اینجا" %}</h3>
                     <p><a href="#">admin@crake.com</a></p>
                     <p><a href="#">info@crake.com</a></p>
                 </div>
@@ -24,8 +25,8 @@
                     <div class="icon">
                         <i class="icofont-google-map"></i>
                     </div>
-                    <h3>اینجا را ببینید</h3>
-                    <p>کالیفرنیا/ خیابان تالیس</p>
+                    <h3>{% trans "اینجا را ببینید" %}</h3>
+                    <p>{% trans "کالیفرنیا/ خیابان تالیس" %}</p>
                 </div>
             </div>
 
@@ -34,7 +35,7 @@
                     <div class="icon">
                         <i class="icofont-phone"></i>
                     </div>
-                    <h3>اینجا تماس بگیرید</h3>
+                    <h3>{% trans "اینجا تماس بگیرید" %}</h3>
                     <p><a href="#">+123 456 7890</a></p>
                     <p><a href="#">+241 452 4526</a></p>
                 </div>
@@ -51,9 +52,9 @@
 <section class="contact-area ptb-100">
     <div class="container">
         <div class="section-title">
-            <h2>با ما در تماس باشید</h2>
+            <h2>{% trans "با ما در تماس باشید" %}</h2>
             <div class="bar"></div>
-            <p>همه چیز در ذهن شما. ما خوشحال خواهیم شد که به شما کمک کنیم!</p>
+            <p>{% trans "همه چیز در ذهن شما. ما خوشحال خواهیم شد که به شما کمک کنیم!" %}</p>
         </div>
 
         <div class="row h-100 justify-content-center align-items-center">
@@ -98,7 +99,7 @@
                         </div>
 
                         <div class="col-lg-12 col-md-12">
-                            <button type="submit" class="btn btn-primary">ارسال پیام</button>
+                            <button type="submit" class="btn btn-primary">{% trans "ارسال پیام" %}</button>
                             <div id="msgSubmit" class="h3 text-center hidden"></div>
                             <div class="clearfix"></div>
                         </div>

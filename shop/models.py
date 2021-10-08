@@ -1,18 +1,17 @@
 from django.db import models
-from django.db.models.fields.files import ImageField
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
-
+from django.utils.translation import gettext_lazy as _
 
 class Category(models.Model):
-    name = models.CharField(max_length=200, db_index=True, verbose_name='نام')
-    slug = models.SlugField(max_length=200, db_index=True, unique=True, verbose_name='اسلاگ')
+    name = models.CharField(_('نام'), max_length=200, db_index=True)
+    slug = models.SlugField(_('اسلاگ'), max_length=200, db_index=True, unique=True)
 
     class Meta:
         ordering = ('name',)
-        verbose_name = 'دسته بندی'
-        verbose_name_plural = 'دسته بندی ها'
+        verbose_name = _('دسته بندی')
+        verbose_name_plural = _('دسته بندی ها')
 
     def __str__(self):
         return self.name
@@ -21,23 +20,23 @@ class Category(models.Model):
         return reverse('shop:product_list_by_category', args=[self.slug])
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.DO_NOTHING, verbose_name='دسته بندی')
-    name = models.CharField(max_length=200, db_index=True, verbose_name='نام')
-    slug = models.SlugField(max_length=200, db_index=True, verbose_name='اسلاگ')
-    image = models.ImageField(upload_to = 'products/%Y/%m/%d', blank = True, verbose_name='عکس')
-    description = RichTextField(verbose_name='توضیحات')
-    price = models.DecimalField(max_digits=10, decimal_places=0, verbose_name='قیمت')
-    stock = models.PositiveIntegerField(verbose_name='تعداد موجودی')
-    tags = TaggableManager(verbose_name='تگ ها')
-    available = models.BooleanField(default=True, verbose_name='فعال/غیر فعال')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ انتشار')
-    updated = models.DateField(auto_now=True, verbose_name='تاریخ اپدیت')
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.DO_NOTHING, verbose_name=_('دسته بندی'))
+    name = models.CharField(_('نام'), max_length=200, db_index=True)
+    slug = models.SlugField(_('اسلاگ'), max_length=200, db_index=True)
+    image = models.ImageField(_('عکس'), upload_to = 'products/%Y/%m/%d', blank = True)
+    description = RichTextField(_('توضیحات'))
+    price = models.DecimalField(_('قیمت'), max_digits=10, decimal_places=0)
+    stock = models.PositiveIntegerField(_('تعداد موجودی'))
+    tags = TaggableManager(_('تگ ها'))
+    available = models.BooleanField(_('فعال/غیر فعال'), default=True)
+    created = models.DateTimeField(_('تاریخ انتشار'), auto_now_add=True)
+    updated = models.DateField(_('تاریخ اپدیت'), auto_now=True)
 
     class Meta:
         ordering = ('-created',)
         index_together = (('id', 'slug'),)
-        verbose_name = 'محصول'
-        verbose_name_plural = 'محصولات'
+        verbose_name =_('محصول')
+        verbose_name_plural = _('محصولات')
 
     def __str__(self):
         return self.name
@@ -51,19 +50,19 @@ class Product(models.Model):
 class Comment(models.Model):
     product = models.ForeignKey(Product,
                             on_delete=models.CASCADE,
-                            related_name='comments', verbose_name='محصول')
+                            related_name='comments', verbose_name=_('محصول'))
 
-    name = models.CharField(max_length=80, verbose_name='نام')
-    email = models.EmailField(verbose_name='ایمیل')
-    body = models.TextField(verbose_name='متن پیام')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ انتشار')
-    updated = models.DateTimeField(auto_now=True, verbose_name='تاریخ بروزرسانی')
-    active = models.BooleanField(default=False, verbose_name='فعال/غیرفعال')
+    name = models.CharField(_('نام'), max_length=80)
+    email = models.EmailField(_('ایمیل'))
+    body = models.TextField(_('متن پیام'))
+    created = models.DateTimeField(_('تاریخ انتشار'),auto_now_add=True)
+    updated = models.DateTimeField(_('تاریخ بروزرسانی'), auto_now=True)
+    active = models.BooleanField(_('فعال/غیرفعال'), default=False)
 
     class Meta:
         ordering = ('created',)
-        verbose_name = 'کامنت'
-        verbose_name_plural = 'کامنت ها'
+        verbose_name = _('کامنت')
+        verbose_name_plural = _('کامنت ها')
 
 
     
@@ -73,11 +72,11 @@ class Comment(models.Model):
     
 class ProductImages(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='productImages')
-    image = models.ImageField(upload_to = 'imagesProduct/%Y/%m/%d', verbose_name='عکس گالری')
+    image = models.ImageField(_('عکس گالری'), upload_to = 'imagesProduct/%Y/%m/%d')
 
     class Meta:
-        verbose_name = 'عکس های محصول'
-        verbose_name_plural = 'عکس های محصولات'
+        verbose_name = _('عکس های محصول')
+        verbose_name_plural = _('عکس های محصولات')
 
 
 

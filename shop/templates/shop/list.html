@@ -1,9 +1,8 @@
 {% extends 'details/base.html' %}
-
 {% load static %}
-
+{% load i18n %}
 {% block title %} {% if category %}{{category.name}}{% else %}Products{% endif %} {% endblock title %} 
-{% block page_title %}محصولات{% endblock page_title %}
+{% block page_title %}{% trans "محصولات" %}{% endblock page_title %}
 
 {% block content %}
 
@@ -22,12 +21,12 @@
                                         <form>
                                             <div class="select-box">
                                                 <select class="form-control">
-                                                    <option value="1">مرتب سازی بر اساس محبوبیت</option>
-                                                    <option value="2">مرتب سازی بر اساس میانگین امتیاز</option>
-                                                    <option value="0">مرتب سازی بر اساس آخرین</option>
-                                                    <option value="3">مرتب سازی بر اساس قیمت: کم به زیاد</option>
-                                                    <option value="4">مرتب سازی بر اساس قیمت: از بالا به پایین</option>
-                                                    <option value="5">مرتب سازی بر اساس جدید</option>
+                                                    <option value="1">{% trans "مرتب سازی بر اساس محبوبیت" %}</option>
+                                                    <option value="2">{% trans "مرتب سازی بر اساس میانگین امتیاز" %}</option>
+                                                    <option value="0">{% trans "مرتب سازی بر اساس آخرین" %}</option>
+                                                    <option value="3">{% trans "مرتب سازی بر اساس قیمت: کم به زیاد" %}</option>
+                                                    <option value="4">{% trans "مرتب سازی بر اساس قیمت: از بالا به پایین" %}</option>
+                                                    <option value="5">{% trans "مرتب سازی بر اساس جدید" %}</option>
                                                 </select>
                                             </div>
                                         </form>
@@ -43,7 +42,7 @@
                             <div class="product-img">
                                 <img src="{% if product.image %}{{product.image.url}}{%else%}{%static 'details/assets/img/marketing-shape/no_image.png'%}{%endif%}" alt="item">
 
-                                <a href="{% url 'shop:product_detail' product.id product.slug%}" class="add-to-cart-btn">افزودن به سبد خرید <i
+                                <a href="{% url 'shop:product_detail' product.id product.slug%}" class="add-to-cart-btn">{% trans "افزودن به سبد خرید" %} <i
                                         class="icofont-shopping-cart"></i></a>
                             </div>
 
@@ -55,7 +54,7 @@
 
                                 <div class="row h-100 justify-content-center align-items-center">
                                     <div class="col-lg-5">
-                                        <h5> {{product.price}} تومان</h5>
+                                        <h5> {{product.price}} {% trans "تومان" %}</h5>
                                     </div>
 
                                     
@@ -73,13 +72,13 @@
 
                                     {% with products.number|stringformat:"i" as pgnumber %} {% with myfilter='page='|add:pgnumber|add:'&' request_query=request.META.QUERY_STRING %} {% if products.has_previous %}
                                     <li class="page-item"><a class="page-link" href="?page=1&{{ request_query|cut:myfilter }}"><i class="icofont-double-left"></i></a></li>
-                                    <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}&{{ request_query|cut:myfilter }}">قبلی</a></li>
+                                    <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}&{{ request_query|cut:myfilter }}">{% trans "قبلی" %}</a></li>
 
                                     {% endif %}
 
                                     <li class="page-item"><a class="page-link" href="#">{{ products.number }}</a></li>
                                     {% if products.has_next %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}&{{ request_query|cut:myfilter}}">بعدی</a></li>
+                                    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}&{{ request_query|cut:myfilter}}">{% trans "بعدی" %}</a></li>
                                     <li class="page-item"><a class="page-link" href="?page={{ products.paginator.num_pages }}&{{ request_query|cut:myfilter }}"><i class="icofont-double-right"></i></a></li>
                                     {% endif %} {% endwith %} {% endwith %}
 
@@ -102,12 +101,12 @@
                     </div>
 
                     <div class="widget widget_product_categories">
-                        <h3 class="widget-title">دسته بندی محصولات</h3>
+                        <h3 class="widget-title">{% trans "دسته بندی محصولات" %}</h3>
                         <div class="bar"></div>
 
                         <ul>
                             
-                            <li><a href="/products"><i class="icofont-bubble-right"></i> همه</a></li>
+                            <li><a href="/products"><i class="icofont-bubble-right"></i> {% trans "همه" %}</a></li>
                             
 
                             {% for c in categories %}
@@ -117,7 +116,7 @@
                     </div>
 
                     <div class="widget widget_recent_products">
-                        <h3 class="widget-title">پست های اخیر</h3>
+                        <h3 class="widget-title">{% trans "پست های اخیر" %}</h3>
                         <div class="bar"></div>
 
                         <ul>
@@ -131,7 +130,7 @@
 
                                 <div class="recent-products-content">
                                     <h3><a href="{{latest_product.get_absolute_url}}">{{latest_product.name}}</a></h3>
-                                    <span class="date"> {{latest_product.price}} تومان</span>
+                                    <span class="date"> {{latest_product.price}} {% trans "تومان" %}</span>
                                 </div>
                             </li>
                             {% endfor %}

@@ -5,6 +5,8 @@ import datetime
 from django.http import HttpResponse
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from jalali_date.admin import ModelAdminJalaliMixin
+from jalali_date import datetime2jalali
 
 
 
@@ -50,6 +52,10 @@ class OrderAdmin(admin.ModelAdmin):
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
     actions = [export_to_csv]
+    def get_created_jalali(self, obj):
+        return datetime2jalali(obj.created).strftime('%Y/%m/%d _ %H:%M:%S')
+    get_created_jalali.short_description = 'زمان ساخت'
+    get_created_jalali.admin_order_field = 'created'
 
 
 admin.site.register(models.Order, OrderAdmin) 

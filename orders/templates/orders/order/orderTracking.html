@@ -1,0 +1,75 @@
+{% extends "details/base.html" %}
+{% load static %}
+{% load static jalali_tags %}
+{% load i18n %}
+{% block page_title %}پیگیری سفارش{% endblock page_title %}
+{% block content %}
+
+
+
+{% if request.user.is_authenticated %}
+{% if orderTracking %}
+
+<section class="cart-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">{% trans "تاریخ ثبت خرید" %}</th>
+                                <th scope="col">{% trans "تعداد سفارش" %}</th>
+                                <th scope="col">{% trans "قیمت کل" %}</th>
+                                <th scope="col">{% trans "مشاهده جزییات" %}</th>
+                                <th scope="col">{% trans "دریافت PDF" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {% for order in orderTracking %}
+                            <tr>
+
+                                <td class="product-name">
+                                    <p>{{order.created|to_jalali:'%Y/%m/%d'}}</p>
+                                </td>
+
+                                <td class="product-price">
+                                    <p>{{order.items.all|length}}</p>
+                                </td>
+
+                                <td class="product-quantity">
+                                    <p>{{order.get_total_cost}}</p>
+                                </td>
+                
+                                <td class="product-quantity">
+                                    <a href="{{order.get_absolute_url}}">مشاهده</a>
+                                </td>
+
+                                <td class="product-quantity">
+                                    <a href="{% url 'orders:order_pdf' order.id%}" download>PDF</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+
+{% else %}
+<div class="blog-details-area">
+<div class="navbar navbar-expand-md navbar-light">  
+<div class="leave-a-reply">
+    <h5>{% trans "برای ثبت دیدگاه خود ابتدا باید" %} <a href="{% url 'register' %}">{% trans "ثبت نام" %}</a> {% trans "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت" %} <a href="{% url 'login' %}">{% trans "ورود" %}</a> {% trans "کنید." %}</h5>
+</div>
+</div>  
+</div>
+{% endif %}
+
+
+{% endblock content %}

@@ -1,10 +1,10 @@
 {% extends "details/base.html" %}{% load static %}
 {% load crispy_forms_tags %}
-
+{% load i18n %}
 
 
 <!-- add meta title -->
-{% block title %} ثبت نام {% endblock title%}
+{% block title %} {% trans "ثبت نام" %} {% endblock title%}
 <!-- End meta title -->
 
 
@@ -17,13 +17,22 @@
 
 
 <!-- add header -->
-{% block header %} ثبت نام {% endblock header %}
+{% block header %} {% trans "ثبت نام" %} {% endblock header %}
 <!-- End header -->
 
 
 
 <!-- Start Register Area -->
 {% block content %}
+{% if user.is_authenticated %}
+<div class="text-center container">
+    <br>
+    <br>
+    <h1 style="border: solid; border-radius: 2em; padding-top: 1em; padding-bottom: 1em; background-color: rgb(233, 227, 227);">{% trans "شما به حساب کاربری خود وارد شده اید" %}</h1>
+    <br>
+    <h2 class="btn btn-warning" style="font-size: 2em;border-radius: 1em;"><a href="{% url 'dashboard' %}">{% trans "ورود به داشبورد" %}</a></h2>
+</div>
+{% else %}
 <section class="login-area ptb-100">
     <div class="container">
         <div class="row h-100 justify-content-center align-items-center">
@@ -35,8 +44,8 @@
 
             <div class="col-lg-6 col-md-12">
                 <div class="login-form">
-                    <h3>خوش آمدید!</h3>
-                    <p>لطفا ثبت نام بفرمایید </p>
+                    <h3>{% trans "خوش آمدید!" %}</h3>
+                    <p>{% trans "لطفا ثبت نام بفرمایید" %}</p>
 
                     <form action="." method="POST">
                         {% csrf_token %}
@@ -74,7 +83,7 @@
                                 <input type="submit" class="btn btn-primary" value="ثبت نام کن"  />
                                 <input type="hidden" name="next" value="{{ next }}" />
                                 <br>
-                                <span>در حال حاضر یک کاربر ثبت شده است؟ <a href="{% url 'login' %}">ورود</a></span>
+                                <span>{% trans "در حال حاضر یک کاربر ثبت شده است؟" %} <a href="{% url 'login' %}">{% trans "ورود" %}</a></span>
                             </div>
                         </div>
                     </form>
@@ -83,6 +92,7 @@
         </div>
     </div>
 </section>
+{% endif %}
 <!-- End Login Area -->
 
 

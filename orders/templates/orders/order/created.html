@@ -1,9 +1,8 @@
 {% extends 'details/base.html' %}
-
+{% load i18n %}
 {% load static %}
-
-{% block title %} {% if category %}{{category.name}}{% else %}تایید صورت حساب{% endif %} {% endblock title %} 
-{% block page_title %}ممنون از شما{% endblock page_title %}
+{% block title %} {% if category %}{{category.name}}{% else %}{% trans "تایید صورت حساب" %}{% endif %} {% endblock title %} 
+{% block page_title %}{% trans "ممنون از شما" %}{% endblock page_title %}
 
 {% block content %} 
 <br/>
@@ -11,7 +10,7 @@
     <div class="col-lg-12 col-md-12">
         <div class="user-actions">
             
-            <span>خرید شما با موفقیت ثبت شد</span>
+            <span>{% trans "خرید شما با موفقیت ثبت شد" %}</span>
         </div>
     </div>
 </div>

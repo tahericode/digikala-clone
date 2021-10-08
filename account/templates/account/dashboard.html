@@ -1,8 +1,10 @@
 {% extends 'details/base.html' %}
 {% load static %}
+{% load i18n %}
 {% load crispy_forms_tags %}
-{% block page_title %}داشبورد{% endblock page_title %}
+{% block page_title %}{% trans "داشبورد" %}{% endblock page_title %}
 {% block content %}
+
 
 <section class="checkout-area ptb-100">
     <div class="container">
@@ -11,7 +13,7 @@
         
                 <div class="col-lg-6 col-md-12">
                     <div class="order-details">
-                        <h3 class="title">داشبورد </h3>
+                        <h3 class="title">{% trans "داشبورد" %} </h3>
                         <div class="bar"></div>
                             
 
@@ -19,7 +21,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">داشبورد </th>
+                                        <th scope="col">{% trans "داشبورد" %} </th>
                                         
                                     </tr>
                                 </thead>
@@ -27,26 +29,33 @@
                                 <tbody>
                                     <tr>
                                         <td class="product-name">
-                                           <a href="{% url 'edit' %}" class="nav-link">ویرایش اطلاعات</a> 
+                                           <a href="{% url 'edit' %}" class="nav-link">{% trans "ویرایش اطلاعات" %}</a> 
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="product-name">
-                                           <a href="{% url 'edit' %}" class="nav-link">پیغام های عمومی</a> 
+                                           <a href="{% url 'message:publicMessages' %}" class="nav-link">{% trans "پیغام های عمومی" %}</a> 
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td class="product-name">
-                                           <a href="{% url 'edit' %}" class="nav-link">پیغام های خصوصی</a> 
+                                           <a href="{% url 'message:privateMessages' %}" class="nav-link">{% trans "پیغام های خصوصی" %}</a> 
                                         </td>
                                     </tr>
 
 
                                     <tr>
                                         <td class="product-name">
-                                           <a href="{% url 'password_change' %}" class="nav-link"> تغییر رمز عبور</a>
+                                           <a href="{% url 'password_change' %}" class="nav-link">{% trans " تغییر رمز عبور" %}</a>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td class="product-name">
+                                           <a href="{% url 'orders:orderTracking' %}" class="nav-link">{% trans " پیگیری سفارشات" %}</a>
                                         </td>
                                     </tr>
 

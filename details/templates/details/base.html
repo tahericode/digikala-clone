@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="en">
 
@@ -30,7 +31,7 @@
 	<!-- Responsive CSS -->
 	<link rel="stylesheet" href="{% static 'details/assets/css/responsive.css' %}">
 	
-	<title>{% block title %}فزوشگاه آنلاین {% endblock title %}</title>
+	<title>{% block title %}{% trans "فزوشگاه آنلاین" %} {% endblock title %}</title>
 	
 	<link rel="icon" type="image/png" href="{% static 'details/assets/img/favicon.png' %}">
 </head>
@@ -59,38 +60,52 @@
 					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 						<ul class="navbar-nav nav ml-auto">
 
-							<li class="nav-item"><a href="{% url 'details:homePage' %}" class="nav-link">خانه</a></li>
-							<li class="nav-item"><a href="{% url 'shop:product_list' %}" class="nav-link">محصولات</a></li>
+							<li class="nav-item"><a href="{% url 'details:homePage' %}" class="nav-link">{% trans "خانه" %}</a></li>
+							<li class="nav-item"><a href="{% url 'shop:product_list' %}" class="nav-link">{% trans "محصولات" %}</a></li>
 
-							<li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">بلاگ</a></li>
-							<li class="nav-item"><a href="{% url 'details:questions' %}" class="nav-link">سوالات متداول</a></li>
-							<li class="nav-item"><a href="{% url 'details:about_us' %}" class="nav-link">درباره ما</a></li>
-							<li class="nav-item"><a href="{% url 'details:contact_us' %}" class="nav-link">تماس</a></li>
+							<li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">{% trans "بلاگ" %}</a></li>
+							<li class="nav-item"><a href="{% url 'details:questions' %}" class="nav-link">{% trans "سوالات متداول" %}</a></li>
+							<li class="nav-item"><a href="{% url 'details:about_us' %}" class="nav-link">{% trans "درباره ما" %}</a></li>
+							<li class="nav-item"><a href="{% url 'details:contact_us' %}" class="nav-link">{% trans "تماس" %}</a></li>
 
 							{% if request.user.is_authenticated %}
 							<ul class="navbar-nav nav ml-auto">
-								<li class="nav-item"><a href="#" class="nav-link">کاربری</a>
+								<li class="nav-item"><a href="#" class="nav-link">{% trans "کاربری" %}</a>
 									<ul class="dropdown_menu">
 										
 										{% if request.user.is_authenticated %}
-											<li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link">داشبورد</a></li>
-											<li class="nav-item"><a href="{% url 'edit' %}" class="nav-link">ویرایش اطلاعات</a></li>
+											<li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link">{% trans "داشبورد" %}</a></li>
+											<li class="nav-item"><a href="{% url 'edit' %}" class="nav-link">{% trans "ویرایش اطلاعات" %}</a></li>
 
-											<li class="nav-item"><a href="{% url 'password_change' %}" class="nav-link">تغییر رمز عبور</a></li>
+											<li class="nav-item"><a href="{% url 'password_change' %}" class="nav-link">{% trans "تغییر رمز عبور" %}</a></li>
 										{% endif %}
 									</ul>
 								</li>
 							</ul>
 							{% endif %}
+							
+							{% if request.user.is_authenticated %}
+							<ul class="navbar-nav nav ml-auto">
+								<li class="nav-item"><a href="#" class="nav-link">{% trans "پیغام ها" %}</a>
+									<ul class="dropdown_menu">
+										{% if request.user.is_authenticated %}
+											<li class="nav-item"><a href="{% url 'message:publicMessages' %}" class="nav-link">{% trans "پیغام های عمومی" %}</a></li>
+											<li class="nav-item"><a href="{% url 'message:privateMessages' %}" class="nav-link">{% trans "پیغام های خصوصی" %}</a></li>
+										{% endif %}
+									</ul>
+								</li>
+							</ul>
+							
+							{% endif %}
 
 							
 
 							{% if request.user.is_authenticated %}
-								<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">خروج</a></li>
+								<li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">{% trans "خروج" %}</a></li>
 							{% else %}
 
-							<li class="nav-item"><a href="{% url 'login' %}" class="nav-link">ورود</a></li>
-							<li class="nav-item"><a href="{% url 'register' %}" class="nav-link">ثبت نام</a></li>
+							<li class="nav-item"><a href="{% url 'login' %}" class="nav-link">{% trans "ورود" %}</a></li>
+							<li class="nav-item"><a href="{% url 'register' %}" class="nav-link">{% trans "ثبت نام" %}</a></li>
 							{% endif %}
 
 						</ul>
@@ -140,45 +155,45 @@
 
 					<div class="modal-body">
 						<div class="sidebar-modal-widget">
-							<h3 class="title">لینک های اضافی</h3>
+							<h3 class="title">{% trans "لینک های اضافی" %}</h3>
 
 							<ul>
 
 								{% if request.user.is_authenticated %}
-								<li><a href="{% url 'details:contact_us' %}">تماس</a></li>
-								<li><a href="{% url 'dashboard' %}">داشبورد</a></li>
-								<li><a href="{% url 'logout' %}">خروج</a></li>
+								<li><a href="{% url 'details:contact_us' %}">{% trans "تماس" %}</a></li>
+								<li><a href="{% url 'dashboard' %}">{% trans "داشبورد" %}</a></li>
+								<li><a href="{% url 'logout' %}">{% trans "خروج" %}</a></li>
 								{% else %}
-								<li><a href="{% url 'login' %}">ورود</a></li>
-								<li ><a href="{% url 'register' %}">ثبت نام</a></li>
+								<li><a href="{% url 'login' %}">{% trans "ورود" %}</a></li>
+								<li ><a href="{% url 'register' %}">{% trans "ثبت نام" %}</a></li>
 								{% endif %}
 							</ul>
 						</div>
 
 						<div class="sidebar-modal-widget">
-							<h3 class="title">اطلاعات تماس</h3>
+							<h3 class="title">{% trans "اطلاعات تماس" %}</h3>
 
 							<ul class="contact-info">
 								<li>
 									<i class="icofont-google-map"></i>
-									آدرس
-									<span>کالیفرنیا/ ساختمان علارور</span>
+									{% trans "آدرس" %}
+									<span>{% trans "کالیفرنیا/ ساختمان علارور" %}</span>
 								</li>
 								<li>
 									<i class="icofont-email"></i>
-									ایمیل
+									{% trans "ایمیل" %}
 									<span>admin@crake.com</span>
 								</li>
 								<li>
 									<i class="icofont-phone"></i>
-									تلفن
+									{% trans "تلفن" %}
 									<span>+123 456 7890</span>
 								</li>
 							</ul>
 						</div>
 
 						<div class="sidebar-modal-widget">
-							<h3 class="title">ارتباط با ما</h3>
+							<h3 class="title">{% trans "ارتباط با ما" %}</h3>
 
 							<ul class="social-list">
 								<li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -244,8 +259,7 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="single-footer-widget">
 						<a href="#" class="logo"><img src="{% static 'details/assets/img/logo2.png' %}" alt="logo2"></a>
-						<p>برنامه روزانه، هفته یا ماه را پیش ببرید و وضعیت پروژه را در یک نگاه ببینید. جستجو و فیلتر
-							برای تمرکز بر روی هر چیزی یک پروژه واحد فردی.</p>
+						<p>{% trans "برنامه روزانه، هفته یا ماه را پیش ببرید و وضعیت پروژه را در یک نگاه ببینید. جستجو و فیلتر برای تمرکز بر روی هر چیزی یک پروژه واحد فردی." %}</p>
 
 						<ul class="social-list">
 							<li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -258,14 +272,14 @@
 
 				<div class="col-lg-3 col-md-6">
 					<div class="single-footer-widget pl-5">
-						<h3>شرکت</h3>
+						<h3>{% trans "شرکت" %}</h3>
 
 						<ul class="list">
-							<li><a href="{% url 'details:about_us' %}">درباره</a></li>
-							<li><a href="{% url 'blog:post_list' %}">مقالات</a></li>
+							<li><a href="{% url 'details:about_us' %}">{% trans "درباره" %}</a></li>
+							<li><a href="{% url 'blog:post_list' %}">{% trans "مقالات" %}</a></li>
 							{% if request.user.is_authenticated %}
 							{% else %}
-							<li><a href="{% url 'login' %}">ورود</a></li>
+							<li><a href="{% url 'login' %}">{% trans "ورود" %}</a></li>
 							{% endif %}
 						</ul>
 					</div>
@@ -273,10 +287,10 @@
 
 				<div class="col-lg-3 col-md-6">
 					<div class="single-footer-widget">
-						<h3>محصولات</h3>
+						<h3>{% trans "محصولات" %}</h3>
 
 						<ul class="list">
-							<li><a href="{% url 'shop:product_list' %}">محصولات</a></li>
+							<li><a href="{% url 'shop:product_list' %}">{% trans "محصولات" %}</a></li>
 							
 						</ul>
 					</div>
@@ -287,9 +301,9 @@
 						<h3>پشتیبانی</h3>
 
 						<ul class="list">
-							<li><a href="{% url 'details:about_us' %}">درباره</a></li>
-							<li><a href="{% url 'details:contact_us' %}">تماس</a></li>
-							<li><a href="{% url 'details:questions' %}">سوالات متداول</a></li>
+							<li><a href="{% url 'details:about_us' %}">{% trans "درباره" %}</a></li>
+							<li><a href="{% url 'details:contact_us' %}">{% trans "تماس" %}</a></li>
+							<li><a href="{% url 'details:questions' %}">{% trans "سوالات متداول" %}</a></li>
 						</ul>
 					</div>
 				</div>
@@ -300,13 +314,13 @@
 			<div class="container">
 				<div class="row h-100 justify-content-center align-items-center">
 					<div class="col-lg-6 col-md-6">
-						<p>کپی رایت @ 2019 کراک. تمام حقوق محفوظ است.</p>
+						<p>{% trans "کپی رایت @ 2019 کراک. تمام حقوق محفوظ است." %}</p>
 					</div>
 
 					<div class="col-lg-6 col-md-6">
 						<ul>
-							<li><a href="#">شرایط و ضوابط</a></li>
-							<li><a href="#">سیاست حفظ حریم خصوصی</a></li>
+							<li><a href="#">{% trans "شرایط و ضوابط" %}</a></li>
+							<li><a href="#">{% trans "سیاست حفظ حریم خصوصی" %}</a></li>
 						</ul>
 					</div>
 				</div>
@@ -316,7 +330,7 @@
 	<!-- End Footer Area -->
 
 	<!-- Back Top top -->
-	<div class="back-to-top">بالا</div>
+	<div class="back-to-top">{% trans "بالا" %}</div>
 	<!-- End Back Top top -->
 
 	<!-- Jquery Min JS -->

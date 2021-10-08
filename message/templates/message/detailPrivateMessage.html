@@ -1,0 +1,27 @@
+{% extends "details/base.html" %}
+{% load static %}
+{% load static jalali_tags %}
+{% load i18n %}
+{% block page_title %}پیام های عمومی{% endblock page_title %}
+{% block content %}
+
+
+
+<div class="containerr">
+    <div class="row" style="display: flex; justify-content: center; align-items: center;"> 
+        <div class="message-inner-row" style="width: 1080px; max-width: 95%; ">
+            <div class="head">
+                <p>بخش مربوطه : {{message.section}}</p>
+                <p>موضوع : {{message.subject}}</p>
+            </div>
+
+            <div class="body">
+                <p>{{message.long_description|safe}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

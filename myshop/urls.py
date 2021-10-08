@@ -29,6 +29,7 @@ urlpatterns = [
     path('coupons/', include('coupons.urls', namespace='coupons')),
     #CkEditor url for upload 
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('messages/', include('message.urls', namespace='message'))
 ]
 
 if settings.DEBUG:

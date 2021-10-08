@@ -78,6 +78,8 @@ Default CSS
 }
 
 body {
+  margin: 0;
+  padding: 0;
 	font-family: IRANSans;
     font-weight: normal;
     font-style: normal;
@@ -117,6 +119,7 @@ img {
   padding-top: 100px;
   padding-bottom: 100px;
   direction: rtl;
+  
 }
 
 .bg-gray {
@@ -6599,6 +6602,12 @@ Cart CSS
 .cart-table table {
   margin-bottom: 0;
   text-align: center;
+  background-color: #ddd;
+  border-radius: 15px;
+
+}
+.product-name p{
+  color: #000000;
 }
 
 .cart-table table thead tr th {
@@ -6606,13 +6615,21 @@ Cart CSS
   vertical-align: middle;
   font-weight: 700;
   border-color: #eaedff;
-  padding: 15px 20px;
-}
+  padding: 25px 20px 15px;
+  border: 0px;
+  /* border-radius: 15px; */
+  
+  
+} 
+
+
 
 .cart-table table tbody tr td {
   vertical-align: middle;
   color: #818992;
   border-color: #eaedff;
+  border: 0px;
+  border-radius: 15px;
 }
 
 .cart-table table tbody tr td.product-thumbnail a {
@@ -7185,3 +7202,83 @@ Back To Top CSS
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.publicMessages{
+  background-color: #acfdba48;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 0px rgb(184, 184, 184);
+  /* filter: drop-shadow(0 0 15px rgba(0,0,0,0.6)); */
+  /* transition: transform 0.5s 0.1s; */
+  transition: box-shadow 0.5s 0.1s;
+}
+.publicMessages:hover{
+  /* transform: scale(1.01); */
+  box-shadow: 0px 0px 10px 0 rgb(170, 170, 170);
+}
+
+.publicMessages .row{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  direction: rtl;
+  padding: 1em;
+  margin: 1em;
+}
+
+
+@media (max-width:1044px){
+  .publicMessages .row{
+    align-items: flex-start;
+    flex-direction: column;
+    
+  }
+  .publicMessages .row div:nth-child(2){
+    margin-top: 2em;
+  }
+}
+
+/* 
+.cart-table .table-responsive{
+  margin: 15px;
+} */
+
+
+.containerr{
+  
+  border-radius: 20px;
+  margin: 35px 20px;
+  direction: rtl;
+  display: block;
+  margin: 20px 35px;
+  
+}
+.containerr .row{
+  display: block;
+  align-content: flex-start;
+}
+.containerr .row .head{
+  background-color: #25c4a2c4;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px 35px;
+}
+
+.containerr .row .head p{
+  color: #000000;
+}
+
+.containerr .row .body{
+  padding: 10px 35px 20px 35px;
+  background-color: #c9ece5;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+/* .leave-a-reply{
+  border-radius: 10px;
+  box-shadow: #a7a7a7;
+  padding: 10px 30px;
+  align-items: center;
+} */

@@ -1,18 +1,19 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.utils.translation import gettext_lazy as _
 
 class Coupon(models.Model):
-    code = models.CharField(max_length=50,
-                            unique=True, verbose_name='کد تخفیف')
-    valid_from = models.DateTimeField(verbose_name='از تاریخ')
-    valid_to = models.DateTimeField(verbose_name='تا تاریخ')
-    discount = models.IntegerField(
+    code = models.CharField(_('کد تخفیف'), max_length=50,
+                            unique=True)
+    valid_from = models.DateTimeField(_('از تاریخ'))
+    valid_to = models.DateTimeField(_('تا تاریخ'))
+    discount = models.IntegerField(_('مقدار تخفیف(به درصد)'),
                                 validators=[MinValueValidator(0),
-                                MaxValueValidator(100)], verbose_name='مقدار تخفیف(به درصد)')
-    active = models.BooleanField(verbose_name='فعال/غیر فعال')
+                                MaxValueValidator(100)])
+    active = models.BooleanField(_('فعال/غیر فعال'))
     def __str__(self):
         return self.code
 
     class Meta:
-        verbose_name = 'تخفیف'
-        verbose_name_plural = 'تخفیف ها'
+        verbose_name = _('تخفیف')
+        verbose_name_plural = _('تخفیف ها')
