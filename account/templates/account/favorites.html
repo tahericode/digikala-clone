@@ -1,0 +1,75 @@
+{% extends 'account/dashboard.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block title %}{% trans "لیست علاقه مندی" %}{% endblock title %}
+{% block page_title %} {% trans "لیست علاقه مندی" %} {% endblock page_title %}
+{% block dashboard %}
+
+<!-- Start Cart Area -->
+<section class="cart-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <form method="POST">
+                    <div class="cart-table table-responsive">
+                       
+                        <!-- ============ New Table for Favorite -->
+                        <table class="table message-table" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th>{% trans "محصول" %}</th>
+                                    <th>{% trans "نام" %}</th>
+                                    <th>{% trans "قیمت" %}</th>
+                                    <th>{% trans "حذف" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% if new %}
+                                {% for favorite in new %}
+                                <tr class="content-table__row">
+
+                                    <td class="product-name product-thumbnail">
+                                        <a href="{{ favorite.get_absolute_url }}">
+                                            <img src="{% if favorite.image %}{{favorite.image.url}}{%else%}{%static 'details/assets/img/marketing-shape/no_image.png'%}{%endif%}" alt="item">
+                                        </a>
+                                    </td>
+
+                                    <td class="product-price">
+                                        <a href="{{ favorite.get_absolute_url }}">{{ favorite.name }}</a>
+                                    </td>
+
+                                    <td class="product-quantity">
+                                        <span class="unit-amount">{{ favorite.price}} {% trans "تومان" %} </span>
+                                    </td>
+                    
+                                    <td class="product-quantity">
+                                        <a href="{% url 'favorite_add' favorite.id%}"><i class="icofont-ui-delete"></i></a>
+                                    </td>
+                                </tr>
+                                
+                                {% endfor %}
+                                {% else %}
+                                <tr>
+                                    <td class="product-name" colspan="4">
+                                        <p >محصولی به لیست اضافه نکرده اید <a href="{% url 'shop:product_list' %}">رفتن به فروشگاه</a></p>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                
+                            </tbody>
+                        </table> 
+
+
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Cart Area -->
+
+{% endblock dashboard %}

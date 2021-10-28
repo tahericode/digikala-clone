@@ -1,29 +1,26 @@
-{% extends 'details/base.html' %}
+{% extends 'account/dashboard.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% load i18n %}
-{% block page_title %}{% trans "ویرایش اطلاعات" %}{% endblock page_title %}
-{% block content %}
+{% load static jalali_tags %}
+<p style="font-weight: bold;">{% block page_title %}{% trans "ویرایش اطلاعات" %}{% endblock page_title %}</p>
+{% block dashboard %}
 
 
-{% load %}
 <!-- Start Checkout Area -->
 <section class="checkout-area ptb-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="user-actions">
-                    <i class="icofont-ui-file"></i>
-                    <span>{% trans "بازگشت مشتری؟" %} <a href="#">{% trans "برای ورود اینجا کلیک کنید" %}</a></span>
-                </div>
+                
             </div>
         </div>
 
-        <form method='POST' enctype="multipart/form-data">
+        <form class="" method='POST' enctype="multipart/form-data" >
             {% csrf_token %}
             <div class="row">
                 <div class="col-lg-6 col-md-12">
-                    <div class="billing-details">
+                    <div class="billing-details edit-user-information-form">
                         <h3 class="title">{% trans "ویرایش اطلاعات" %} </h3>
                         <div class="bar"></div>
 
@@ -74,11 +71,22 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    {{profile_form.photo}}
+                            <div class="col-lg-6 col-md-12 ">
+                                <div class="form-group  ">
+                                    <span class="form_text">{% trans "تغییر عکس پروفایل" %}</span>
                                 </div>
                             </div>
+
+                            <div class="col-lg-6 col-md-6 form_edit_input">
+                                <div class="form-group main-change-img">
+                                    {{profile_form.photo|as_crispy_field}}
+                                </div>
+                            </div>
+
+                            
+
+                            
+                            
 
                             <button type="submit" href="#" class="btn btn-primary order-btn order-btn__prefix"> ویرایش</a>
 
@@ -91,15 +99,11 @@
                     <div class="order-details">
                         <h3 class="title">{% trans "جزییات" %} </h3>
                         <div class="bar"></div>
-                            <img src="{% if user.profile.photo %}{{user.profile.photo.url}}{% else %}{% static 'details/assets/img/blog-img3.jpg' %}{% endif %}" alt="user image" class="user-profile__img" />
+                            
 
                         <div class="order-table table-responsive">
                             <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">{% trans "جزییات" %} </th>
-                                        
-                                    </tr>
+                                <thead> 
                                 </thead>
 
                                 <tbody>
@@ -145,26 +149,15 @@
                                     <tr>
                                         <td class="product-name">
                                             {% trans "تاریخ تولد" %}:
-                                            <p>{{user.profile.date_of_birth|default:"وارد نشده"}}</p>
+                                            <p>{{user.profile.date_of_birth|default:"وارد نشده"|to_jalali:'%Y/%m/%d '}}</p>
                                         </td>
                                     </tr>
-                                    
-                                    
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
             </div>
-        
-
-
-
-
-
-
     </div>
 
 
@@ -172,4 +165,4 @@
 
 </section>
 <!-- End Checkout Area -->
-{% endblock content %}
+{% endblock dashboard %}

@@ -1,22 +1,22 @@
-{% extends "details/base.html" %}
+{% extends 'account/dashboard.html' %}
 {% load static %}
 {% load static jalali_tags %}
 {% load i18n %}
-{% block page_title %}پیام های عمومی{% endblock page_title %}
-{% block content %}
+{% block page_title %}{% trans "پیام های عمومی" %}{% endblock page_title %}
+{% block dashboard %}
 
 
 
 <div class="containerr">
-    <div class="row" style="display: flex; justify-content: center; align-items: center;"> 
+    <div class="row" style="display: flex; justify-content: center; align-items: center; margin-top:155px"> 
         <div class="message-inner-row" style="width: 1080px; max-width: 95%; ">
             <div class="head">
-                <p>بخش مربوطه : {{message.section}}</p>
-                <p>موضوع : {{message.subject}}</p>
+                <p>{% trans "بخش مربوطه" %} : {% blocktrans with section=message.section %}{{section}}{% endblocktrans %}</p>
+                <p>{% trans "موضوع" %} : {% blocktrans with subject=message.subject %}{{subject}}{% endblocktrans %}</p>
             </div>
 
             <div class="body">
-                <p>{{message.long_description|safe}}</p>
+                <p>{% blocktrans with body=message.long_description|safe %}{{body}}{% endblocktrans %}</p>
             </div>
         </div>
     </div>
@@ -24,4 +24,4 @@
 
 
 
-{% endblock content %}
+{% endblock dashboard %}

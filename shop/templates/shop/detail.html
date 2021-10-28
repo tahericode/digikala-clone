@@ -4,7 +4,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}{{product.name}}{% endblock title %}
-{% block page_title %}{{product.name}}{% endblock page_title %}
+{% block page_title %}{{product.name}}<p style="color: #fff; margin-top: 15px; font-size: 18px;">تنوع بالای محصولات و قیمت مناسب </p>{% endblock page_title %}
 {% block content %}
 <!-- Start Shop Details Area -->
 <section class="shop-details-area ptb-100">
@@ -25,28 +25,40 @@
 
                 <div class="col-lg-8 col-md-12">
                     <div class="product-entry-summary">
-                        <h3>{{product.name}}</h3>
+                        <h3> {% blocktrans with name=product.name %}{{name}}{% endblocktrans %} </h3>
                         <h4>{{product.price}} {% trans "تومان" %}</h4>
 
-                        <p>{{product.description|safe}}</p>
+                        <p> {% blocktrans with desc=product.description|safe %}{{desc}}{% endblocktrans %}</p>
 
                         <ul class="product-categories">
                             <li>{% trans "دسته بندی ها:" %}</li>
-                            <li><a href="{{product.category.get_absolute_url}}">{{product.category}}</a></li>
+                            <li><a href="{{product.category.get_absolute_url}}">{% blocktrans with category=product.category %}{% endblocktrans %}{{category}}</a></li>
                             
                         </ul>
                         <br/>
+                        {% if request.user.is_authenticated %}
+                        {% if fav %}
+                        <a href="{% url 'favorite_add' product.id %}" class="btn btn-primary" >{% trans "حذف از لیست علاقه مندی ها" %}</a>
+                        {% else %}
+                        <a href="{% url 'favorite_add' product.id %}" class="btn btn-primary" >{% trans "افزودن به لیست علاقه مندی ها" %} </a>
+                        {% endif %}
+                        {% else %}
+                        <a href="{% url 'register' %}" class="btn btn-primary" >{% trans "افزودن به لیست علاقه مندیها" %}</a>
+                        {% endif %}
+                        <br/>
                         {% if product.stock < 10 %}
-                        <p style="color: rgb(192, 49, 49);">{{product.stock}} عدد در انبار موجود است</p>  
+                        <p style="color: rgb(192, 49, 49); margin-top:25px">{{product.stock}} {% trans "عدد در انبار موجود است" %}</p>  
                         {% endif %}
                         
                         <form action=" {% url "cart:cart_add" product.id %}", method="post">
+                            <div style="width: 85px;">
                             {{cart_product_form}}
+                            </div>
                             <br/>
                             {% if product.stock != 0 %}
                             <button type="submit" class="btn btn-primary">{% trans "افزودن به سبد خرید" %}</button>
                             {% else %}
-                            <p>این محصول در انبار موجود نمیباشد</p>
+                            <p>{% trans "این محصول در انبار موجود نمیباشد" %}</p>
                             {% endif %}
                             {% csrf_token %}
                         </form>
@@ -56,16 +68,10 @@
                 </div>
             </div>
             <br/>
-             <div class="widget widget_tag_cloud">
-                <h3 class="widget-title">{% trans "برچسب های محبوب" %}</h3>
-                <div class="bar"></div>
-            </div>
+           
 
-            <div class="tagcloud">
-                {% for tag in product.tags.all%}
-                <a href="{% url 'shop:product_list_by_tag' tag.slug %}">{{tag}}</a>
-                {% endfor %}
-            </div>
+
+            
 
             <div class="row">
                 <div class="col-lg-12 col-md-12">
@@ -77,30 +83,31 @@
                         <div class="content show" id="tab_1_content">
                             <div class="shop-description">
                                 <h3>{% trans "توضیحات" %}</h3>
-                                <p>{{product.description|safe}}</p>
+                                <p>{% blocktrans with desc=product.description|safe %}{{desc}}{% endblocktrans %}</p>
                             </div>
                         </div>
                         <br/>
                         <br/>
                         <br/>
-                        
-                    </div>
 
                         <div class="content" id="tab_2_content">
                             <div class="shop-reviews">
-                                <h3>{% trans "نظرات" %}</h3>
-                                {% for comment in comments %}
-                                <div class="single-comment">
-                               
-                                    <div class="comment-content">
-                                        <br/>
-                                        <h5>{{comment.name}}</h5>
-                                        <p>{{comment.body|safe}}</p>
-                                        <span> {% trans "زمان ثبت دیدگاه" %} : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</</span>
+                                <div class="post-comments product-comments">
+                                    <h3>{% trans "نظرات" %}</h3>
+                                    {% for comment in comments %}
+                                    <div class="single-comment box-comment-product">
+                                        <div class="comment-img div-comment-img">
+                                            <img class="img-comment-blog img-comment-product" src="{% if comment.user.profile.photo %}{{ comment.user.profile.photo.url }}{% else %}{% static 'details/assets/img/default-avatar.png' %}{% endif %}" alt="client">
+                                        </div>
+                                        <div class="comment-content">
+                                            <h4>{{ comment.user.first_name }} {{ comment.user.last_name }}</h4>
+                                            <p>{{ comment.body|linebreaks }}</p>
+                                            <span> {% trans "زمان ثبت دیدگاه" %} : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</span>
+                                        </div>
                                     </div>
+                                    <hr> {% endfor %}
+
                                 </div>
-                                <br/>
-                                {% endfor %}
 
                                 {% if user.is_authenticated %}
                                  {% if new_comment %}
@@ -141,6 +148,19 @@
                                     <h5>{% trans "برای ثبت دیدگاه خود ابتدا باید" %} <a href="{% url 'register' %}">{% trans "ثبت نام" %}</a> {% trans "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت" %} <a href="{% url 'login' %}">ورود</a> کنید.</h5>
                                 </div>
                                 {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="sidebar-area">
+                        <div class="widget widget_tag_cloud">
+                            <h3 class="widget-title">برچسب ها</h3>
+                            <div class="bar"></div>
+
+                            <div class="tagcloud">
+                                {% for tag in product.tags.all%}
+                                <a href="{% url 'shop:product_list_by_tag' tag.slug %}">{{tag}}</a>
+                                {% endfor %}   
                             </div>
                         </div>
                     </div>
@@ -190,9 +210,9 @@
                 <h2>{% trans "محصولات مرتبط" %}</h2>
                 <div class="bar"></div>
             </div>
-            {% if recommended_products %}
+            {% if products %}
             <div class="row">
-                {% for p in recommended_products %}
+                {% for p in products %}
                 <div class="col-lg-4 col-md-6">
                     <div class="single-product">
                         <div class="product-img">

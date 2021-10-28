@@ -17,20 +17,26 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('products/',include('shop.urls', namespace='shop')),
-    path('',include('details.urls', namespace='details')),
-    path('cart/', include('cart.urls', namespace='cart')),
-    path('orders/', include('orders.urls', namespace='orders')),
-    path('blog/', include('blog.urls', namespace='blog')),
-    path('account/', include('account.urls')),
-    path('coupons/', include('coupons.urls', namespace='coupons')),
+urlpatterns = i18n_patterns(
+    path(_('admin/'), admin.site.urls),
+    # third party(rosetta)
+    path(_('rosetta/'), include('rosetta.urls')),
+    # apps
+    path(_('products/'),include('shop.urls', namespace='shop')),
+    path(_(''),include('details.urls', namespace='details')),
+    path(_('cart/'), include('cart.urls', namespace='cart')),
+    path(_('orders/'), include('orders.urls', namespace='orders')),
+    path(_('blog/'), include('blog.urls', namespace='blog')),
+    path(_('account/'), include('account.urls')),
+    path(_('coupons/'), include('coupons.urls', namespace='coupons')),
     #CkEditor url for upload 
-    path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('messages/', include('message.urls', namespace='message'))
-]
+    path(_('ckeditor/'), include('ckeditor_uploader.urls')),
+    path(_('messages/'), include('message.urls', namespace='message')),
+    
+)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

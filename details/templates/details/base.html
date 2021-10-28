@@ -12,6 +12,11 @@
 	<meta name="description" content="عوض کردن رمز عبور">
 	<meta name="keywords" content="عوض کردن رمز عبور"> {% endblock meta %}
 	<!-- End meta tags -->
+
+
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/duotone.css" integrity="sha384-R3QzTxyukP03CMqKFe0ssp5wUvBPEyy9ZspCB+Y01fEjhMwcXixTyeot+S40+AjZ" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/fontawesome.css" integrity="sha384-eHoocPgXsiuZh+Yy6+7DsKAerLXyJmu2Hadh4QYyt+8v86geixVYwFqUvMU8X90l" crossorigin="anonymous"/>
 	<!-- Bootstrap Min CSS -->
 	<link rel="stylesheet" href="{% static 'details/assets/css/bootstrap.min.css' %}">
 	<!-- Animate CSS -->
@@ -30,7 +35,12 @@
 	<link rel="stylesheet" href="{% static 'details/assets/css/style.css' %}">
 	<!-- Responsive CSS -->
 	<link rel="stylesheet" href="{% static 'details/assets/css/responsive.css' %}">
-	
+	{% comment %} icon Link {% endcomment %}
+	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+	<link rel="stylesheet" href="{% static 'admin/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+
+	<link rel="stylesheet" href="{% static 'details/assets/css/dashboard.css' %}">
 	<title>{% block title %}{% trans "فزوشگاه آنلاین" %} {% endblock title %}</title>
 	
 	<link rel="icon" type="image/png" href="{% static 'details/assets/img/favicon.png' %}">
@@ -51,17 +61,25 @@
 			</div>
 		</div>
 
+
 		<div class="crake-nav">
+
+
+					
+
+
 			<div class="container">
 				<nav class="navbar navbar-expand-md navbar-light">
-					<a class="navbar-brand" href="/"><img src="{% static 'details/assets/img/logo.png' %}"
-							alt="logo"></a>
+					<a class="navbar-brand" href="{% url 'details:homePage' %}"><img src="{% static 'details/assets/img/logo.png' %}" alt="logo"></a>
+
+
+					
 
 					<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 						<ul class="navbar-nav nav ml-auto">
 
 							<li class="nav-item"><a href="{% url 'details:homePage' %}" class="nav-link">{% trans "خانه" %}</a></li>
-							<li class="nav-item"><a href="{% url 'shop:product_list' %}" class="nav-link">{% trans "محصولات" %}</a></li>
+							<li class="nav-item"><a href="{% url 'shop:product_list' %}" class="nav-link">{% trans "فروشگاه" %}</a></li>
 
 							<li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">{% trans "بلاگ" %}</a></li>
 							<li class="nav-item"><a href="{% url 'details:questions' %}" class="nav-link">{% trans "سوالات متداول" %}</a></li>
@@ -69,34 +87,11 @@
 							<li class="nav-item"><a href="{% url 'details:contact_us' %}" class="nav-link">{% trans "تماس" %}</a></li>
 
 							{% if request.user.is_authenticated %}
-							<ul class="navbar-nav nav ml-auto">
-								<li class="nav-item"><a href="#" class="nav-link">{% trans "کاربری" %}</a>
-									<ul class="dropdown_menu">
-										
-										{% if request.user.is_authenticated %}
-											<li class="nav-item"><a href="{% url 'dashboard' %}" class="nav-link">{% trans "داشبورد" %}</a></li>
-											<li class="nav-item"><a href="{% url 'edit' %}" class="nav-link">{% trans "ویرایش اطلاعات" %}</a></li>
-
-											<li class="nav-item"><a href="{% url 'password_change' %}" class="nav-link">{% trans "تغییر رمز عبور" %}</a></li>
-										{% endif %}
-									</ul>
-								</li>
-							</ul>
-							{% endif %}
-							
-							{% if request.user.is_authenticated %}
-							<ul class="navbar-nav nav ml-auto">
-								<li class="nav-item"><a href="#" class="nav-link">{% trans "پیغام ها" %}</a>
-									<ul class="dropdown_menu">
-										{% if request.user.is_authenticated %}
-											<li class="nav-item"><a href="{% url 'message:publicMessages' %}" class="nav-link">{% trans "پیغام های عمومی" %}</a></li>
-											<li class="nav-item"><a href="{% url 'message:privateMessages' %}" class="nav-link">{% trans "پیغام های خصوصی" %}</a></li>
-										{% endif %}
-									</ul>
-								</li>
-							</ul>
+							<li class="nav-item"><a href="{% url 'displayUserInformation' %}" class="nav-link">{% trans "داشبورد" %}</a></li>
 							
 							{% endif %}
+							
+							
 
 							
 
@@ -106,6 +101,19 @@
 
 							<li class="nav-item"><a href="{% url 'login' %}" class="nav-link">{% trans "ورود" %}</a></li>
 							<li class="nav-item"><a href="{% url 'register' %}" class="nav-link">{% trans "ثبت نام" %}</a></li>
+							{% endif %}
+							{% if request.user.is_authenticated %}
+							<ul class="navbar-nav nav ml-auto">
+								<li class="nav-item"><a style="color: #fff;" href="#"><i class="fas fa-envelope"></i></a>
+									<ul class="dropdown_menu">
+										{% if request.user.is_authenticated %}
+											<li class="nav-item"><a href="{% url 'message:publicMessages' %}" class="nav-link">{% trans "پیغام های عمومی" %}</a></li>
+											<li class="nav-item"><a href="{% url 'message:privateMessages' %}" class="nav-link">{% trans "پیغام های خصوصی" %}</a></li>
+										{% endif %}
+									</ul>
+								</li>
+							</ul>
+							
 							{% endif %}
 
 						</ul>
@@ -134,7 +142,29 @@
 							</li>
 						</ul>
 					</div>
+
+
 				</nav>
+
+
+					{% get_current_language as LANGUAGE_CODE %}
+					{% get_available_languages as LANGUAGES %}
+					{% get_language_info_list for LANGUAGES as languages %}
+					<div class="languages">
+						<ul class="languagess">
+							<li id="lang-change2">
+								<a href="/en/" class="selected"><img class="icon-flag" src="{% static 'details/assets/img/iran-flag-wave-icon-16 (2).png' %}" alt=""> </a>
+								
+							</li>
+
+							<li id="lang-change2">
+								<a href="/fa/" class=""><img class="icon-flag en" src="{% static 'details/assets/img/united-kingdom-flag-wave-icon-256 (1).png' %}" alt=""></a>
+							</li>
+						</ul>
+					</div>
+
+
+
 			</div>
 		</div>
 	</header>
@@ -298,7 +328,7 @@
 
 				<div class="col-lg-3 col-md-6">
 					<div class="single-footer-widget">
-						<h3>پشتیبانی</h3>
+						<h3>{% trans "پشتیبانی" %}</h3>
 
 						<ul class="list">
 							<li><a href="{% url 'details:about_us' %}">{% trans "درباره" %}</a></li>
@@ -334,7 +364,25 @@
 	<!-- End Back Top top -->
 
 	<!-- Jquery Min JS -->
+	<script>
+	const changeLangEl = document.querySelectorAll('#lang-change');
+	const documentChildren = document.getElementsByTagName('*');
+
+	changeLangEl[0].addEventListener("click",() => {
+		for(i = 0; documentChildren.length; i++){
+			documentChildren[i].style.direction = "rtl";
+		}
+	})
+
+	changeLangEl[1].addEventListener("click",() => {
+		for(i = 0; documentChildren.length; i++){
+			documentChildren[i].style.direction = "ltr";
+		}
+	})
+	</script>
 	<script src="{% static 'details/assets/js/jquery.min.js' %}"></script>
+
+	<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>
 	<!-- Popper Min JS -->
 	<script src="{% static 'details/assets/js/popper.min.js' %}"></script>
 	<!-- Bootstrap Min JS -->

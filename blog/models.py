@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import gettext_lazy as _
-# Create your models here.
+
 # Create PostCategory Model
 class PostCategory(models.Model):
     name = models.CharField(_('نام دسته بندی'), max_length=200, db_index=True)
@@ -21,15 +21,14 @@ class PostCategory(models.Model):
     def get_absolute_url(self):
         return reverse("blog:post_list_by_category", args=[self.slug])
 
-
-# model manager
+# model manager (published product)
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status='published')
 
-
 # Create Post Model
 class Post(models.Model):
+    # choises for status field
     STATUS_CHOICES = (
         ('draft', 'در انتظار'),
         ('published', 'منتشر شده'),
@@ -61,15 +60,15 @@ class Post(models.Model):
     
     def __str__(self):
         return self.title
-
+    # get detailpost by year, month, day, slug
     def get_absolute_url(self):
         return reverse('blog:post_detail', args=[self.publish.year, self.publish.month, self.publish.day, self.slug])
-
 
 # Create Comment Model
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments', verbose_name=_('پست مورد نظر'))
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_comments', verbose_name=_('کاربر'))
+    
     body = models.TextField(_('دیدگاه مورد نظر'))
     created = models.DateTimeField(_('زمان ساخت'), auto_now_add=True)
     updated = models.DateTimeField(_('زمان به روز رسانی'), auto_now=True)

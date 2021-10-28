@@ -6,5 +6,6 @@ from django.utils.translation import gettext_lazy as _
 class CommentForm(forms.ModelForm):
     body = forms.CharField(label=False, widget=forms.Textarea(attrs={'placeholder':_('دیدگاه خود را ثبت کنید')}))
     class Meta:
+        # The model of this form is Comment
         model = Comment
         fields = ('body',)

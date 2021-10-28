@@ -1,5 +1,6 @@
 <html>
 {% load static jalali_tags %}
+{% load i18n %}
 <head>
 
 <meta charset="utf-8">
@@ -10,51 +11,60 @@
     
       
 
-<div class="containerrr" style="display: block;align-items: flex-start; direction: rtl; background-color: rgb(241, 240, 240); padding: 10px 20px 20px; border-radius: 15px;">
+<div class="containerrr" style="display: block;align-items: flex-start; direction: rtl; background-color: #f6f6f6; padding: 10px 20px 20px; border-radius: 15px;">
     <div class="title" style="text-align: center ;">
-        <h1 style="border-radius: 5px;">خرید من</h1> 
+        <h1 style="border-radius: 5px; font-family: IRANSans;">{% trans "خرید من" %}</h1> 
+    </div>
+    <div style="display: inline; margin-bottom: 25px ;  direction: ltr;">
+        <a style="color: black; background-color: #ddd; border-radius: 5px; padding: 5px 8px;" href="{% url 'orders:order_pdf' order.id%}" download>دریافت فاکتور</a>
     </div>
     <div class="shopInfo">
-        <p>شماره فاکتور : {{ order.id }}</p>
-        <p>تاریخ سفارش : {{ order.created|to_jalali:'%Y/%m/%d' }}</p>
-        <h2>مشخصات خریدار</h2>
-        <p>نام و نام خانوادگی : {{order.first_name }} {{ order.last_name }}</p>
-        <p>ایمیل : {{order.email }}</p>
-        <p>آدرس  : {{order.address }}</p>
-        <p>کد پستی : {{order.postal_code }}</p>
-        <p>شهر : {{ order.city }}</p>
+        <p>{% trans "شماره فاکتور" %} : {{ order.id }}</p>
+        <p>{% trans "تاریخ سفارش" %} : {{ order.created|to_jalali:'%Y/%m/%d' }}</p>
+        <div style="direction: ltr; display: inline; justify-content: left; ">
+            <div>
+                <span style="font-size: 30px; " class="{% if order.paid %}paid{% else %}pending{% endif %}">
+                    {% if order.paid %}<p style="color: green; background-color: rgba(151, 255, 177, 0.52); display: inline;align-items: center; border-radius: 8px; padding: 5px 10px;  direction: rtl;">{% trans "پرداخت شده" %}</p>{% else %}<p style="color: red; background-color: rgba(255, 134, 134, 0.596); display: inline;align-items: center; border-radius: 8px; padding: 5px 10px;  direction: rtl;">{% trans "پرداخت نشده" %}</p>{% endif %}
+                </span>
+            </div>
+        </div>
+        <h2>{% trans "مشخصات خریدار" %}</h2>
+        <p>{% trans "نام و نام خانوادگی" %} : {{order.first_name }} {{ order.last_name }}</p>
+        <p>{% trans "ایمیل" %} : {{order.email }}</p>
+        <p>{% trans "آدرس " %} : {{order.address }}</p>
+        <p>{% trans "کد پستی" %} : {{order.postal_code }}</p>
+        <p>{% trans "شهر" %} : {{ order.city }}</p>
     </div>
+    
     <div class="itemBought">
         <div class="itemboughtTitle" style="text-align: center;">
-            <h1>اقلام خریداری شده</h1>  
+            <h1>{% trans "اقلام خریداری شده" %}</h1>  
         </div>
         <table >
             <thead style="direction: ltr;">
                 <tr>
-                    <th>محصول</th>
-                    <th>قیمت</th>
-                    <th>تعداد</th>
-                    <th>قیمت کل</th>
+                    <th>{% trans "قیمت کل" %}</th>
+                    <th>{% trans "تعداد" %}</th>
+                    <th>{% trans "قیمت" %}</th>
+                    <th>{% trans "محصول" %}</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in order.items.all %}
-                <tr >
+                <tr  >
+                    <td>{% trans "تومان" %}{{ item.get_cost }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price }}</td>
                     <td>{{ item.product.name }}</td>
-                    <td class="num">${{ item.price }}</td>
-                    <td class="num">{{ item.quantity }}</td>
-                    <td class="num">${{ item.get_cost }}</td>
                 </tr>
                 {% endfor %}
                 <tr class="total">
-                    <td colspan="3">مجموع قیمت خرید</td>
-                    <td class="num">${{ order.get_total_cost }}</td>
+                    <td colspan="3">{% trans "مجموع قیمت خرید" %}</td>
+                    <td >{% trans "تومان" %}{{ order.get_total_cost }}</td>
                 </tr>
             </tbody>
         </table><br>
-        <span class="{% if order.paid %}paid{% else %}pending{% endif %}">
-            {% if order.paid %}Paid{% else %}Pending payment{% endif %}
-        </span>
+        
 
 
     </div>

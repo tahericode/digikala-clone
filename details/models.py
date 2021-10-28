@@ -1,7 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
-
+# Question Model
 class Question(models.Model):
     name = models.CharField(_('نام و نام خانوادگی'), max_length=50)
     email = models.EmailField(_('ایمیل'))
@@ -17,7 +17,7 @@ class Question(models.Model):
     def __str__(self):
         return self.name
 
-
+# Contact us Model
 class ContactUs(models.Model):
     name = models.CharField(_('نام و نام خانوادگی'), max_length=50)
     email = models.EmailField(_('ایمیل'))

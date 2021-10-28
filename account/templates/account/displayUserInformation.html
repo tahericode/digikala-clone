@@ -1,0 +1,163 @@
+{% extends 'account/dashboard.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load static jalali_tags %}
+{% load i18n %}
+{% block page_title %}{% trans " داشبورد" %} <p style="color: #fff; margin-top: 15px; font-size: 18px;"> {% blocktrans %}داشبورد کاربر {% endblocktrans %}</p>{% endblock page_title %}  
+{% block dashboard %}
+
+
+{% load %}
+<!-- Start Checkout Area -->
+<div class="user-info-section">
+
+<section class="checkout-area ptb-100 ">
+    <div class="container user-info-container">
+        <div class="roww user-info-row">
+            <div class="col-lg-12 col-md-12 user-info-col">
+                <div class="billing-details">
+                    <div class="header-div">
+                        <div class="title-div">
+                            <h3 class="title">{% trans "نمایش اطلاعات" %} </h3>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="chang-informaiton-div">
+                            <a  href="{% url 'edit' %}" class="btn btn-primary order-btn order-btn__prefix user-info-btn">{% trans "ویرایش اطلاعات" %}</a>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+
+                        </div>
+
+                        <div class="col-lg-7 col-md-6 user-info">
+                            <div class="form-group ">
+                                
+                                <p class="user-info-item"><span class="user-info-label">{% trans "نام کوچک" %}: </span>{{request.user.first_name}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 user-info">
+                            <div class="form-group">
+                                <p class="user-info-item"><span class="user-info-label">{% trans "نام خانوادگی" %}: </span>{{request.user.last_name}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-6 user-info">
+                            <div class="form-group">
+                                <p class="user-info-item"><span class="user-info-label">{% trans "ایمیل" %}: </span>{{request.user.email}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 user-info">
+                            <div class="form-group">
+                                <p class="user-info-item"><span class="user-info-label">{% trans "آدرس" %}: </span>{{request.user.profile.address}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 col-md-6 user-info">
+                            <div class="form-group">
+                                <p class="user-info-item"><span class="user-info-label">{% trans "شهر" %}: </span>{{request.user.profile.city}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 user-info">
+                            <div class="form-group">
+                                <p class="user-info-item"><span class="user-info-label">{% trans "کد پستی" %}: </span>{{request.user.profile.postal_code}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-6 user-info">
+                            <div class="form-group">
+                                <p class="user-info-item"><span class="user-info-label">{% trans "تاریخ تولد" %}: </span>{{request.user.profile.date_of_birth|to_jalali:'%Y/%m/%d'}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    {% if request.user.is_authenticated %}
+    {% if messages %}
+    
+    <section class="cart-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="cart-table table-responsive">
+                        <b><h3 style="margin-bottom: 30px; text-align: center;margin-top: -5px;font-size: 22px; font-weight: 700;">پیام های عمومی</h3></b>
+                        <!-- ============ New Table for public messages -->
+                        <table class="table message-table" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th>{% trans "موضوع" %}</th>
+                                    <th>{% trans "بخش" %}</th>
+                                    <th>{% trans "زمان ارسال" %}</th>
+                                    <th>{% trans "مشاهده" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% if messages %}
+                                {% for message in messages %}
+                                <tr class="content-table__row">
+
+                                    <td class="product-name">
+                                        <p>{% blocktrans with sub=message.subject %}{{sub}}{% endblocktrans %}</p>
+                                    </td>
+
+                                    <td class="product-price">
+                                        <p>{% blocktrans with sec=message.section %}{{sec}}{% endblocktrans %}</p>
+                                    </td>
+
+                                    <td class="product-quantity">
+                                        <p>{{message.publish|to_jalali:'%Y/%m/%d '}}</p>
+                                    </td>
+                    
+                                    <td class="product-quantity">
+                                        <a href="{{message.get_absolute_url}}">{% trans "مشاهده" %}</a>
+                                    </td>
+                                </tr>
+                                
+                                {% endfor %}
+                                {% else %}
+                                <tr>
+                                    <td class="product-name" colspan="4">
+                                        <p >پیامی در دسترس نیست</p>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    {% else %}
+    <div class="blog-details-area">
+    <div class="navbar navbar-expand-md navbar-light">  
+    <div class="leave-a-reply">
+        <h5>{% trans "برای ثبت دیدگاه خود ابتدا باید" %} <a href="{% url 'register' %}">{% trans "ثبت نام" %}</a> {% trans "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت" %} <a href="{% url 'login' %}">{% trans "ورود" %}</a> {% trans "کنید." %}</h5>
+    </div>
+    </div>  
+    </div>
+    {% endif %}
+
+
+
+</section>
+
+
+
+
+
+</div>
+<!-- End Checkout Area -->
+{% endblock dashboard %}
