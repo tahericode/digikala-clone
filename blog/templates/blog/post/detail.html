@@ -5,58 +5,51 @@
 {% block title %} {{ post.meta_title }} {% endblock title%}
 <!-- End meta title -->
 
+{% block page_title %}{{ post.title }}{% endblock page_title %}
+
 <!-- add meta tags -->
 {% block meta %}
-
-
 <meta name="description" content="{{ post.meta_description }}">
 <meta name="keywords" content="{{ post.meta_keywords }}"> {% endblock meta %}
 <!-- End meta tags -->
-
-
 <!-- add header -->
 {% block header %}{{ post.meta_title }} {% endblock header %}
 <!-- End header -->
 
 <!-- Start Post Details Area -->
-
 {% block content %}
 <section class="blog-details-area ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-9 col-md-12">
+                {% comment %} ========== Blog Detail ============== {% endcomment %}
                 <div class="blog-details">
                     <div class="article-img text-center">
                         <img src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'details/assets/img/no_image.png' %}{% endif %}" alt="{{ post.alt_image }}">
-
                     </div>
-
                     <div class="article-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{% blocktrans with desc=post.long_description|safe %}{{desc}}{% endblocktrans %}</p>
                         <ul class="category">
                             <li><a href="{{ post.category.get_absolute_url }}">{{ post.category.name }}</a></li>
                         </ul>
-
-                        <h3>{{ post.title }}</h3>
-
-                        <p>{{ post.long_description|safe }}</p>
-
                     </div>
                 </div>
+                {% comment %}  ====== Blog Comments ======= {% endcomment %}
                 <div class="post-comments">
-                    <h3>نظرات</h3>
+                    <h3>{% trans "نظرات" %}</h3>
                     {% for comment in comments %}
                     <div class="single-comment">
                         <div class="comment-img">
-                            <img src="{% if comment.user.profile.photo %}{{ comment.user.profile.photo.url }}{% else %}{% static 'details/assets/img/default-avatar.png' %}{% endif %}" alt="client">
+                            <img class="img-comment-blog" src="{% if comment.user.profile.photo %}{{ comment.user.profile.photo.url }}{% else %}{% static 'details/assets/img/default-avatar.png' %}{% endif %}" alt="client">
                         </div>
-                        <div class="comment-content">
+                        <div class="comment-content div-comment-content">
                             <h4>{{ comment.user.first_name }} {{ comment.user.last_name }}</h4>
                             <p>{{ comment.body|linebreaks }}</p>
                             <span> {% trans "زمان ثبت دیدگاه" %} : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</span>
                         </div>
                     </div>
                     <hr> {% endfor %}
-
 
                 </div>
                 {% if user.is_authenticated %}
@@ -68,11 +61,8 @@
                         {% else %}
                         <h3>{% trans "دیدگاه شما" %}</h3>
                         <div class="row">
-
-
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-
                                     {{ comment_form.body|as_crispy_field}}
                                 </div>
                             </div>
@@ -90,7 +80,55 @@
                 </div>
                 {% endif %}
             </div>
+
+            {% comment %} ===== Sidebar ===== {% endcomment %}
+        <div class="col-lg-3 col-md-12">
+            <div class="sidebar-area">
+                <div class="widget widget-search">
+                    <form action="{% url 'blog:post_list' %}" method="get">
+                        <input name="q" type="search" class="form-control" placeholder="جستجو">
+                        <button type="submit"><i class="icofont-search-2"></i></button>
+                    </form>
+                </div>
+
+                <div class="widget widget_product_categories">
+                    <h3 class="widget-title">{% trans "دسته بندی بلاگ ها" %}</h3>
+                    <div class="bar"></div>
+                    <ul>
+                        <li><a href="/blog"><i class="icofont-bubble-right"></i> {% trans "همه" %}</a></li>
+                        {% for c in post_categories %}
+                            <li><a href="{{c.get_absolute_url}}"><i class="icofont-bubble-right"></i> {{c.name}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="widget widget_recent_products">
+                    <h3 class="widget-title">{% trans "بلاگ های اخیر" %}</h3>
+                    <div class="bar"></div>
+                    <ul>
+                        {% for latestblog in last_posts %}
+                            <li>
+                                <div class="recent-products-thumb">
+                                    <a href="{{latestblog.get_absolute_url}}">
+                                        <img src="{% if latestblog.image %}{{latestblog.image.url}}{%else%}{%static 'details/assets/img/marketing-shape/no_image.png'%}{%endif%}" alt="blog-image">
+                                    </a>
+                                </div>
+
+                                <div class="recent-products-content">
+                                    <h3><a href="{{latestblog.get_absolute_url}}">{{latestblog.title}}</a></h3>
+                                    <span class="date">- </span>
+                                </div>
+                            </li>
+                        {% endfor %}  
+                    </ul>
+                </div>
+
+            </div>
         </div>
+        </div>
+
+        
+        
 
     </div>
     </div>

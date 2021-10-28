@@ -1,9 +1,9 @@
-{% extends "details/base.html" %}
+{% extends 'account/dashboard.html' %}
 {% load static %}
 {% load static jalali_tags %}
 {% load i18n %}
 {% block page_title %}پیام های عمومی{% endblock page_title %}
-{% block content %}
+{% block dashboard %}
 
 
 {% if request.user.is_authenticated %}
@@ -13,25 +13,29 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="cart-table table-responsive">
-                    <table class="table table-bordered">
+                    
+                    <!-- ============ New Table for private messages -->
+                    <table class="table message-table" role="grid">
                         <thead>
-                            <tr>
-                                <th scope="col">{% trans "موضوع" %}</th>
-                                <th scope="col">{% trans "بخش" %}</th>
-                                <th scope="col">{% trans "زمان ارسال" %}</th>
-                                <th scope="col">{% trans "مشاهده" %}</th>
+                            <tr role="row">
+                                <th>{% trans "موضوع" %}</th>
+                                <th>{% trans "بخش" %}</th>
+                                <th>{% trans "زمان ارسال" %}</th>
+                                <th>{% trans "مشاهده" %}</th>
                             </tr>
                         </thead>
                         <tbody>
+
+                            {% if messages %}
                             {% for message in messages %}
-                            <tr>
+                            <tr class="content-table__row">
 
                                 <td class="product-name">
-                                    <p>{{message.subject}}</p>
+                                    <p>{% blocktrans with sub=message.subject %}{{sub}}{% endblocktrans %}</p>
                                 </td>
 
                                 <td class="product-price">
-                                    <p>{{message.section}}</p>
+                                    <p>{% blocktrans with sec=message.section %}{{sec}}{% endblocktrans %}</p>
                                 </td>
 
                                 <td class="product-quantity">
@@ -39,10 +43,19 @@
                                 </td>
                 
                                 <td class="product-quantity">
-                                    <a href="{{message.get_absolute_url}}">مشاهده</a>
+                                    <a href="{{message.get_absolute_url}}">{% trans "مشاهده" %}</a>
                                 </td>
                             </tr>
+                            
                             {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td class="product-name" colspan="4">
+                                    <p >پیامی در دسترس نیست</p>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            
                         </tbody>
                     </table>
                 </div>
@@ -65,4 +78,4 @@
 
 
 
-{% endblock content %}
+{% endblock dashboard %}

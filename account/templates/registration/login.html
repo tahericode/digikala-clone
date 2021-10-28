@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 
+{% block page_title %}{% blocktrans %}ورود{% endblocktrans %}<p style="color: #fff; margin-top: 15px; font-size: 18px;">{% blocktrans %}به حساب کاربری خود وارد شوید{% endblocktrans %}</p>{% endblock page_title %}
 
 
 
@@ -29,9 +30,9 @@
 <div class="text-center container">
     <br>
     <br>
-    <h1 style="border: solid; border-radius: 2em; padding-top: 1em; padding-bottom: 1em; background-color: rgb(233, 227, 227);">شما به حساب کاربری خود وارد شده اید</h1>
+    <h1 style="border: solid; border-radius: 2em; padding-top: 1em; padding-bottom: 1em; background-color: rgb(233, 227, 227);">{% trans "شما به حساب کاربری خود وارد شده اید" %}</h1>
     <br>
-    <h2 class="btn btn-warning" style="font-size: 2em;border-radius: 1em;"><a href="{% url 'dashboard' %}">ورود به داشبورد</a></h2>
+    <h2 class="btn btn-warning" style="font-size: 2em;border-radius: 1em;"><a href="{% url 'dashboard' %}">{% trans "ورود به داشبورد" %}</a></h2>
 </div>
 {% else %}
 <section class="login-area ptb-100">
@@ -45,10 +46,10 @@
 
             <div class="col-lg-6 col-md-12">
                 <div class="login-form">
-                    <h3>خوش آمدید!</h3>
-                    <p>لطفا وارد حساب کاربری خود شوید.</p>
+                    <h3>{% trans "خوش آمدید" %}</h3>
+                    <p>{% trans "لطفا وارد حساب کاربری خود شوید" %}</p>
                     {% if form.errors %}
-                    <p>نام کابری یا رمز عبور شما اشباه است لظفا دوباره امتحان کنيد!</p>
+                    <p>{% trans "نام کابری یا رمز عبور شما اشباه است لظفا دوباره امتحان کنيد" %}</p>
                     {% endif %}
 
                     <form action="{% url 'login' %}" method="POST" autocomplete="off">
@@ -73,9 +74,9 @@
                                 <input type="submit" class="btn btn-primary" value="هم اکنون وارد شوید!" />
                                 <input type="hidden" name="next" value="{{ next }}" />
                                 <br>
-                                <p class="forgot-password"><a href="{% url 'password_reset' %}">فراموشی رمز عبور؟</a>
+                                <p class="forgot-password"><a href="{% url 'password_reset' %}">{% trans "فراموشی رمز عبور؟" %}</a>
                                     <br>
-                                    <span><a href="{% url 'register' %}">ثبت نام کن!</a></span>
+                                    <span><a href="{% url 'register' %}">{% trans "ثبت نام کن!" %}</a></span>
                             </div>
                         </div>
                     </form>

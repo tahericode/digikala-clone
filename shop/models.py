@@ -1,9 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
 
+# Category class
 class Category(models.Model):
     name = models.CharField(_('نام'), max_length=200, db_index=True)
     slug = models.SlugField(_('اسلاگ'), max_length=200, db_index=True, unique=True)
@@ -15,10 +17,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
-
+    # get product list by category
     def get_absolute_url(self):
         return reverse('shop:product_list_by_category', args=[self.slug])
 
+# product class
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.DO_NOTHING, verbose_name=_('دسته بندی'))
     name = models.CharField(_('نام'), max_length=200, db_index=True)
@@ -31,6 +34,8 @@ class Product(models.Model):
     available = models.BooleanField(_('فعال/غیر فعال'), default=True)
     created = models.DateTimeField(_('تاریخ انتشار'), auto_now_add=True)
     updated = models.DateField(_('تاریخ اپدیت'), auto_now=True)
+    favorite = models.ManyToManyField(User, related_name='favorite', default=None, blank=True)
+
 
     class Meta:
         ordering = ('-created',)
@@ -40,14 +45,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
+    # get detailproduct by id, slug
     def get_absolute_url(self):
         return reverse('shop:product_detail', args=[self.id, self.slug]) 
 
 
 
-
+# comment class
 class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='product_comments', verbose_name=_('کاربر'))
     product = models.ForeignKey(Product,
                             on_delete=models.CASCADE,
                             related_name='comments', verbose_name=_('محصول'))
@@ -69,7 +75,7 @@ class Comment(models.Model):
     def __str__(self):
         return f'Comment by {self.name} on {self.product}'
 
-    
+# productImaes for products    
 class ProductImages(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='productImages')
     image = models.ImageField(_('عکس گالری'), upload_to = 'imagesProduct/%Y/%m/%d')

@@ -1,5 +1,3 @@
-from django.db import models
-from django.db.models import fields
 from django.forms import forms
 from .models import Comment
 from django import forms

@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils.translation import gettext_lazy as _
-
+#create model for Coupon
 class Coupon(models.Model):
     code = models.CharField(_('کد تخفیف'), max_length=50,
                             unique=True)

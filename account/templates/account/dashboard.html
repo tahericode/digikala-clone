@@ -5,85 +5,91 @@
 {% block page_title %}{% trans "داشبورد" %}{% endblock page_title %}
 {% block content %}
 
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-lg-9 col-md-12 dashboard-left-side">
+          {% block dashboard %}{% endblock dashboard %}
+        </div>
+      <div class="col-lg-3 col-md-12 dashboard-right-side">
+          <div class="dashboard-wrapper">
+            <div class="dashboard-image">
+                <img
+                 class="dashboard-image__image"
+                  src="{% if request.user.profile.photo %}{{request.user.profile.photo.url}}{% else %}{% static 'details/assets/img/blog-img3.jpg' %}{% endif %}"
+                  alt="Profile photo"
+                />
+            </div>
+            <h1 style="font-size: 24px;" class="dashboard-username">{{request.user.first_name}} {{request.user.last_name}}</h1>
+            
 
-<section class="checkout-area ptb-100">
-    <div class="container">
-        
-
-        
-                <div class="col-lg-6 col-md-12">
-                    <div class="order-details">
-                        <h3 class="title">{% trans "داشبورد" %} </h3>
-                        <div class="bar"></div>
-                            
-
-                        <div class="order-table table-responsive">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">{% trans "داشبورد" %} </th>
-                                        
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td class="product-name">
-                                           <a href="{% url 'edit' %}" class="nav-link">{% trans "ویرایش اطلاعات" %}</a> 
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="product-name">
-                                           <a href="{% url 'message:publicMessages' %}" class="nav-link">{% trans "پیغام های عمومی" %}</a> 
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="product-name">
-                                           <a href="{% url 'message:privateMessages' %}" class="nav-link">{% trans "پیغام های خصوصی" %}</a> 
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td class="product-name">
-                                           <a href="{% url 'password_change' %}" class="nav-link">{% trans " تغییر رمز عبور" %}</a>
-                                        </td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td class="product-name">
-                                           <a href="{% url 'orders:orderTracking' %}" class="nav-link">{% trans " پیگیری سفارشات" %}</a>
-                                        </td>
-                                    </tr>
-
-
-                                  
-                                    
-                                    
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div class="main-wrapper">
+              <div class="item-row-wrapper">
+                <div class="dashboard-items">
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(255, 118, 117);" class="fas fa-user dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'displayUserInformation' %}">{% trans " اطلاعات کاربر" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(89, 98, 117);" class="fas fa-envelope dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'message:privateMessages' %}">{% trans "پیام های خصوصی" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(116, 185, 255);" class="fas fa-globe-asia dashboard-icon"></i></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'message:publicMessages' %}">{% trans "پیام های عمومی" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(85, 239, 196);" class="fas fa-shopping-bag dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'orders:orderTracking' %}">{% trans "سفارش های من"%}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(253, 121, 168);" class="fas fa-bookmark dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'favorite_list' %}">{% trans "علاقه مندی ها" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(75, 123, 236);" class="fas fa-comment-alt dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'userComments' %}">{% trans "نطرات" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(165, 94, 234);" class="fas fa-lock dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'password_change' %}">{% trans "امنیت" %}</a></div>
+                  </div>
                 </div>
 
+                <div class="navbar-items">
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(255, 118, 117);" class="fas fa-lock dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'details:homePage' %}">{% trans "خانه" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(38, 222, 129);" class="fas fa-store-alt dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'shop:product_list' %}">{% trans "فروشگاه" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(99, 205, 218);" class="fab fa-blogger dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'blog:post_list' %}">{% trans "وبلاگ" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(0,0,0);" class="fas fa-question-circle dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'details:questions' %}">{% trans "سوالات متداول" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(255, 177, 66);" class="fas fa-address-card dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'details:about_us' %}">{% trans "درباره ما" %}</a></div>
+                  </div>
+                  <div class="item-row">
+                    <div class="item-icom"><i style="color:rgb(255, 63, 52);" class="fas fa-sign-out-alt dashboard-icon"></i></div>
+                    <div class="item-title"><a class="navigation-list__link" href="{% url 'logout' %}">{% trans "خروج" %}</a></div>
+                  </div>
+                  
+                </div>
+            ‍  </div>
             </div>
-        
 
-
-
-
-
+          </div>
+      </div>
 
     </div>
+    </div>
 
-
-
-
-</section>
-
-
+  
 {% endblock content %}

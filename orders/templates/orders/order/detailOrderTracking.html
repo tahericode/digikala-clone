@@ -2,58 +2,67 @@
 {% load static %}
 {% load static jalali_tags %}
 {% load i18n %}
-{% block page_title %}پیگیری سفارش{% endblock page_title %}
+{% block page_title %}{% trans "پیگیری سفارش" %}{% endblock page_title %}
 {% block content %}
 
 
 
 {% if request.user.is_authenticated %}
 
-
-<section class="cart-area ptb-100">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <div class="cart-table table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">{% trans "محصول" %}</th>
-                                <th scope="col">{% trans "قیمت" %}</th>
-                                <th scope="col">{% trans "تعداد" %}</th>
-                                <th scope="col">{% trans "قیمت پرداختی" %}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            {% for item in order.items.all %}
-                            <tr> 
-                                <td class="product-name">
-                                    <p>{{item.product.name}}</p>
-                                </td>
-
-                                <td class="product-price">
-                                    <p>{{item.price}} تومان</p>
-                                </td>
-
-                                <td class="product-quantity">
-                                    <p>{{item.quantity}}</p>
-                                </td>
-
-                                <td class="product-quantity">
-                                    <p>{{item.get_cost}} تومان</p>
-                                </td>   
-                            </tr>
-                            {% endfor %} 
-                        </tbody>
-                    </table>
+    <div class="detailOrderTracking-container">
+        <div class="orderTracking">
+            <ul class="orderTracking-list">
+                <li class="orderTracking-item"><img  style={% if order.paid == False %} "filter: grayscale(100%);"{% else %}"box-shadow: 0 0 15px rgb(0 0 0 / 10%); border-radius:5px;"{% endif %}  class="orderTracking-image" src="{% static "details/assets/img/orderTracking-img/accept-order.svg" %}" alt=""><p >تایید سفارش</p></li>
+                <li class="orderTracking-item"><img  style={% if order.prepare_order == False %}"filter: grayscale(100%);"{% else %}"box-shadow: 0 0 15px rgb(0 0 0 / 10%); border-radius:5px;"{% endif %}  class="orderTracking-image" src="{% static "details/assets/img/orderTracking-img/prepare-order.svg" %}" alt=""><p>آماده سازی سفارش</p></li>
+                <li class="orderTracking-item"><img  style={% if order.exit_processing_center == False %}"filter: grayscale(100%); "{% else %}"box-shadow: 0 0 15px rgb(0 0 0 / 10%); border-radius:5px;"{% endif %}  class="orderTracking-image" src="{% static "details/assets/img/orderTracking-img/exit_processing_center.svg" %}" alt=""><p>خروج از مرکز پردازش</p></li>
+                <li class="orderTracking-item"><img  style={% if order.delivery_to_customer == False %}"filter: grayscale(100%); "{% else %}"box-shadow: 0 0 15px rgb(0 0 0 / 10%); border-radius:5px;"{% endif %}  class="orderTracking-image" src="{% static "details/assets/img/orderTracking-img/delivery-order.svg" %}" alt=""><p>تحویل مرسوله به مشتری</p></li>
+            </ul>
+            
+        </div>
+        <section class="cart-area ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="cart-table table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">{% trans "محصول" %}</th>
+                                        <th scope="col">{% trans "قیمت" %}</th>
+                                        <th scope="col">{% trans "تعداد" %}</th>
+                                        <th scope="col">{% trans "قیمت پرداختی" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    {% for item in order.items.all %}
+                                    <tr> 
+                                        <td class="product-name">
+                                            <p>{% blocktrans with name=item.product.name %}{{name}}{% endblocktrans %}</p>
+                                        </td>
+        
+                                        <td class="product-price">
+                                            <p>{{item.price}} {% trans "تومان" %}</p>
+                                        </td>
+        
+                                        <td class="product-quantity">
+                                            <p>{{item.quantity}}</p>
+                                        </td>
+        
+                                        <td class="product-quantity">
+                                            <p>{{item.get_cost}} {% trans "تومان" %}</p>
+                                        </td>   
+                                    </tr>
+                                    {% endfor %} 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
     </div>
-</section>
-
-
 
 {% else %}
 <div class="blog-details-area">

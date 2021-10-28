@@ -21,6 +21,7 @@ def cart_add(request, product_id):
         cart.add(product=product, quantity=cd['quantity'], update_quantity = cd['update'])
     return redirect('cart:cart_detail')
 
+# Remove products from the card
 def cart_remove(request, product_id):
     # create object from the Cart class
     cart = Cart(request)
@@ -40,9 +41,6 @@ def cart_detail(request):
                                                        'override': True})
     # create object from CouponApplyForm class
     coupon_apply_form = CouponApplyForm()
-
-
-
     return render(request, 'cart/detail.html', {'cart':cart, 'coupon_apply_form': coupon_apply_form})
     
 

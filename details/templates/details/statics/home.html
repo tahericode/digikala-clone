@@ -1,266 +1,123 @@
 {% extends 'details/base.html' %}
 {% load static %}
 {% load i18n %}
-{% block page_title %}{% trans "خانه" %}{% endblock page_title %}
+{% block page_title %}<!-- Start SaaS Main Banner -->
+		<div class="main-banner saas-home">
+			<div class="d-table">
+				<div class="d-table-cell">
+					<div class="container">
+						<div class="row h-100 justify-content-center align-items-center">
+							<div class="col-lg-6 col-md-12">
+								<div class="saas-image">
+									<img src="{% static 'details/assets/img/saas-shape/arrow.png' %}" class="wow fadeInDown" data-wow-delay="0.6s" alt="arrow">
+									<img src="{% static 'details/assets/img/saas-shape/box1.png' %}" class="wow fadeInUp" data-wow-delay="0.6s" alt="box1">
+									<img src="{% static 'details/assets/img/saas-shape/boy1.png' %}" class="wow fadeInLeft" data-wow-delay="0.6s" alt="boy1">
+									<img src="{% static 'details/assets/img/saas-shape/boy2.png' %}" class="wow zoomIn" data-wow-delay="0.6s" alt="boy2">
+									<img src="{% static 'details/assets/img/saas-shape/boy3.png' %}" class="wow bounceIn" data-wow-delay="0.6s" alt="boy3">
+									<img src="{% static 'details/assets/img/saas-shape/digital-screen.png' %}" class="wow fadeInDown" data-wow-delay="0.6s" alt="digital-screen">
+									<img src="{% static 'details/assets/img/saas-shape/filter1.png' %}" class="wow zoomIn" data-wow-delay="0.6s" alt="filter1">
+									<img src="{% static 'details/assets/img/saas-shape/filter2.png' %}" class="wow fadeInUp" data-wow-delay="0.6s" alt="filter2">
+									<img src="{% static 'details/assets/img/saas-shape/filter3.png' %}" class="wow rotateIn" data-wow-delay="0.6s" alt="filter3">
+									<img src="{% static 'details/assets/img/saas-shape/girl1.png' %}" class="wow fadeInUp" data-wow-delay="0.6s" alt="girl1">
+									<img src="{% static 'details/assets/img/saas-shape/girl2.png' %}" class="wow zoomIn" data-wow-delay="0.6s" alt="girl2">
+									<img src="{% static 'details/assets/img/saas-shape/monitor.png' %}" class="wow zoomIn" data-wow-delay="0.6s" alt="monitor">
+
+									<img src="{% static 'details/assets/img/saas-shape/main-image.png' %}" class="wow zoomIn" data-wow-delay="0.6s" alt="main-image.png">
+								</div>
+							</div>
+
+							<div class="col-lg-6 col-md-12">
+								<div class="hero-content pl-4">
+									<h1>{% blocktrans %}با خیال راحت و مطمن خرید کنید{% endblocktrans %}</h1>
+									<p>{% blocktrans %}محصولات متنوع موجو در سایت ایت امکان را به شما میدهد که از انتخاب زیادی برخوردار باشید{% endblocktrans %}</p>
+									<a href="#" class="btn btn-primary">{% blocktrans %}شروع کنید{% endblocktrans %}</a>
+									<a href="https://www.youtube.com/watch?v=bk7McNUjWgw" class="video-btn popup-youtube"> {% blocktrans %}تماشای ویدیو{% endblocktrans %} <i class="icofont-play-alt-3"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="bg-gray shape-1"></div>
+			<div class="shape1"><img src="{% static 'details/assets/img/shape1.png' %}" alt="img"></div>
+			<div class="shape2"><img src="{% static 'details/assets/img/shape2.png' %}" alt="img"></div>
+			<div class="shape3"><img src="{% static 'details/assets/img/shape3.png' %}" alt="img"></div>
+			<div class="shape4 rotateme"><img src="{% static 'details/assets/img/shape4.png' %}" alt="img"></div>
+		</div>
+		<!-- End SaaS Main Banner -->
+{% endblock page_title %}
 {% block content %}
-
-
-<!-- Start Overview Area -->
-<section class="overview-section ptb-100">
-    <div class="container">
-        <div class="overview-box modern-flexible">
-            <div class="row h-100 justify-content-center align-items-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-item right-icon">
-                        <div class="icon">
-                            <i class="icofont-lamp-light"></i>
-                        </div>
-                        <h3>{% trans "ویترین خیره کننده" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %}
-                        </p>
-                    </div>
-
-                    <div class="single-item right-icon">
-                        <div class="icon">
-                            <i class="icofont-responsive"></i>
-                        </div>
-                        <h3>{% trans "کاملا قابل برنامه ریزی" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %}
-                        </p>
-                    </div>
-
-                    <div class="single-item right-icon">
-                        <div class="icon">
-                            <i class="icofont-ui-timer"></i>
-                        </div>
-                        <h3>{% trans "تورهای جذاب" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %}
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-12 overview-img">
-                    <img src="{% static 'details/assets/img/feature-img-with-app.png' %}" alt="image">
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-item">
-                        <div class="icon">
-                            <i class="icofont-ui-timer"></i>
-                        </div>
-                        <h3>{% trans "تورهای جذاب" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %}
-                        </p>
-                    </div>
-
-                    <div class="single-item">
-                        <div class="icon">
-                            <i class="icofont-star-alt-2"></i>
-                        </div>
-                        <h3>{% trans "طراحی جذاب" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %}
-                        </p>
-                    </div>
-
-                    <div class="single-item">
-                        <div class="icon">
-                            <i class="icofont-ui-timer"></i>
-                        </div>
-                        <h3>{% trans "تورهای جذاب" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</section>
-<!-- End Overview Area -->
-
-
-<!-- Start Latest_product Area -->
-<section class="blog-area ptb-100">
-    <div class="container">
-        <div class="section-title">
-            <h2>{% trans "جدید ترین محصولات ما" %}</h2>
-            <div class="bar"></div>
-
-        </div>
-
-        <div class="row">
-            <div class="blog-slides">
-                {% for latest_product in latest_products %}
-                <div class="col-lg-12 col-md-12">
-                    <div class="single-blog-post">
-                        <a href="{{latest_product.get_absolute_url}}" class="post-image"><img
-                                src="{% if latest_product.image %}{{latest_product.image.url}}{%else%}{%static 'details/assets/img/marketing-shape/no_image.png'%}{%endif%} "
-                                alt="blog-image"></a>
-
-                        <div class="blog-post-content">
-                            <ul>
-                                <li><i class="icofont-wall-clock"></i>{{latest_shop.created}} </li>
-                            </ul>
-                            <h3>{{latest_product.name}}</h3>
-                            <h4>{{latest_product.price}}</h4>
-                            <a href="{{latest_product.get_absolute_url}}" class="read-more-btn">{% trans "مشاهده محصول" %} <i
-                                    class="icofont-rounded-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Latest_product Area -->
-
-
-
-
-
-<div class="container">
-    <br/>
-    <br/>
-    <div class="row h-100 justify-content-center align-items-center">
-        <div class="col-lg-7 col-md-12">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-holder-box">
-                        <img src="{% static 'details/assets/img/payment-img1.png' %}" alt="image">
-                        <h3>{% trans "شرکت ما" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است." %}</p>
-                    </div>
-
-                    <div class="single-holder-box mt-30">
-                        <img src="{% static 'details/assets/img/payment-img2.png' %}" alt="image">
-                        <h3>{% trans "ارزش ما چیست؟" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است." %} </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="single-holder-box mt-50">
-                        <img src="{% static 'details/assets/img/payment-img3.png' %}" alt="image">
-                        <h3>{% trans "ما چه کسانی هستیم" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است." %} </p>
-                    </div>
-
-                    <div class="single-holder-box mt-30">
-                        <img src="{% static 'details/assets/img/payment-img4.png' %}" alt="image">
-                        <h3>{% trans "تماس با ما" %}</h3>
-                        <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
-                            است." %} </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-5 col-md-12">
-            <div class="features-holder-content">
-                <div class="section-title">
-
-                    <h2>{% trans "ما برای ساختن بهترین محصول اینجا هستیم" %}</h2>
-                    <div class="bar"></div>
-                    <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صن" %}</p>
-                </div>
-
-                <p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم
-                    ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم
-                    ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %} </p>
-                <a href="{% url 'shop:product_list' %}" class="btn btn-primary">{% trans "محصولات ما" %} </a>
-            </div>
-        </div>
-    </div>
-    <br/>
-    <br/>
-</div>
-
-
-<!-- Start Most_popular_product Area -->
-<section class="blog-area ptb-100">
-    <div class="container">
-        <div class="section-title">
-            <h2><strong>{% trans "پربازدیدترین ترین محصولات ما" %}</strong></h2>
-            <div class="bar"></div>
-
-        </div>
-
-        <div class="row">
-            <div class="blog-slides">
-                {% for most_popular_shop in most_popular_shops %}
-                <div class="col-lg-12 col-md-12">
-                    <div class="single-blog-post">
-                        <a href="{{most_popular_shop.get_absolute_url}}" class="post-image"><img
-                                src="{% if most_popular_shop.image %}{{most_popular_shop.image.url}}{%else%}{%static 'details/assets/img/marketing-shape/no_image.png'%}{%endif%} "
-                                alt="blog-image"></a>
-
-                        <div class="blog-post-content">
-                            <ul>
-                                <li><i class="icofont-wall-clock"></i>{{most_popular_shop.created}} </li>
-                            </ul>
-                            <h3>{{most_popular_shop.name}}</h3>
-                            <h4>{{most_popular_shop.price}}</h4>
-                            <a href="{{most_popular_shop.get_absolute_url}}" class="read-more-btn">{% trans "مشاهده محصول" %}<i
-                                    class="icofont-rounded-double-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Most_popular_product Area -->
 
 
 
 <!-- Start Features Area -->
-		<section class="features-area app-features ptb-100">
+		<section class="features-area saas-features ptb-100">
 			<div class="container">
 				<div class="section-title">
-					<h2>{% trans "چگونه ما میتوانیم به شما کمک کنیم" %}</h2>
+					<h2>با خیال راحت خرید کنید</h2>
 					<div class="bar"></div>
-					<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %} </p>
+					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 				</div>
 
 				<div class="row">
 					<div class="col-lg-4 col-md-6">
-						<div class="single-features-box">
+						<div class="single-features">
 							<div class="icon">
-								<i class="icofont-camera"></i>
+								<i class="icofont-hand-drag1"></i>
 							</div>
-							<h3>{% trans "فیلتر دوربین" %}</h3>
-							<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %} </p>
+							<h3>محصولت رو انتخاب کن</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 						</div>
 					</div>
 
 					<div class="col-lg-4 col-md-6">
-						<div class="single-features-box">
+						<div class="single-features">
 							<div class="icon">
-								<i class="icofont-responsive"></i>
+								<i class="icofont-basket"></i>
 							</div>
-							<h3>{% trans "سریع و بهینه شده" %}</h3>
-							<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است" %}</p>
+							<h3>اونو به سبد خریدت اضافه کن </h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 						</div>
 					</div>
 
-					<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-						<div class="single-features-box">
+					<div class="col-lg-4 col-md-6">
+						<div class="single-features">
+							<div class="icon">
+								<i class="icofont-data"></i>
+							</div>
+							<h3>اطلاعات رو کامل کن</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6">
+						<div class="single-features">
+							<div class="icon">
+								<i class="icofont-hand-drag"></i>
+							</div>
+							<h3>ثبت سفارش کن</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6">
+						<div class="single-features">
+							<div class="icon">
+								<i class="icofont-map"></i>
+							</div>
+							<h3>میتونی ببینی سفارشت تو چه مرحله ای هستش</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6">
+						<div class="single-features">
 							<div class="icon">
 								<i class="icofont-hand-drag1"></i>
 							</div>
-							<h3>{% trans "دراگ و دراپ" %}</h3>
-							<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است." %} </p>
+							<h3>دراگ و دراپ</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 						</div>
 					</div>
 				</div>
@@ -271,7 +128,7 @@
 					<div class="row h-100 justify-content-center align-items-center">
 						<div class="col-lg-6 col-md-12">
 							<div class="features-image">
-								<img src="{% static 'details/assets/img/features-img1.png' %}" alt="image">
+								<img style="padding: 45px;" src="{% static 'details/assets/img/landing-page/shop.svg' %}" alt="image">
 							</div>
 						</div>
 
@@ -281,32 +138,32 @@
 									<div class="icon">
 										<i class="icofont-ui-call"></i>
 									</div>
-									<h3>{% trans "خدمات تلفن رایگان" %}</h3>
-									<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است" %}</p>
+									<h3>خدمات تلفن رایگان</h3>
+									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 								</div>
 
 								<div class="features-item">
 									<div class="icon">
 										<i class="icofont-gift"></i>
 									</div>
-									<h3>{% trans "هدیه رایگان روزانه" %}</h3>
-									<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است" %}</p>
+									<h3>هدیه رایگان روزانه</h3>
+									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 								</div>
 
 								<div class="features-item">
 									<div class="icon">
 										<i class="icofont-qr-code"></i>
 									</div>
-									<h3>{% trans "اسکنر QR کد" %}</h3>
-									<p>{% trans "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است" %}</p>
+									<h3>اسکنر QR کد</h3>
+									<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-            </div>
-            
-            <div class="shape7"><img src="{% static 'details/assets/img/shape7.png' %}" alt="shape"></div>
+			</div>
+
+			<div class="shape7"><img src="{% static 'details/assets/img/shape7.png" alt="shape' %}"></div>
 			<div class="shape3"><img src="{% static 'details/assets/img/shape3.png' %}" alt="img"></div>
 			<div class="bg-gray shape-1"></div>
 			<div class="shape6"><img src="{% static 'details/assets/img/shape6.png' %}" alt="img"></div>
@@ -317,8 +174,649 @@
 		</section>
 		<!-- End Features Area -->
 
+		<!-- Start Overview Area -->
+		<section class="overview-section ptb-100 bg-gray">
+			<div class="container">
+				<div class="section-title">
+					<h2>تماس با تیم ما</h2>
+					<div class="bar"></div>
+					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+				</div>
+
+				<div class="overview-box">
+					<div class="row h-100 justify-content-center align-items-center">
+						<div class="col-lg-6 col-md-6 overview-img">
+							<img src="{% static 'details/assets/img/landing-page/contact-us.svg' %}" alt="image">
+						</div>
+
+						<div class="col-lg-6 col-md-6 overview-content">
+							<div class="icon">
+								<i class="icofont-power"></i>
+							</div>
+							<h3>آغاز صفحه</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+
+							<ul>
+								<li>تماس ویدیویی نامحدود</li>
+								<li>اضافه کردن مخاطب مورد علاقه</li>
+								<li>فیلتر دوربین</li>
+							</ul>
+							<a href="{% url 'details:contact_us' %}" class="btn btn-primary">تماس با تیم مجرب ما</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="overview-box">
+					<div class="row h-100 justify-content-center align-items-center">
+						<div class="col-lg-6 col-md-6 overview-content">
+							<div class="icon">
+								<i class="icofont-anchor"></i>
+							</div>
+							<h3>محصولات ما</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+
+							<ul>
+								<li>تماس ویدیویی نامحدود</li>
+								<li>اضافه کردن مخاطب مورد علاقه</li>
+								<li>فیلتر دوربین</li>
+							</ul>
+							<a href="{% url 'shop:product_list' %}" class="btn btn-primary">همه محصولات</a>
+						</div>
+
+						<div class="col-lg-6 col-md-6 app-fetured-item">
+							<div class="app-item item-one">
+								<i class="icofont-wink-smile"></i>
+								<h6>جامعه پسند</h6>
+							</div>
+
+							<div class="app-item item-two">
+								<i class="icofont-ebook"></i>
+								<h6>قیمت گذاری صادقانه</h6>
+							</div>
+
+							<div class="app-item item-three">
+								<i class="icofont-wink-smile"></i>
+								<h6>لپتاپ</h6>
+							</div>
+
+							<div class="app-item item-four">
+								<i class="icofont-stock-mobile"></i>
+								<h6>تلفن همراه</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="overview-box">
+					<div class="row h-100 justify-content-center align-items-center">
+						<div class="col-lg-6 col-md-6 overview-img">
+							<img src="{% static 'details/assets/img/landing-page/dashboard.svg' %}" alt="image">
+						</div>
+
+						<div class="col-lg-6 col-md-6 overview-content">
+							<div class="icon">
+								<i style="color: darkcyan;" class="icofont-users-social"></i>
+							</div>
+							<h3>داشبورد</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+
+							<ul>
+								<li>تماس ویدیویی نامحدود</li>
+								<li>اضافه کردن مخاطب مورد علاقه</li>
+								<li>فیلتر دوربین</li>
+							</ul>
+							<a href="{% url 'dashboard' %}" class="btn btn-primary">برو به داشبورد</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="overview-box">
+					<div class="row h-100 justify-content-center align-items-center">
+						<div class="col-lg-6 col-md-6 overview-content">
+							<div class="icon">
+								<i style="color: mediumseagreen;" class="icofont-ui-messaging"></i>
+							</div>
+							<h3>سوالات خود را از ما بپرسید</h3>
+							<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+
+							<ul>
+								<li>تماس ویدیویی نامحدود</li>
+								<li>اضافه کردن مخاطب مورد علاقه</li>
+								<li>فیلتر دوربین</li>
+							</ul>
+							<a href="{% url 'details:questions' %}" class="btn btn-primary">سوالات متداول</a>
+						</div>
+
+						<div class="col-lg-6 col-md-6 overview-img">
+							<img src="{% static 'details/assets/img/landing-page/question.svg' %}" alt="image">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="shape7"><img src="{% static 'details/assets/img/shape7.png' %}" alt="shape"></div>
+			<div class="shape3"><img src="{% static 'details/assets/img/shape3.png' %}" alt="img"></div>
+			<div class="bg-gray shape-1"></div>
+			<div class="shape6"><img src="{% static 'details/assets/img/shape6.png' %}" alt="img"></div>
+			<div class="shape8 rotateme"><img src="{% static 'details/assets/img/shape8.svg' %}" alt="shape"></div>
+			<div class="shape9"><img src="{% static 'details/assets/img/shape9.svg' %}" alt="shape"></div>
+			<div class="shape10"><img src="{% static 'details/assets/img/shape10.svg' %}" alt="shape"></div>
+			<div class="shape11 rotateme"><img src="{% static 'details/assets/img/shape11.svg' %}" alt="shape"></div>
+		</section>
+		<!-- End Overview Area -->
+
+		<!-- Start Join Area -->
+        <section class="join-area ptb-100">
+            <div class="container">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="join-img">
+                            <img src="{% static 'details/assets/img/3.png' %}" alt="img">
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6">
+                        <div class="join-content">
+							<span>شروع آزمایشی رایگان 30 روزه</span>
+                            <h3>به طور کلی 400K + مشتریان ما! لطفا شروع کنید</h3> 
+                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                            <a href="#" class="btn btn-primary">هم اکنون وارد شوید</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Join Area -->
+
+		<!-- Start CTA Area -->
+		<div class="cta-area">
+			<div class="container">
+				<div class="row h-100 justify-content-center align-items-center">
+					<div class="col-lg-7 col-md-7">
+						<p>می خواهید پیشرفت کنید؟ با ما همراه باشید</p>
+					</div>
+
+					<div class="col-lg-5 col-md-5 text-right">
+						<a href="#" class="btn btn-primary">یک تست درایو بگیرید</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End CTA Area -->
+
+		<!-- Start SAAS Tools Area -->
+		<section class="saas-tools ptb-100 bg-gray">
+			<div class="container">
+				<div class="section-title">
+					<h2>ابزار برای همه</h2>
+					<div class="bar"></div>
+					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-12 col-md-12">
+                        <div class="tab">
+                            <ul class="tabs">
+                                <li><a href="#">
+                                    <i class="icofont-dashboard-web"></i>
+                                    <br>
+                                    داشبورد
+								</a></li>
+								
+                                <li><a href="#">
+                                    <i class="icofont-inbox"></i>
+                                    <br>
+                                    صندوق ورودی
+                                </a></li>
+                                
+                                <li><a href="#">
+                                    <i class="icofont-ui-calendar"></i>
+                                    <br>
+                                    تقویم
+                                </a></li>
+                                
+                                <li><a href="#">
+                                    <i class="icofont-copy-invert"></i>
+                                    <br>
+                                    صورتحساب
+                                </a></li>
+                                
+                                <li><a href="#">
+                                    <i class="icofont-wrench"></i>
+                                    <br>
+                                    گزارش نویسی
+                                </a></li>
+                            </ul>
+
+                            <div class="tab_content">
+                                <div class="tabs_item">
+                                    <div class="row h-100 justify-content-center align-items-center">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_content mt-0">
+                                                <h3>داشبورد</h3>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                                <ul>
+                                                    <li><i class="icofont-ui-check"></i> طراحی خلاقانه</li>
+                                                    <li><i class="icofont-ui-check"></i> رتینا آماده</li>
+                                                    <li><i class="icofont-ui-check"></i> طراحی مدرن</li>
+                                                    <li><i class="icofont-ui-check"></i> بازاریابی دیجیتال و نام تجاری</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_img">
+                                                <img src="{% static 'details/assets/img/features-img1.png' %}" alt="img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tabs_item">
+                                    <div class="row h-100 justify-content-center align-items-center">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_img">
+                                                <img src="{% static 'details/assets/img/features-img1.png' %}" alt="img">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_content mb-0">
+                                                <h3>صندوق ورودی</h3>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                                <ul>
+                                                    <li><i class="icofont-ui-check"></i> طراحی خلاقانه</li>
+                                                    <li><i class="icofont-ui-check"></i> رتینا آماده</li>
+                                                    <li><i class="icofont-ui-check"></i> طراحی مدرن</li>
+                                                    <li><i class="icofont-ui-check"></i> بازاریابی دیجیتال و نام تجاری</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tabs_item">
+                                    <div class="row h-100 justify-content-center align-items-center">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_content mt-0">
+                                                <h3>تقویم</h3>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                                <ul>
+                                                    <li><i class="icofont-ui-check"></i> طراحی خلاقانه</li>
+                                                    <li><i class="icofont-ui-check"></i> رتینا آماده</li>
+                                                    <li><i class="icofont-ui-check"></i> طراحی مدرن</li>
+                                                    <li><i class="icofont-ui-check"></i> بازاریابی دیجیتال و نام تجاری</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_img">
+                                                <img src="{% static 'details/assets/img/features-img1.png' %}" alt="img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tabs_item">
+                                    <div class="row h-100 justify-content-center align-items-center">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_img">
+                                                <img src="{% static 'details/assets/img/features-img1.png' %}" alt="img">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_content mb-0">
+                                                <h3>صورتحساب</h3>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                                <ul>
+                                                    <li><i class="icofont-ui-check"></i> طراحی خلاقانه</li>
+                                                    <li><i class="icofont-ui-check"></i> رتینا آماده</li>
+                                                    <li><i class="icofont-ui-check"></i> طراحی مدرن</li>
+                                                    <li><i class="icofont-ui-check"></i> بازاریابی دیجیتال و نام تجاری</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tabs_item">
+                                    <div class="row h-100 justify-content-center align-items-center">
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_content mt-0">
+                                                <h3>گزارش نویسی</h3>
+                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+                                                <ul>
+                                                    <li><i class="icofont-ui-check"></i> طراحی خلاقانه</li>
+                                                    <li><i class="icofont-ui-check"></i> رتینا آماده</li>
+                                                    <li><i class="icofont-ui-check"></i> طراحی مدرن</li>
+                                                    <li><i class="icofont-ui-check"></i> بازاریابی دیجیتال و نام تجاری</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="tabs_item_img">
+                                                <img src="{% static 'details/assets/img/features-img1.png' %}" alt="img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+
+			<div class="shape1"><img src="{% static 'details/assets/img/shape1.png' %} alt="img"></div>
+			<div class="shape2"><img src="{% static 'details/assets/img/shape2.png' %} alt="img"></div>
+			<div class="shape3"><img src="{% static 'details/assets/img/shape3.png' %} alt="img"></div>
+			<div class="shape6"><img src="{% static 'details/assets/img/shape6.png' %} alt="img"></div>
+			<div class="shape8 rotateme"><img src="{% static 'details/assets/img/shape8.svg' %}" alt="shape"></div>
+
+            <!-- Bubble Animte -->
+            <div class="bubble-animate">
+                <div class="circle small square1"></div>
+                <div class="circle small square2"></div>
+                <div class="circle small square3"></div>
+                <div class="circle small square4"></div>
+                <div class="circle small square5"></div>
+                <div class="circle medium square1"></div>
+                <div class="circle medium square2"></div>
+                <div class="circle medium square3"></div>
+                <div class="circle medium square4"></div>
+                <div class="circle medium square5"></div>
+                <div class="circle large square1"></div>
+                <div class="circle large square2"></div>
+                <div class="circle large square3"></div>
+                <div class="circle large square4"></div>
+            </div>
+		</section>
+		<!-- End SAAS Tools Area -->
+
+		<!-- Start Fun Facts Area -->
+		<section class="fun-facts-area ptb-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="single-funfact">
+							<div class="icon">
+								<i class="icofont-users"></i>
+							</div>
+							<h3><span class="count">806</span></h3>
+							<p>مشتریان رضایت مند</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-funfact">
+							<div class="icon">
+								<i class="icofont-thumbs-up"></i>
+							</div>
+							<h3><span class="count">202</span></h3>
+							<p>قدردانی</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-funfact">
+							<div class="icon">
+								<i class="icofont-diamond"></i>
+							</div>
+							<h3><span class="count">5241</span></h3>
+							<p>زمان پاسخ گویی</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-funfact">
+							<div class="icon">
+								<i class="icofont-wrench"></i>
+							</div>
+							<h3><span class="count">512</span></h3>
+							<p>ورود اطلاعات</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fun-facts-inner-area">
+				<div class="container-fluid">
+					<div class="row h-100 justify-content-center align-items-center">
+						<div class="col-lg-6 col-md-12">
+							<div class="fun-facts-image">
+								<img src="{% static 'details/assets/img/features-img2.png' %}" alt="image">
+							</div>
+						</div>
+
+						<div class="col-lg-6 col-md-12">
+							<div class="fun-facts-inner-content">
+								<h3>ساخت رابط زیبا در برنامه شما</h3>
+								<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+								<p>طراحی وب پاسخگو طرح توسعه نوآورانه توسعه نوآورانه مشتری است رابط کاربری تحقیق و توسعه پروژه.</p>
+								<ul>
+									<li>تماس ویدیویی نامحدود</li>
+									<li>اضافه کردن مخاطب مورد علاقه</li>
+									<li>فیلتر دوربین</li>
+								</ul>
+								<a href="#" class="btn btn-primary">ادامه مطلب</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Fun Facts Area -->
+
+		<!-- Start Work Process Area -->
+		<section class="saas-work-process ptb-100">
+			<div class="container">
+				<div class="section-title">
+					<h2>فرآیند کار</h2>
+					<div class="bar"></div>
+					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+				</div>
+
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="single-work-process">
+							<div class="icon">
+								<i class="icofont-calendar"></i>
+							</div>
+							<h3>پلن</h3>
+							<p>بهترین قیمت ها را از ما بخواهید</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-work-process">
+							<div class="icon">
+								<i class="icofont-code-alt"></i>
+							</div>
+							<h3>توسعه</h3>
+							<p>بهترین قیمت ها را از ما بخواهید</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-work-process">
+							<div class="icon">
+								<i class="icofont-server"></i>
+							</div>
+							<h3>اجرا</h3>
+							<p>بهترین قیمت ها را از ما بخواهید</p>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<div class="single-work-process">
+							<div class="icon">
+								<i class="icofont-check"></i>
+							</div>
+							<h3>گزارش</h3>
+							<p>بهترین قیمت ها را از ما بخواهید</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Work Process Area -->
+
+		<!-- Start Latest_product Area -->
+        <section class="blog-area ptb-100">
+            <div class="container">
+                <div class="section-title">
+                    <h2>{% trans "جدید ترین محصولات ما" %}</h2>
+                    <div class="bar"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="blog-slides">
+                        {% for latest_product in latest_products %}
+                        <div class="col-lg-12 col-md-12">
+                            <div class="single-blog-post">
+                                <a href="{{latest_product.get_absolute_url}}" class="post-image"><img
+                                        src="{% if latest_product.image %}{{latest_product.image.url}}{%else%} {%static 'details/assets/img/marketing-shape/no_image.png'%} {%endif %} "
+                                        alt="blog-image"></a>
+
+                                <div class="blog-post-content">
+                                    <ul>
+                                        <li><i class="icofont-wall-clock"></i>{{latest_shop.created}} </li>
+                                    </ul>
+                                    <h3>{{latest_product.name}}</h3>
+                                    <h4>{{latest_product.price}}</h4>
+                                    <a href="{{latest_product.get_absolute_url}}" class="read-more-btn">{% trans "مشاهده محصول" %} <i
+                                            class="icofont-rounded-double-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
 
 
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Latest_product Area -->
+
+
+		<!-- Start Feedback Area -->
+		<section class="feedback-area ptb-100 bg-gray">
+			<div class="container">
+				<div class="section-title">
+					<h2>مشتریان</h2>
+					<div class="bar"></div>
+					<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+				</div>
+
+				<div class="row">
+					<div class="feedback-slides">
+						<div class="col-lg-12">
+							<div class="single-feedback">
+								<div class="client-info">
+									<img src="{% static 'details/assets/img/client1.jpg' %}" alt="client">
+									<h3>آلین</h3>
+									<span>توسعه دهنده وب</span>
+								</div>
+								<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="single-feedback">
+								<div class="client-info">
+									<img src="{% static 'details/assets/img/client2.jpg' %}" alt="client">
+									<h3>آلان اسمیت</h3>
+									<span>سئو</span>
+								</div>
+								<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="single-feedback">
+								<div class="client-info">
+									<img src="{% static 'details/assets/img/client3.jpg' %}" alt="client">
+									<h3>استیون</h3>
+									<span>توسعه دهنده وب</span>
+								</div>
+								<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="single-feedback">
+								<div class="client-info">
+									<img src="{% static 'details/assets/img/client4.jpg' %}" alt="client">
+									<h3>داوید لوئیز</h3>
+									<span>توسعه دهنده وب</span>
+								</div>
+								<p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<svg class="svg-feedback-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+				<path d="M0,70 C30,130 70,50 100,70 L100,100 0,100 Z" fill="#ffffff"/>
+			</svg>
+		</section>
+		<!-- End Feedback Area -->
+
+		<!-- Start Partner Area -->
+		<div class="partner-area">
+			<div class="container">
+				<div class="row">
+					<div class="partner-slides">
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-1.png' %}" alt="partner"></a>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-2.png' %}" alt="partner"></a>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-3.png' %}" alt="partner"></a>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-4.png' %}" alt="partner"></a>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-5.png' %}" alt="partner"></a>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-6.png' %}" alt="partner"></a>
+							</div>
+						</div>
+
+						<div class="col-lg-12">
+							<div class="item">
+								<a href="#"><img src="{% static 'details/assets/img/partner-7.png' %}" alt="partner"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Partner Area -->
 
 
 

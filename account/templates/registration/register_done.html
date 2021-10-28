@@ -18,7 +18,7 @@
 
 
 <!-- add header -->
-{% block header %} ثبت نام {% endblock header %}
+{% block header %} {% trans "ثبت نام" %} {% endblock header %}
 <!-- End header -->
 
 
@@ -37,7 +37,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="login-form">
                     
-                    <p>حساب کاربری شما با موفقیت ایجاد شد <span><a href="{% url 'login' %}"> login </a> </span> </p>
+                    <p>{% trans "حساب کاربری شما با موفقیت ایجاد شد" %} <span><a href="{% url 'login' %}"> login </a> </span> </p>
                 </div>
             </div>
         </div>

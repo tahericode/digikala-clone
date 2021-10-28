@@ -12,8 +12,9 @@ class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status='published')
 
-
+# model of PublicMessages
 class PublicMassages(models.Model):
+    # Choises for status field
     STATUS_CHOICES = (
         ('draft', _('در انتظار')),
         ('published', _('منتشر شده')),
@@ -30,22 +31,20 @@ class PublicMassages(models.Model):
     objects           = models.Manager() # the default manager
     published         = PublishedManager() # Our custom manager
 
-
-    
-    
     class Meta:
-        ordering = ('-publish',)
+        ordering = ('-created',)
         verbose_name =  _('پیام های عمومی')
         verbose_name_plural = _('پیام های عمومی')
     
     def _str_(self):
         return self.subject
-    
+    # get detailPublicMessages by id
     def get_absolute_url(self):
         return reverse('message:detailPublicMessages', args=[self.id])
 
-
+# model of PrivateMessages
 class PrivateMassages(models.Model):
+    # Choises for status field
     STATUS_CHOICES = (
         ('draft', _('در انتظار')),
         ('published', _('منتشر شده')),
@@ -70,6 +69,6 @@ class PrivateMassages(models.Model):
     
     def _str_(self):
         return self.subject
-
+    # get detailPrivateMessages by id
     def get_absolute_url(self):
         return reverse('message:detailPrivateMessages', args=[self.id])
