@@ -10,7 +10,6 @@ class CategoryAdmin(admin.ModelAdmin):
     # display with name and slug
     list_display = ['name', 'slug']
     # prepopulated slug with name
-    prepopulated_fields = {'slug': ('name',)}
     # search with name
     search_fields = ['name']
 
@@ -39,13 +38,10 @@ class PostAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     # show title - slug - author - get_publish_jalali - status 
     list_display = ['title', 'slug', 'author', 'get_publish_jalali', 'status']
     # filter with status - created - publish - author
-    list_filter = ['status', 'created', 'publish', 'author']
+    list_filter = ['status', 'created']
     # search with status - author__username - title - category__name
     search_fields = ['status', 'author__username', 'title', 'category__name']
     # prepopulated slug with title 
-    prepopulated_fields = {'slug': ('title',)}
-    # date_hierarchy with publish
-    date_hierarchy = 'publish'
     # Commentline is PostAdmin inline
     inlines = [CommentInline]
     # for jalali

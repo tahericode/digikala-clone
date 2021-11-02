@@ -1,11 +1,9 @@
-from blog import models
 from shop.models import Category, Product
 from django.shortcuts import redirect, render, get_object_or_404
 from . models import Category, Product
 from cart.forms import CartAddProductForm
-from django.core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator
 from taggit.models import Tag
-from django.db.models import Count
 from .forms import CommentForm
 from django.db.models import Q
 from django.contrib.auth.models import User
@@ -38,12 +36,12 @@ def product_list(request, category_slug=None, tag_slug=None):
         #show post by category__slug
     query = request.GET.get("q")
     if query:
-        products = products.filter(Q(name__icontains=query) | Q(category__name__icontains=query)).distinct()
+        products = products.filter(Q(name_en__icontains=query) | Q(category__name_en__icontains=query)|Q(name_fa__icontains=query) | Q(category__name_fa__icontains=query)).distinct()
 
     #last added product for show in Recent posts
     last_posts = products[:8]
     # add Paginator
-    paginator = Paginator(products, 4) # number of show products in each page
+    paginator = Paginator(products, 6) # number of show products in each page
     page_number = request.GET.get('page')
     pots_of_each_page = paginator.get_page(page_number) # page_obj = products in each page
 

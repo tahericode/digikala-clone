@@ -2,7 +2,8 @@
 {% load static %}
 {% load static jalali_tags %}
 {% load i18n %}
-{% block page_title %}پیام های عمومی{% endblock page_title %}
+{% block page_title %}{% trans "پیام های خصوصی" %}{% endblock page_title %}
+{% block title %}{% trans "پیام های خصوصی" %}{% endblock title %}
 {% block dashboard %}
 
 
@@ -39,7 +40,7 @@
                                 </td>
 
                                 <td class="product-quantity">
-                                    <p>{{message.publish|to_jalali:'%Y/%m/%d '}}</p>
+                                    <p>{% if LANGUAGE_CODE == 'fa' %}{{message.publish|to_jalali:'%Y/%m/%d '}}{% else %}{{message.publish|date:"Y/m/d"}}{% endif %}</p>
                                 </td>
                 
                                 <td class="product-quantity">
@@ -51,7 +52,7 @@
                             {% else %}
                             <tr>
                                 <td class="product-name" colspan="4">
-                                    <p >پیامی در دسترس نیست</p>
+                                    <p >{% trans "پیامی در دسترس نیست" %}</p>
                                 </td>
                             </tr>
                             {% endif %}

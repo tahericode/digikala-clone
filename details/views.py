@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from shop.models import Product
 from .forms import QuestionForm, ContactUsForm
+from django.utils.translation import activate
 
 # def for home page 
 def home_pageView(request):
@@ -14,6 +15,14 @@ def home_pageView(request):
         'cheapest_shops':cheapest_shops,
     }
     return render(request, 'details/statics/home.html', context)
+
+
+
+def change_lang(request):
+    
+    activate(request.GET.get('lang'))
+    return redirect(request.GET.get('next'))
+
 
 # def for contact_us
 def contact_us(requst):

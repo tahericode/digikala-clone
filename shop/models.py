@@ -4,14 +4,15 @@ from django.urls import reverse
 from ckeditor.fields import RichTextField
 from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
+from translated_fields import TranslatedField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Category class
 class Category(models.Model):
-    name = models.CharField(_('نام'), max_length=200, db_index=True)
+    name =TranslatedField(  models.CharField(_('نام'), max_length=200, db_index=True) )
     slug = models.SlugField(_('اسلاگ'), max_length=200, db_index=True, unique=True)
 
     class Meta:
-        ordering = ('name',)
         verbose_name = _('دسته بندی')
         verbose_name_plural = _('دسته بندی ها')
 
@@ -24,10 +25,10 @@ class Category(models.Model):
 # product class
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.DO_NOTHING, verbose_name=_('دسته بندی'))
-    name = models.CharField(_('نام'), max_length=200, db_index=True)
+    name =TranslatedField(  models.CharField(_('نام'), max_length=200, db_index=True) )
     slug = models.SlugField(_('اسلاگ'), max_length=200, db_index=True)
     image = models.ImageField(_('عکس'), upload_to = 'products/%Y/%m/%d', blank = True)
-    description = RichTextField(_('توضیحات'))
+    description =TranslatedField(  RichTextUploadingField(_('توضیحات')) )
     price = models.DecimalField(_('قیمت'), max_digits=10, decimal_places=0)
     stock = models.PositiveIntegerField(_('تعداد موجودی'))
     tags = TaggableManager(_('تگ ها'))
@@ -35,6 +36,13 @@ class Product(models.Model):
     created = models.DateTimeField(_('تاریخ انتشار'), auto_now_add=True)
     updated = models.DateField(_('تاریخ اپدیت'), auto_now=True)
     favorite = models.ManyToManyField(User, related_name='favorite', default=None, blank=True)
+
+
+    #Seo fields
+    meta_title =TranslatedField(models.CharField(_('meta_title'), max_length=350, blank=True, null=True) )
+    meta_description =TranslatedField(models.TextField(_('meta_description'), max_length=350, blank=True, null=True) )
+    meta_keywords =TranslatedField( models.TextField(_('meta_keywords'), max_length=350, blank=True, null=True) )
+    alt_image =TranslatedField( models.TextField(_('alt_image'), max_length=350, blank=True, null=True) )
 
 
     class Meta:
@@ -64,6 +72,8 @@ class Comment(models.Model):
     created = models.DateTimeField(_('تاریخ انتشار'),auto_now_add=True)
     updated = models.DateTimeField(_('تاریخ بروزرسانی'), auto_now=True)
     active = models.BooleanField(_('فعال/غیرفعال'), default=False)
+
+    
 
     class Meta:
         ordering = ('created',)

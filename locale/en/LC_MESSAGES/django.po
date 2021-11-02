@@ -3,17 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#: account/forms.py:22 account/forms.py:23 account/forms.py:24
-#: account/forms.py:28 account/forms.py:29 account/forms.py:34
-#: account/forms.py:35 account/forms.py:36
-#: blog/templates/blog/post/list.html:50 myshop/urls.py:29
-#: shop/templates/shop/detail.html:35
+#: account/forms.py:25 account/forms.py:26 account/forms.py:27
+#: account/forms.py:31 account/forms.py:32 account/forms.py:37
+#: account/forms.py:38 account/forms.py:39
+#: blog/templates/blog/post/list.html:47 myshop/urls.py:30
+#: shop/templates/shop/detail.html:34
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 13:26+0330\n"
+"POT-Creation-Date: 2021-11-01 23:36+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,404 +21,453 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: account/forms.py:13
+#: account/forms.py:16
 msgid "نام کاربری یا ایمیل خود را وارد کنید..."
-msgstr ""
+msgstr "Enter your username or email"
 
-#: account/forms.py:14
+#: account/forms.py:17
 msgid "رمز عبور خود را وارد کنید"
-msgstr ""
+msgstr "Enter your password"
 
-#: account/forms.py:18 account/forms.py:34 account/forms.py:63
+#: account/forms.py:21 account/forms.py:37 account/forms.py:66
 #: account/templates/account/displayUserInformation.html:50
-#: account/templates/account/edit.html:127 details/forms.py:8
+#: account/templates/account/edit.html:124 details/forms.py:8
 #: details/forms.py:19 details/models.py:7 details/models.py:23
-#: details/templates/details/base.html:206 orders/models.py:12
-#: orders/templates/orders/order/pdf.html:33 shop/models.py:61
+#: details/templates/details/base.html:230 orders/forms.py:8
+#: orders/models.py:12 orders/templates/orders/order/pdf.html:34
+#: shop/forms.py:8 shop/models.py:70
 msgid "ایمیل"
-msgstr ""
+msgstr "Email"
 
-#: account/forms.py:22
+#: account/forms.py:25
 msgid "رمز عبور قدیمی"
-msgstr ""
+msgstr "Old password"
 
-#: account/forms.py:23 account/forms.py:28
+#: account/forms.py:26 account/forms.py:31
 msgid "رمز عبور جدید"
-msgstr ""
+msgstr "New Password"
 
-#: account/forms.py:24 account/forms.py:29
+#: account/forms.py:27 account/forms.py:32
 msgid "تایید رمز عبور جدید"
-msgstr ""
-
-#: account/forms.py:33
-msgid "نام کاربری"
-msgstr ""
-
-#: account/forms.py:35
-msgid "رمز عبور"
-msgstr ""
+msgstr "Confirm new password"
 
 #: account/forms.py:36
+msgid "نام کاربری"
+msgstr "user name"
+
+#: account/forms.py:38
+msgid "رمز عبور"
+msgstr "Password"
+
+#: account/forms.py:39
 msgid "تایید رمز عبور"
-msgstr ""
+msgstr "Confirm password"
 
-#: account/forms.py:48
+#: account/forms.py:51
 msgid "قبلا با ایمیل ثبت نام انجام شده است"
-msgstr ""
+msgstr "Registration has already been done by email"
 
-#: account/forms.py:56
+#: account/forms.py:59
 msgid "عدم تطابق رمز های عبوریکبار دیگر تلاش کنید!!!"
-msgstr ""
+msgstr "Match passwords Try again"
 
-#: account/forms.py:61 account/templates/account/favorites.html:22
-#: cart/templates/cart/detail.html:20 orders/models.py:10 shop/models.py:10
-#: shop/models.py:27 shop/models.py:60
+#: account/forms.py:64 account/templates/account/favorites.html:22
+#: cart/templates/cart/detail.html:20 orders/models.py:10 shop/models.py:12
+#: shop/models.py:28 shop/models.py:69
 msgid "نام"
-msgstr ""
+msgstr "name"
 
-#: account/forms.py:61 account/templates/account/displayUserInformation.html:38
+#: account/forms.py:64 account/templates/account/displayUserInformation.html:38
+#: orders/forms.py:6
 msgid "نام کوچک"
-msgstr ""
+msgstr "First name"
 
-#: account/forms.py:62 account/templates/account/displayUserInformation.html:44
-#: account/templates/account/edit.html:119 orders/models.py:11
+#: account/forms.py:65 account/templates/account/displayUserInformation.html:44
+#: account/templates/account/edit.html:116 orders/forms.py:7
+#: orders/models.py:11
 msgid "نام خانوادگی"
-msgstr ""
+msgstr "Last name"
 
-#: account/forms.py:62
+#: account/forms.py:65
 msgid " نام خانوادگی"
-msgstr ""
+msgstr "Last name"
 
-#: account/forms.py:73 account/models.py:12
-#: account/templates/account/displayUserInformation.html:56
-#: account/templates/account/edit.html:134
-#: details/templates/details/base.html:201
-msgid "آدرس"
-msgstr ""
-
-#: account/forms.py:74 orders/models.py:14
-msgid "کدپستی"
-msgstr ""
-
-#: account/forms.py:75 account/models.py:14
-#: account/templates/account/displayUserInformation.html:62
-#: account/templates/account/edit.html:142 orders/models.py:15
-#: orders/templates/orders/order/pdf.html:36
-msgid "شهر"
-msgstr ""
-
-#: account/models.py:9 blog/models.py:70 message/models.py:52
-msgid "کاربر"
-msgstr ""
-
-#: account/models.py:10
+#: account/forms.py:74 account/models.py:10
 #: account/templates/account/displayUserInformation.html:74
-#: account/templates/account/edit.html:150
+#: account/templates/account/edit.html:147
 msgid "تاریخ تولد"
-msgstr ""
+msgstr "Date of birth"
+
+#: account/forms.py:78 account/models.py:12
+#: account/templates/account/displayUserInformation.html:56
+#: account/templates/account/edit.html:131
+#: details/templates/details/base.html:225
+msgid "آدرس"
+msgstr "Address"
+
+#: account/forms.py:79 orders/forms.py:10 orders/models.py:14
+msgid "کدپستی"
+msgstr "Postal code"
+
+#: account/forms.py:80 account/models.py:14
+#: account/templates/account/displayUserInformation.html:62
+#: account/templates/account/edit.html:139 orders/forms.py:11
+#: orders/models.py:15 orders/templates/orders/order/pdf.html:37
+msgid "شهر"
+msgstr "City"
+
+#: account/models.py:9 blog/models.py:72 message/models.py:53 shop/models.py:64
+msgid "کاربر"
+msgstr "User"
 
 #: account/models.py:13
 #: account/templates/account/displayUserInformation.html:68
-#: orders/templates/orders/order/pdf.html:35
+#: orders/templates/orders/order/pdf.html:36
 msgid "کد پستی"
-msgstr ""
+msgstr "Postal code"
 
 #: account/models.py:20 account/models.py:21
 msgid "پروفایل"
-msgstr ""
+msgstr "Profile"
 
 #: account/templates/account/dashboard.html:5
-#: details/templates/details/base.html:104
-#: details/templates/details/base.html:186
+#: account/templates/account/dashboard.html:6
+#: details/templates/details/base.html:106
+#: details/templates/details/base.html:210
+#: details/templates/details/statics/home.html:208
 msgid "داشبورد"
-msgstr ""
+msgstr "Dashboard"
 
-#: account/templates/account/dashboard.html:30
+#: account/templates/account/dashboard.html:32
 msgid " اطلاعات کاربر"
-msgstr ""
+msgstr "contact information"
 
-#: account/templates/account/dashboard.html:34 message/models.py:67
-#: message/models.py:68
+#: account/templates/account/dashboard.html:36 message/models.py:68
+#: message/models.py:69 message/templates/message/detailPrivateMessage.html:5
+#: message/templates/message/detailPrivateMessage.html:6
+#: message/templates/message/privateMessage.html:5
+#: message/templates/message/privateMessage.html:6
 msgid "پیام های خصوصی"
-msgstr ""
+msgstr "Private Messages"
 
-#: account/templates/account/dashboard.html:38 message/models.py:36
-#: message/models.py:37 message/templates/message/detailPrivateMessage.html:5
+#: account/templates/account/dashboard.html:40
+#: account/templates/account/displayUserInformation.html:92
+#: message/models.py:37 message/models.py:38
 #: message/templates/message/detailPublicMessage.html:5
+#: message/templates/message/detailPublicMessage.html:6
+#: message/templates/message/publicMessage.html:8
+#: message/templates/message/publicMessage.html:9
 msgid "پیام های عمومی"
-msgstr ""
+msgstr "Public messages"
 
-#: account/templates/account/dashboard.html:42
+#: account/templates/account/dashboard.html:44
 msgid "سفارش های من"
-msgstr ""
+msgstr "My order"
 
-#: account/templates/account/dashboard.html:46
+#: account/templates/account/dashboard.html:48
 msgid "علاقه مندی ها"
-msgstr ""
+msgstr "Favorate list"
 
-#: account/templates/account/dashboard.html:50
+#: account/templates/account/dashboard.html:52
 msgid "نطرات"
-msgstr ""
+msgstr "Comments"
 
-#: account/templates/account/dashboard.html:54
+#: account/templates/account/dashboard.html:56
 msgid "امنیت"
-msgstr ""
+msgstr "Security"
 
-#: account/templates/account/dashboard.html:61
-#: details/templates/details/base.html:95
+#: account/templates/account/dashboard.html:63
+#: details/templates/details/base.html:97
 #: orders/templates/orders/order/created.html:16
 msgid "خانه"
-msgstr ""
+msgstr "home"
 
-#: account/templates/account/dashboard.html:65
-#: details/templates/details/base.html:96
+#: account/templates/account/dashboard.html:67
+#: details/templates/details/base.html:98
+#: details/templates/details/statics/home.html:122
+#: details/templates/details/statics/home.html:130
+#: shop/templates/shop/list.html:4
 msgid "فروشگاه"
-msgstr ""
+msgstr "Online shop"
 
-#: account/templates/account/dashboard.html:69 blog/apps.py:6
-#: blog/templates/blog/post/list.html:5 blog/templates/blog/post/list.html:19
+#: account/templates/account/dashboard.html:71 blog/apps.py:6
+#: blog/templates/blog/post/list.html:5 blog/templates/blog/post/list.html:17
 msgid "وبلاگ"
-msgstr ""
+msgstr "veblog"
 
-#: account/templates/account/dashboard.html:73 details/models.py:15
-#: details/templates/details/base.html:99
-#: details/templates/details/base.html:328
+#: account/templates/account/dashboard.html:75 details/models.py:15
+#: details/templates/details/base.html:101
+#: details/templates/details/base.html:352
+#: details/templates/details/statics/home.html:233
 #: details/templates/details/statics/questions.html:5
+#: details/templates/details/statics/questions.html:6
 msgid "سوالات متداول"
-msgstr ""
+msgstr "Questions"
 
-#: account/templates/account/dashboard.html:77
-#: details/templates/details/base.html:100
+#: account/templates/account/dashboard.html:79
+#: details/templates/details/base.html:102
 #: details/templates/details/statics/about.html:4
+#: details/templates/details/statics/about.html:5
 msgid "درباره ما"
-msgstr ""
+msgstr "about us"
 
-#: account/templates/account/dashboard.html:81
-#: details/templates/details/base.html:113
-#: details/templates/details/base.html:187
+#: account/templates/account/dashboard.html:83
+#: details/templates/details/base.html:115
+#: details/templates/details/base.html:211
 msgid "خروج"
-msgstr ""
+msgstr "logout"
 
 #: account/templates/account/displayUserInformation.html:6
 msgid " داشبورد"
-msgstr ""
+msgstr "Dashboard"
 
 #: account/templates/account/displayUserInformation.html:6
 msgid "داشبورد کاربر "
-msgstr ""
+msgstr "User login"
 
 #: account/templates/account/displayUserInformation.html:21
 msgid "نمایش اطلاعات"
-msgstr ""
+msgstr "show information"
 
 #: account/templates/account/displayUserInformation.html:25
-#: account/templates/account/edit.html:5 account/templates/account/edit.html:23
+#: account/templates/account/edit.html:6 account/templates/account/edit.html:7
+#: account/templates/account/edit.html:28
 #: account/templates/account/userComments.html:5
 msgid "ویرایش اطلاعات"
-msgstr ""
+msgstr "Edit information"
 
 #: account/templates/account/displayUserInformation.html:97 details/forms.py:9
 #: details/forms.py:21 details/models.py:8 details/models.py:25
-#: message/models.py:23 message/models.py:54
+#: message/models.py:24 message/models.py:55
 #: message/templates/message/detailPrivateMessage.html:15
-#: message/templates/message/detailPublicMessage.html:14
-#: message/templates/message/privateMessage.html:21
-#: message/templates/message/publicMessage.html:21
-#: message/templates/message/publicMessage.html:65
+#: message/templates/message/detailPublicMessage.html:15
+#: message/templates/message/privateMessage.html:22
+#: message/templates/message/publicMessage.html:26
 msgid "موضوع"
-msgstr ""
+msgstr "subject"
 
 #: account/templates/account/displayUserInformation.html:98
-#: message/templates/message/privateMessage.html:22
-#: message/templates/message/publicMessage.html:22
-#: message/templates/message/publicMessage.html:66
+#: message/templates/message/privateMessage.html:23
+#: message/templates/message/publicMessage.html:27
 msgid "بخش"
-msgstr ""
+msgstr "section"
 
 #: account/templates/account/displayUserInformation.html:99
-#: message/templates/message/privateMessage.html:23
-#: message/templates/message/publicMessage.html:23
-#: message/templates/message/publicMessage.html:67
+#: message/templates/message/privateMessage.html:24
+#: message/templates/message/publicMessage.html:28
 msgid "زمان ارسال"
-msgstr ""
+msgstr "send date"
 
 #: account/templates/account/displayUserInformation.html:100
 #: account/templates/account/displayUserInformation.html:122
-#: message/templates/message/privateMessage.html:24
-#: message/templates/message/privateMessage.html:46
-#: message/templates/message/publicMessage.html:24
-#: message/templates/message/publicMessage.html:46
-#: message/templates/message/publicMessage.html:68
-#: message/templates/message/publicMessage.html:90
-#: orders/templates/orders/order/orderTracking.html:49
+#: message/templates/message/privateMessage.html:25
+#: message/templates/message/privateMessage.html:47
+#: message/templates/message/publicMessage.html:29
+#: message/templates/message/publicMessage.html:51
+#: orders/templates/orders/order/orderTracking.html:50
 msgid "مشاهده"
-msgstr ""
+msgstr "View"
 
 #: account/templates/account/displayUserInformation.html:110
-#: message/templates/message/detailPublicMessage.html:14
-#: message/templates/message/privateMessage.html:34
-#: message/templates/message/publicMessage.html:34
-#: message/templates/message/publicMessage.html:78
+#: message/templates/message/detailPublicMessage.html:15
+#: message/templates/message/privateMessage.html:35
+#: message/templates/message/publicMessage.html:39
 #, python-format
 msgid "%(sub)s"
-msgstr ""
+msgstr "%(sub)s"
 
 #: account/templates/account/displayUserInformation.html:114
-#: message/templates/message/detailPublicMessage.html:13
-#: message/templates/message/privateMessage.html:38
-#: message/templates/message/publicMessage.html:38
-#: message/templates/message/publicMessage.html:82
+#: message/templates/message/detailPublicMessage.html:14
+#: message/templates/message/privateMessage.html:39
+#: message/templates/message/publicMessage.html:43
 #, python-format
 msgid "%(sec)s"
-msgstr ""
+msgstr "%(sec)s"
+
+#: account/templates/account/displayUserInformation.html:130
+#: message/templates/message/privateMessage.html:55
+#: message/templates/message/publicMessage.html:59
+msgid "پیامی در دسترس نیست"
+msgstr "No message available"
 
 #: account/templates/account/displayUserInformation.html:147
-#: blog/templates/blog/post/detail.html:90
-#: message/templates/message/privateMessage.html:73
-#: message/templates/message/publicMessage.html:120
+#: blog/templates/blog/post/detail.html:96
+#: message/templates/message/privateMessage.html:74
+#: message/templates/message/publicMessage.html:76
 #: orders/templates/orders/order/detailOrderTracking.html:71
-#: shop/templates/shop/detail.html:137
+#: shop/templates/shop/detail.html:149
 msgid "برای ثبت دیدگاه خود ابتدا باید"
-msgstr ""
+msgstr "To register your opinion, you must first"
 
 #: account/templates/account/displayUserInformation.html:147
 #: account/templates/registration/register.html:7
 #: account/templates/registration/register.html:10
 #: account/templates/registration/register.html:22
 #: account/templates/registration/register_done.html:21
-#: blog/templates/blog/post/detail.html:90
-#: details/templates/details/base.html:117
-#: details/templates/details/base.html:190
-#: message/templates/message/privateMessage.html:73
-#: message/templates/message/publicMessage.html:120
+#: blog/templates/blog/post/detail.html:96
+#: details/templates/details/base.html:119
+#: details/templates/details/base.html:214
+#: message/templates/message/privateMessage.html:74
+#: message/templates/message/publicMessage.html:76
 #: orders/templates/orders/order/detailOrderTracking.html:71
-#: shop/templates/shop/detail.html:137
+#: shop/templates/shop/detail.html:149
 msgid "ثبت نام"
-msgstr ""
+msgstr "register"
 
 #: account/templates/account/displayUserInformation.html:147
-#: blog/templates/blog/post/detail.html:90
-#: message/templates/message/privateMessage.html:73
-#: message/templates/message/publicMessage.html:120
+#: blog/templates/blog/post/detail.html:96
+#: message/templates/message/privateMessage.html:74
+#: message/templates/message/publicMessage.html:76
 #: orders/templates/orders/order/detailOrderTracking.html:71
-#: shop/templates/shop/detail.html:137
+#: shop/templates/shop/detail.html:149
 msgid "کنید و یا اگر ثبت نام کرده اید باید با نام کاربری خود به سایت"
 msgstr ""
+"Or if you have registered you must log in to the site with your username"
 
 #: account/templates/account/displayUserInformation.html:147
 #: account/templates/registration/login.html:6
 #: account/templates/registration/login.html:11
 #: account/templates/registration/register.html:88
-#: blog/templates/blog/post/detail.html:90
-#: details/templates/details/base.html:116
-#: details/templates/details/base.html:189
-#: details/templates/details/base.html:304
-#: message/templates/message/privateMessage.html:73
-#: message/templates/message/publicMessage.html:120
+#: blog/templates/blog/post/detail.html:96
+#: details/templates/details/base.html:118
+#: details/templates/details/base.html:213
+#: details/templates/details/base.html:328
+#: message/templates/message/privateMessage.html:74
+#: message/templates/message/publicMessage.html:76
 #: orders/templates/orders/order/detailOrderTracking.html:71
 msgid "ورود"
-msgstr ""
+msgstr "login"
 
 #: account/templates/account/displayUserInformation.html:147
-#: blog/templates/blog/post/detail.html:90
-#: message/templates/message/privateMessage.html:73
-#: message/templates/message/publicMessage.html:120
+#: blog/templates/blog/post/detail.html:96
+#: message/templates/message/privateMessage.html:74
+#: message/templates/message/publicMessage.html:76
 #: orders/templates/orders/order/detailOrderTracking.html:71
 msgid "کنید."
-msgstr ""
+msgstr "."
 
-#: account/templates/account/edit.html:75
+#: account/templates/account/edit.html:80
 msgid "تغییر عکس پروفایل"
-msgstr ""
+msgstr "change image profile"
 
-#: account/templates/account/edit.html:99
+#: account/templates/account/edit.html:89
+msgid "ویرایش"
+msgstr "Edit information"
+
+#: account/templates/account/edit.html:96
 msgid "جزییات"
-msgstr ""
+msgstr "details"
 
-#: account/templates/account/edit.html:111
+#: account/templates/account/edit.html:108
 msgid " نام کوچک"
-msgstr ""
+msgstr "First name"
 
 #: account/templates/account/favorites.html:5
 #: account/templates/account/favorites.html:6
 msgid "لیست علاقه مندی"
-msgstr ""
+msgstr "Favorite list"
 
 #: account/templates/account/favorites.html:21
 #: cart/templates/cart/detail.html:19
 #: orders/templates/orders/order/detailOrderTracking.html:30
-#: orders/templates/orders/order/pdf.html:49 shop/models.py:43
-#: shop/models.py:58
+#: orders/templates/orders/order/pdf.html:50 shop/models.py:51
+#: shop/models.py:67
 msgid "محصول"
-msgstr ""
+msgstr "Product"
 
 #: account/templates/account/favorites.html:23 orders/models.py:48
 #: orders/templates/orders/order/detailOrderTracking.html:31
-#: orders/templates/orders/order/pdf.html:48 shop/models.py:31
+#: orders/templates/orders/order/pdf.html:49 shop/models.py:32
 msgid "قیمت"
-msgstr ""
+msgstr "Price"
 
 #: account/templates/account/favorites.html:24
 msgid "حذف"
-msgstr ""
+msgstr "delete"
 
 #: account/templates/account/favorites.html:44
-#: cart/templates/cart/detail.html:43 cart/templates/cart/detail.html:50
-#: cart/templates/cart/detail.html:86 cart/templates/cart/detail.html:87
-#: cart/templates/cart/detail.html:88 cart/templates/cart/detail.html:92
-#: cart/templates/cart/detail.html:93
+#: cart/templates/cart/detail.html:44 cart/templates/cart/detail.html:51
+#: cart/templates/cart/detail.html:94 cart/templates/cart/detail.html:95
+#: cart/templates/cart/detail.html:96 cart/templates/cart/detail.html:100
+#: cart/templates/cart/detail.html:101
 #: orders/templates/orders/order/create.html:88
 #: orders/templates/orders/order/create.html:108
 #: orders/templates/orders/order/create.html:119
 #: orders/templates/orders/order/create.html:129
 #: orders/templates/orders/order/detailOrderTracking.html:45
 #: orders/templates/orders/order/detailOrderTracking.html:53
-#: orders/templates/orders/order/pdf.html:55
-#: orders/templates/orders/order/pdf.html:63 shop/templates/shop/detail.html:29
-#: shop/templates/shop/detail.html:176 shop/templates/shop/list.html:36
-#: shop/templates/shop/list.html:112
+#: orders/templates/orders/order/pdf.html:56
+#: orders/templates/orders/order/pdf.html:64 shop/templates/shop/detail.html:29
+#: shop/templates/shop/detail.html:189 shop/templates/shop/list.html:37
+#: shop/templates/shop/list.html:113
 msgid "تومان"
-msgstr ""
+msgstr "toman"
+
+#: account/templates/account/favorites.html:56
+msgid "محصولی به لیست اضافه نکرده اید"
+msgstr "You have not added any products to the list"
+
+#: account/templates/account/favorites.html:56
+
+msgid "رفتن به فروشگاه"
+msgstr "Go to the Online shop"
+
+#: account/templates/account/userComments.html:16
+#: account/templates/account/userComments.html:30 message/models.py:21
+#: message/models.py:51
+msgid "منتشر شده"
+msgstr "published"
+
+#: account/templates/account/userComments.html:16
+#: account/templates/account/userComments.html:30
+
+msgid "در انتظار بررسی"
+msgstr "Awaiting review"
 
 #: account/templates/registration/login.html:6
 msgid "به حساب کاربری خود وارد شوید"
-msgstr ""
+msgstr "You are logged in to your account"
 
 #: account/templates/registration/login.html:24
 msgid "ورود کاربر"
-msgstr ""
+msgstr "User login"
 
 #: account/templates/registration/login.html:33
 #: account/templates/registration/register.html:33
 msgid "شما به حساب کاربری خود وارد شده اید"
-msgstr ""
+msgstr "You are logged in to your account"
 
 #: account/templates/registration/login.html:35
 #: account/templates/registration/register.html:35
 msgid "ورود به داشبورد"
-msgstr ""
+msgstr "Login to the dashboard"
 
 #: account/templates/registration/login.html:49
 msgid "خوش آمدید"
-msgstr ""
+msgstr "welcome"
 
 #: account/templates/registration/login.html:50
 msgid "لطفا وارد حساب کاربری خود شوید"
-msgstr ""
+msgstr "Please log in to your account"
 
 #: account/templates/registration/login.html:52
 msgid "نام کابری یا رمز عبور شما اشباه است لظفا دوباره امتحان کنيد"
-msgstr ""
+msgstr "Your username or password is incorrect, please try again"
+
+#: account/templates/registration/login.html:74
+
+msgid "هم اکنون وارد شوید!"
+msgstr "Sign in now!"
 
 #: account/templates/registration/login.html:77
 msgid "فراموشی رمز عبور؟"
-msgstr ""
+msgstr "forget password?"
 
 #: account/templates/registration/login.html:79
 msgid "ثبت نام کن!"
-msgstr ""
+msgstr "Register"
 
 #: account/templates/registration/password_change_done.html:6
 #: account/templates/registration/password_change_done.html:19
@@ -426,29 +475,29 @@ msgstr ""
 #: account/templates/registration/password_change_form.html:15
 #: account/templates/registration/password_change_form.html:31
 msgid "عوض کردن رمز عبور"
-msgstr ""
+msgstr "Change password"
 
 #: account/templates/registration/password_change_done.html:36
 msgid "تغییر رمز عبور موفقیت آمیز انجام شد"
-msgstr ""
+msgstr "Password change successful"
 
 #: account/templates/registration/password_change_done.html:37
 msgid "رمز عبور شما تغییر کرد."
-msgstr ""
+msgstr "Your password has changed"
 
 #: account/templates/registration/password_change_form.html:78
 msgid "رمز عبور شما باید حداقل 8 نویسه داشته باشد."
-msgstr ""
+msgstr "Your password must be at least 8 characters long"
 
 #: account/templates/registration/password_change_form.html:84
 #: account/templates/registration/password_reset_confirm.html:63
 msgid "رمز عبور شما کاملاً عددی نمی باشد"
-msgstr ""
+msgstr "Your password is not completely numeric"
 
 #: account/templates/registration/password_change_form.html:93
 #: account/templates/registration/password_reset_confirm.html:72
 msgid "عوض کردن پسورد"
-msgstr ""
+msgstr "Change password"
 
 #: account/templates/registration/password_reset_complete.html:8
 #: account/templates/registration/password_reset_complete.html:21
@@ -460,752 +509,936 @@ msgstr ""
 #: account/templates/registration/password_reset_form.html:35
 #: account/templates/registration/password_reset_form.html:57
 msgid "بازیابی رمز عبور"
-msgstr ""
+msgstr "Password recovery"
 
 #: account/templates/registration/password_reset_complete.html:40
 msgid "بازنشانی رمز عبور با موفقیت انجام شد"
-msgstr ""
+msgstr "Password reset successful"
 
 #: account/templates/registration/password_reset_complete.html:41
 msgid "رمز عبور شما تنظیم شده است"
-msgstr ""
+msgstr "Your password has been set"
 
 #: account/templates/registration/password_reset_confirm.html:46
 msgid "لطفا خطاهای زیر را تصحیح کنید."
-msgstr ""
+msgstr "Please correct the following errors"
 
 #: account/templates/registration/password_reset_confirm.html:60
 msgid "گذرواژه شما نمی تواند خیلی شبیه به سایر اطلاعات شخصی شما باشد"
 msgstr ""
+"Your password may not be very similar to your other personal information"
 
 #: account/templates/registration/password_reset_confirm.html:61
 msgid "رمز عبور شما باید حداقل 8 نویسه داشته باشد"
-msgstr ""
+msgstr "Your password must be at least 8 characters long"
 
 #: account/templates/registration/password_reset_confirm.html:62
 msgid "رمز عبور شما نمی تواند یک رمز عبور معمول استفاده شود"
-msgstr ""
+msgstr "Your password cannot be used as a regular password"
 
 #: account/templates/registration/password_reset_done.html:6
 #: account/templates/registration/password_reset_done.html:19
 #: account/templates/registration/password_reset_done.html:37
 msgid "بازیابی پسورد"
-msgstr ""
+msgstr "Password recovery"
 
 #: account/templates/registration/password_reset_done.html:38
 msgid "ایمیل برای شما ارسال شده لطفا ایمیل خود را چک کنید"
-msgstr ""
+msgstr "Email sent to you Please check your email"
 
 #: account/templates/registration/password_reset_email.html:1
-#, python-format
+
+
 msgid ""
 " شما این ایمیل را دریافت می کنید زیرا درخواست بازنشانی گذرواژه برای حساب "
-"کاربری خود را در آن کرده اید  %(site_name)s."
+"کاربری خود را در آن کرده اید  ."
 msgstr ""
+"You are receiving this email because requesting a password reset for the "
+"account"
 
 #: account/templates/registration/password_reset_email.html:3
 msgid "لطفاً به صفحه زیر بروید و رمز جدید را انتخاب کنید:"
-msgstr ""
+msgstr "Please go to the page below and choose a new password"
 
 #: account/templates/registration/password_reset_email.html:7
 msgid "نام کاربری شما ، اگر آن را فراموش کردید:"
-msgstr ""
+msgstr "Your username, if you forgot it:"
 
 #: account/templates/registration/password_reset_email.html:9
 msgid "با تشکر از شما برای استفاده از سایت ما!"
-msgstr ""
+msgstr "Thank you for using our site"
 
 #: account/templates/registration/password_reset_email.html:11
 #, python-format
-msgid "The %(site_name)s team"
+msgid " %(site_name)s"
 msgstr ""
 
 #: account/templates/registration/password_reset_form.html:36
 msgid "لطفاایمیل خود را وارد کنید."
-msgstr ""
+msgstr "please enter your Email"
 
 #: account/templates/registration/register.html:10
 msgid "حساب کاربری خود را بسازید"
-msgstr ""
+msgstr "You are logged in to your account"
 
 #: account/templates/registration/register.html:49
 msgid "خوش آمدید!"
-msgstr ""
+msgstr "welcome"
 
 #: account/templates/registration/register.html:50
 msgid "لطفا ثبت نام بفرمایید"
-msgstr ""
+msgstr "Please register"
+
+#: account/templates/registration/register.html:85
+msgid "ثبت نام کن"
+msgstr "Register"
 
 #: account/templates/registration/register.html:88
 msgid "در حال حاضر یک کاربر ثبت شده است؟"
-msgstr ""
+msgstr "Already a registered user?"
 
 #: account/templates/registration/register_done.html:40
 msgid "حساب کاربری شما با موفقیت ایجاد شد"
-msgstr ""
+msgstr "Your account was created successfully"
 
 #: blog/forms.py:7
 msgid "دیدگاه خود را ثبت کنید"
-msgstr ""
+msgstr "Post your comment"
 
-#: blog/models.py:10
+#: blog/models.py:14
 msgid "نام دسته بندی"
-msgstr ""
+msgstr "Category name"
 
-#: blog/models.py:11 blog/models.py:38
+#: blog/models.py:15 blog/models.py:41
 msgid "slug"
-msgstr ""
+msgstr "slug"
 
-#: blog/models.py:15
+#: blog/models.py:18
 msgid "دسته بندی پست"
-msgstr ""
+msgstr "post category"
 
-#: blog/models.py:16
+#: blog/models.py:19
 msgid "دسته بندی پست ها"
-msgstr ""
+msgstr "Post categories"
 
-#: blog/models.py:36 shop/models.py:15 shop/models.py:26
+#: blog/models.py:39 shop/models.py:16 shop/models.py:27
 msgid "دسته بندی"
-msgstr ""
-
-#: blog/models.py:37
-msgid "عنوان"
-msgstr ""
-
-#: blog/models.py:39
-msgid "نویسنده"
-msgstr ""
+msgstr "Grouping"
 
 #: blog/models.py:40
+msgid "عنوان"
+msgstr "Title"
+
+#: blog/models.py:42
+msgid "نویسنده"
+msgstr "Author"
+
+#: blog/models.py:43
 msgid "عکس اصلی"
-msgstr ""
+msgstr "Main Image"
 
-#: blog/models.py:41 message/models.py:24 message/models.py:55
+#: blog/models.py:44 message/models.py:25 message/models.py:56
 msgid "توضیحات مختصر"
-msgstr ""
+msgstr "Brief description"
 
-#: blog/models.py:42 message/models.py:25 message/models.py:56
+#: blog/models.py:45 message/models.py:26 message/models.py:57
 msgid "توضیحات جامع"
-msgstr ""
+msgstr "Comprehensive description"
 
-#: blog/models.py:43 message/models.py:26 message/models.py:57
-#: orders/models.py:16 shop/models.py:35 shop/models.py:63
+#: blog/models.py:46 message/models.py:27 message/models.py:58
+#: orders/models.py:16 shop/models.py:36 shop/models.py:72
 msgid "تاریخ انتشار"
-msgstr ""
+msgstr "Date of Release"
 
-#: blog/models.py:44 blog/models.py:72 message/models.py:27
-#: message/models.py:58
-msgid "زمان ساخت"
-msgstr ""
-
-#: blog/models.py:45 blog/models.py:73 message/models.py:28
+#: blog/models.py:47 blog/models.py:75 message/models.py:28
 #: message/models.py:59
+msgid "زمان ساخت"
+msgstr "Construction time"
+
+#: blog/models.py:48 blog/models.py:76 message/models.py:29
+#: message/models.py:60
 msgid "زمان به روز رسانی"
-msgstr ""
+msgstr "Update time"
 
-#: blog/models.py:46 message/models.py:29 message/models.py:60
+#: blog/models.py:49 message/models.py:30 message/models.py:61
 msgid "وضعیت انتشار"
-msgstr ""
+msgstr "Release status"
 
-#: blog/models.py:51
+#: blog/models.py:54 shop/models.py:42
 msgid "meta_title"
-msgstr ""
+msgstr "meta-title"
 
-#: blog/models.py:52
+#: blog/models.py:55 shop/models.py:43
 msgid "meta_description"
-msgstr ""
+msgstr "meta-description"
 
-#: blog/models.py:53
+#: blog/models.py:56 shop/models.py:44
 msgid "meta_keywords"
-msgstr ""
+msgstr "meta-keywords"
 
-#: blog/models.py:54
+#: blog/models.py:57 shop/models.py:45
 msgid "alt_image"
-msgstr ""
+msgstr "alt_image"
 
-#: blog/models.py:58
+#: blog/models.py:60
 msgid "پست"
-msgstr ""
+msgstr "post"
 
-#: blog/models.py:59
+#: blog/models.py:61
 msgid "پست ها"
-msgstr ""
-
-#: blog/models.py:69
-msgid "پست مورد نظر"
-msgstr ""
+msgstr "posts"
 
 #: blog/models.py:71
-msgid "دیدگاه مورد نظر"
-msgstr ""
+msgid "پست مورد نظر"
+msgstr "The desired post"
 
 #: blog/models.py:74
+msgid "دیدگاه مورد نظر"
+msgstr "The desired view"
+
+#: blog/models.py:77
 msgid "فعال بودن نمایش دیدگاه در سایت"
-msgstr ""
+msgstr "Active display of comments on the site"
 
-#: blog/models.py:78
+#: blog/models.py:81
 msgid "دیدگاه های پست"
-msgstr ""
+msgstr "Post comments"
 
-#: blog/models.py:79
+#: blog/models.py:82
 msgid "دیدگاه های پست ها"
+msgstr "Post Comments"
+
+#: blog/templates/blog/post/detail.html:8
+#, python-format
+msgid "%(short_desc)s"
 msgstr ""
 
-#: blog/templates/blog/post/detail.html:39 shop/templates/shop/detail.html:31
-#: shop/templates/shop/detail.html:86
+#: blog/templates/blog/post/detail.html:33 shop/templates/shop/detail.html:30
+#: shop/templates/shop/detail.html:85
 #, python-format
 msgid "%(desc)s"
 msgstr ""
 
-#: blog/templates/blog/post/detail.html:48 shop/templates/shop/detail.html:81
-#: shop/templates/shop/detail.html:97
+#: blog/templates/blog/post/detail.html:49 shop/templates/shop/detail.html:80
+#: shop/templates/shop/detail.html:95
 msgid "نظرات"
-msgstr ""
+msgstr "comments"
 
-#: blog/templates/blog/post/detail.html:57 shop/templates/shop/detail.html:105
+#: blog/templates/blog/post/detail.html:58 shop/templates/shop/detail.html:104
 msgid "زمان ثبت دیدگاه"
-msgstr ""
+msgstr "Comment submission time"
 
-#: blog/templates/blog/post/detail.html:68
+#: blog/templates/blog/post/detail.html:72
 msgid "دیدگاه شما موفقیت ثبت شد."
-msgstr ""
+msgstr "Your comment was successfully registered"
 
-#: blog/templates/blog/post/detail.html:70
+#: blog/templates/blog/post/detail.html:78
 msgid "دیدگاه شما"
-msgstr ""
+msgstr "Your point of view"
 
-#: blog/templates/blog/post/detail.html:82
+#: blog/templates/blog/post/detail.html:87
 msgid "ثبت دیدگاه"
-msgstr ""
+msgstr "Post a comment"
 
-#: blog/templates/blog/post/detail.html:106
-#: blog/templates/blog/post/list.html:97
+#: blog/templates/blog/post/detail.html:107
+#: blog/templates/blog/post/list.html:88
+msgid "جستجو"
+msgstr "Search"
+
+#: blog/templates/blog/post/detail.html:113
+#: blog/templates/blog/post/list.html:94
 msgid "دسته بندی بلاگ ها"
-msgstr ""
+msgstr "Blog Categories"
 
-#: blog/templates/blog/post/detail.html:111
-#: blog/templates/blog/post/list.html:102 shop/templates/shop/list.html:88
+#: blog/templates/blog/post/detail.html:116
+#: blog/templates/blog/post/list.html:99 shop/templates/shop/list.html:89
 msgid "همه"
-msgstr ""
+msgstr "All"
 
-#: blog/templates/blog/post/detail.html:121
-#: blog/templates/blog/post/list.html:112
+#: blog/templates/blog/post/detail.html:124
+#: blog/templates/blog/post/list.html:109
 msgid "بلاگ های اخیر"
-msgstr ""
+msgstr "Recent Blogs"
 
 #: blog/templates/blog/post/list.html:8
 msgid "بلاگ ها"
-msgstr ""
+msgstr "blogs"
 
 #: blog/templates/blog/post/list.html:8
 msgid "مطالب بروز دنیای تکنولوژی و مارکتینگ را مطالعه کنید"
-msgstr ""
+msgstr "Read the latest developments in the world of technology and marketing"
 
-#: blog/templates/blog/post/list.html:68 shop/templates/shop/list.html:54
+#: blog/templates/blog/post/list.html:65 shop/templates/shop/list.html:55
 msgid "قبلی"
-msgstr ""
+msgstr "Previous"
 
-#: blog/templates/blog/post/list.html:74 shop/templates/shop/list.html:60
+#: blog/templates/blog/post/list.html:71 shop/templates/shop/list.html:61
 msgid "بعدی"
-msgstr ""
+msgstr "next"
+
+#: cart/forms.py:7 cart/templates/cart/detail.html:22 orders/models.py:49
+#: orders/templates/orders/order/create.html:71
+#: orders/templates/orders/order/detailOrderTracking.html:32
+#: orders/templates/orders/order/pdf.html:48
+msgid "تعداد"
+msgstr "Quantity"
 
 #: cart/templates/cart/detail.html:5
 msgid "سبد خرید"
-msgstr ""
+msgstr "Cart"
 
 #: cart/templates/cart/detail.html:21
 msgid "قیمت واحد"
-msgstr ""
-
-#: cart/templates/cart/detail.html:22 orders/models.py:49
-#: orders/templates/orders/order/create.html:71
-#: orders/templates/orders/order/detailOrderTracking.html:32
-#: orders/templates/orders/order/pdf.html:47
-msgid "تعداد"
-msgstr ""
+msgstr "Unit price"
 
 #: cart/templates/cart/detail.html:23
 #: orders/templates/orders/order/create.html:72
 msgid "مجموع"
-msgstr ""
+msgstr "totla"
 
 #: cart/templates/cart/detail.html:24
 msgid "پاک کردن"
-msgstr ""
+msgstr "remove"
 
-#: cart/templates/cart/detail.html:70
+#: cart/templates/cart/detail.html:78
 msgid "کد کوپن را اعمال کنید"
-msgstr ""
+msgstr "Apply the coupon code"
 
-#: cart/templates/cart/detail.html:76
+#: cart/templates/cart/detail.html:84
 msgid "به روز رسانی سبد خرید"
-msgstr ""
+msgstr "Shopping Cart Update"
 
-#: cart/templates/cart/detail.html:83
+#: cart/templates/cart/detail.html:91
 msgid "مجموع سبد"
-msgstr ""
+msgstr "Total basket"
 
-#: cart/templates/cart/detail.html:86 cart/templates/cart/detail.html:92
+#: cart/templates/cart/detail.html:94 cart/templates/cart/detail.html:100
 #: orders/templates/orders/order/create.html:104
 msgid "مجموع مبالغ"
-msgstr ""
+msgstr "Total amounts"
 
-#: cart/templates/cart/detail.html:87
+#: cart/templates/cart/detail.html:95
 msgid "مبلغ تخفیف"
-msgstr ""
+msgstr "The amount of discount"
 
-#: cart/templates/cart/detail.html:88 cart/templates/cart/detail.html:93
+#: cart/templates/cart/detail.html:96 cart/templates/cart/detail.html:101
 #: orders/templates/orders/order/create.html:125
 msgid "مبلغ قابل پرداخت"
-msgstr ""
+msgstr "The amount payable"
 
-#: cart/templates/cart/detail.html:96
+#: cart/templates/cart/detail.html:104
 msgid "تایید کنید"
-msgstr ""
+msgstr "confirm"
 
 #: coupons/forms.py:6
 msgid "کد تخفیف خود را وارد کنید ..."
-msgstr ""
+msgstr "Enter your discount code..."
 
 #: coupons/models.py:6
 msgid "کد تخفیف"
-msgstr ""
+msgstr "discount code"
 
 #: coupons/models.py:8
 msgid "از تاریخ"
-msgstr ""
+msgstr "from"
 
 #: coupons/models.py:9
 msgid "تا تاریخ"
-msgstr ""
+msgstr "to"
 
 #: coupons/models.py:10
 msgid "مقدار تخفیف(به درصد)"
-msgstr ""
+msgstr "Discount amount (in percent)"
 
-#: coupons/models.py:13 shop/models.py:34
+#: coupons/models.py:13 shop/models.py:35
 msgid "فعال/غیر فعال"
-msgstr ""
+msgstr "Active/Passive"
 
 #: coupons/models.py:18
 msgid "تخفیف"
-msgstr ""
+msgstr "Discount"
 
 #: coupons/models.py:19
 msgid "تخفیف ها"
-msgstr ""
+msgstr "Discounts"
 
 #: details/forms.py:7 details/forms.py:18 details/models.py:6
-#: details/models.py:22 orders/templates/orders/order/pdf.html:32
+#: details/models.py:22 orders/templates/orders/order/pdf.html:33
+#: shop/forms.py:7
 msgid "نام و نام خانوادگی"
-msgstr ""
+msgstr "full name"
 
-#: details/forms.py:10 details/forms.py:22
+#: details/forms.py:10 details/forms.py:22 shop/forms.py:9
 msgid "پیام شما"
-msgstr ""
+msgstr "messaging"
 
-#: details/forms.py:20
+#: details/forms.py:20 details/templates/details/statics/home.html:151
 msgid "تلفن همراه"
-msgstr ""
+msgstr "Mobile number"
 
 #: details/models.py:9
 msgid "پیام"
-msgstr ""
+msgstr "message"
 
 #: details/models.py:10 details/models.py:27
 msgid "تاریخ ارسال"
-msgstr ""
+msgstr "sent date"
 
 #: details/models.py:14
 msgid "سوال"
-msgstr ""
+msgstr "question"
 
 #: details/models.py:24
 msgid "شماره همراه"
-msgstr ""
+msgstr "Mobile number"
 
-#: details/models.py:26 shop/models.py:30 shop/templates/shop/detail.html:80
-#: shop/templates/shop/detail.html:85
+#: details/models.py:26 shop/models.py:31 shop/templates/shop/detail.html:79
+#: shop/templates/shop/detail.html:84
 msgid "توضیحات"
-msgstr ""
+msgstr "Description"
 
 #: details/models.py:28
 msgid "تاریخ به روز رسانی"
-msgstr ""
+msgstr "Update history"
 
 #: details/models.py:31 details/models.py:32
-#: details/templates/details/statics/about.html:62
+#: details/templates/details/statics/about.html:63
 #: details/templates/details/statics/contact_us.html:5
+#: details/templates/details/statics/contact_us.html:6
+#: details/templates/details/statics/home.html:165
 msgid "تماس با ما"
-msgstr ""
+msgstr "contact us"
 
-#: details/templates/details/base.html:43
+#: details/templates/details/base.html:60
 msgid "فزوشگاه آنلاین"
-msgstr ""
+msgstr "Online shop"
 
-#: details/templates/details/base.html:98
+#: details/templates/details/base.html:100
 msgid "بلاگ"
-msgstr ""
+msgstr "blog"
 
-#: details/templates/details/base.html:101
-#: details/templates/details/base.html:185
-#: details/templates/details/base.html:327
+#: details/templates/details/base.html:103
+#: details/templates/details/base.html:209
+#: details/templates/details/base.html:351
 msgid "تماس"
-msgstr ""
+msgstr "Contact"
 
-#: details/templates/details/base.html:124
+#: details/templates/details/base.html:126
 msgid "پیغام های عمومی"
-msgstr ""
+msgstr "Public message"
 
-#: details/templates/details/base.html:125
+#: details/templates/details/base.html:127
 msgid "پیغام های خصوصی"
-msgstr ""
+msgstr "Private message"
 
-#: details/templates/details/base.html:180
+#: details/templates/details/base.html:204
 msgid "لینک های اضافی"
-msgstr ""
+msgstr "Additional links"
 
-#: details/templates/details/base.html:196
+#: details/templates/details/base.html:220
 msgid "اطلاعات تماس"
-msgstr ""
+msgstr "contact information"
 
-#: details/templates/details/base.html:202
+#: details/templates/details/base.html:226
 msgid "کالیفرنیا/ ساختمان علارور"
-msgstr ""
+msgstr "California / Alaver Building"
 
-#: details/templates/details/base.html:211
+#: details/templates/details/base.html:235
 msgid "تلفن"
-msgstr ""
+msgstr "Phone"
 
-#: details/templates/details/base.html:218
+#: details/templates/details/base.html:242
 msgid "ارتباط با ما"
-msgstr ""
+msgstr "Contact us"
 
-#: details/templates/details/base.html:284
+#: details/templates/details/base.html:308
 msgid ""
 "برنامه روزانه، هفته یا ماه را پیش ببرید و وضعیت پروژه را در یک نگاه ببینید. "
 "جستجو و فیلتر برای تمرکز بر روی هر چیزی یک پروژه واحد فردی."
 msgstr ""
+"Schedule your daily, weekly or monthly schedule and see project status at a "
+"glance. Search and filter to focus on anything a single individual project"
 
-#: details/templates/details/base.html:297
+#: details/templates/details/base.html:321
 msgid "شرکت"
-msgstr ""
+msgstr "company"
 
-#: details/templates/details/base.html:300
-#: details/templates/details/base.html:326
+#: details/templates/details/base.html:324
+#: details/templates/details/base.html:350
 msgid "درباره"
-msgstr ""
+msgstr "about"
 
-#: details/templates/details/base.html:301
+#: details/templates/details/base.html:325
 msgid "مقالات"
-msgstr ""
+msgstr "articles"
 
-#: details/templates/details/base.html:312
-#: details/templates/details/base.html:315 shop/models.py:44
+#: details/templates/details/base.html:336
+#: details/templates/details/base.html:339 shop/models.py:52
 #: shop/templates/shop/list.html:5
 msgid "محصولات"
-msgstr ""
+msgstr "products"
 
-#: details/templates/details/base.html:323
+#: details/templates/details/base.html:347
+#: details/templates/details/statics/home.html:180
 msgid "پشتیبانی"
-msgstr ""
+msgstr "Support"
 
-#: details/templates/details/base.html:339
+#: details/templates/details/base.html:363
 msgid "کپی رایت @ 2019 کراک. تمام حقوق محفوظ است."
-msgstr ""
+msgstr "Copyright @ 2019 Crack. All rights reserved"
 
-#: details/templates/details/base.html:344
+#: details/templates/details/base.html:368
 msgid "شرایط و ضوابط"
-msgstr ""
+msgstr "Terms and Conditions"
 
-#: details/templates/details/base.html:345
+#: details/templates/details/base.html:369
 msgid "سیاست حفظ حریم خصوصی"
-msgstr ""
+msgstr "Privacy Policy"
 
-#: details/templates/details/base.html:355
+#: details/templates/details/base.html:379
 msgid "بالا"
-msgstr ""
+msgstr "Top"
 
 #: details/templates/details/statics/about.html:4
 msgid "با کراکی بیشتر آشنا شوید"
-msgstr ""
+msgstr "Learn more about crack"
 
-#: details/templates/details/statics/about.html:15
+#: details/templates/details/statics/about.html:16
 msgid "فرایند ما ساده است؛ محصولات ما قدرتمند هستند."
-msgstr ""
+msgstr "Our process is simple; Our products are powerful"
 
-#: details/templates/details/statics/about.html:17
-#: details/templates/details/statics/about.html:19
-#: details/templates/details/statics/about.html:21
-#: details/templates/details/statics/about.html:23
+#: details/templates/details/statics/about.html:18
+#: details/templates/details/statics/about.html:20
+#: details/templates/details/statics/about.html:22
+#: details/templates/details/statics/about.html:24
 msgid ""
 "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
 "طراحان گرافیک است. لورم ایپسوم."
 msgstr ""
-
-#: details/templates/details/statics/about.html:38
-msgid "شرکت ما"
-msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor "
+"sit amet, consectetur adipiscing elit"
 
 #: details/templates/details/statics/about.html:39
-#: details/templates/details/statics/about.html:47
-#: details/templates/details/statics/about.html:55
-#: details/templates/details/statics/about.html:63
-#: details/templates/details/statics/about.html:79
+msgid "شرکت ما"
+msgstr "our company"
+
+#: details/templates/details/statics/about.html:40
+#: details/templates/details/statics/about.html:48
+#: details/templates/details/statics/about.html:56
+#: details/templates/details/statics/about.html:64
+#: details/templates/details/statics/about.html:80
 msgid ""
 " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
 "طراحان گرافیک است."
 msgstr ""
+"Our ways of communicationLorem ipsum dolor sit amet, consectetur adipiscing "
+"elit.Graphic designers"
 
-#: details/templates/details/statics/about.html:46
+#: details/templates/details/statics/about.html:47
 msgid "ما چه کسانی هستیم"
-msgstr ""
+msgstr "Who we are"
 
-#: details/templates/details/statics/about.html:54
+#: details/templates/details/statics/about.html:55
 msgid "ارزش ما چیست؟"
-msgstr ""
+msgstr "What is our value?"
 
-#: details/templates/details/statics/about.html:77
+#: details/templates/details/statics/about.html:78
 msgid "تیم هوشمند ما"
-msgstr ""
-
-#: details/templates/details/statics/about.html:89
-msgid "جان دی"
-msgstr ""
+msgstr "Our smart team"
 
 #: details/templates/details/statics/about.html:90
-msgid "سئو"
-msgstr ""
+msgid "جان دی"
+msgstr "John Di."
 
-#: details/templates/details/statics/about.html:107
-msgid "استیون اسمیت"
-msgstr ""
+#: details/templates/details/statics/about.html:91
+#: details/templates/details/statics/home.html:338
+msgid "سئو"
+msgstr "seo"
 
 #: details/templates/details/statics/about.html:108
-msgid "توسعه دهنده"
-msgstr ""
+msgid "استیون اسمیت"
+msgstr "Steven Smith"
 
-#: details/templates/details/statics/about.html:125
-msgid "داوید لوئیز"
-msgstr ""
+#: details/templates/details/statics/about.html:109
+msgid "توسعه دهنده"
+msgstr "Developer"
 
 #: details/templates/details/statics/about.html:126
-#: details/templates/details/statics/about.html:144
+#: details/templates/details/statics/home.html:359
+msgid "داوید لوئیز"
+msgstr "David Louise"
+
+#: details/templates/details/statics/about.html:127
+#: details/templates/details/statics/about.html:145
 msgid "طراح"
-msgstr ""
+msgstr "designer"
 
-#: details/templates/details/statics/about.html:143
+#: details/templates/details/statics/about.html:144
 msgid "پارک تیم"
-msgstr ""
-
-#: details/templates/details/statics/about.html:161
-msgid "طاهر نصیری"
-msgstr ""
+msgstr "Team Park"
 
 #: details/templates/details/statics/about.html:162
+msgid "طاهر نصیری"
+msgstr "taher nasiri"
+
+#: details/templates/details/statics/about.html:163
 msgid "مدیر"
-msgstr ""
+msgstr "the manager"
 
-#: details/templates/details/statics/about.html:184
+#: details/templates/details/statics/about.html:185
 msgid "میخواهید فوق العاده شید؟ جای مناسبی اومدید!"
-msgstr ""
+msgstr "Do you want to be great? You came to the right place"
 
-#: details/templates/details/statics/about.html:188
+#: details/templates/details/statics/about.html:189
 msgid "یک تست درایو بگیرید"
-msgstr ""
+msgstr "Take a test drive"
 
-#: details/templates/details/statics/about.html:199
+#: details/templates/details/statics/about.html:200
+#: details/templates/details/statics/home.html:315
 msgid "مشتریان"
-msgstr ""
+msgstr "Customers"
 
-#: details/templates/details/statics/about.html:201
-#: details/templates/details/statics/about.html:213
+#: details/templates/details/statics/about.html:202
+#: details/templates/details/statics/about.html:214
 msgid ""
 "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
 "طراحان گرافیک است"
 msgstr ""
-
-#: details/templates/details/statics/about.html:210
-msgid "جعفر"
-msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Graphic designers"
 
 #: details/templates/details/statics/about.html:211
-#: details/templates/details/statics/about.html:233
-#: details/templates/details/statics/about.html:244
-msgid "توسعه دهنده وب"
-msgstr ""
+msgid "جعفر"
+msgstr "jafar"
 
-#: details/templates/details/statics/about.html:221
-msgid "آلین مایک"
-msgstr ""
+#: details/templates/details/statics/about.html:212
+#: details/templates/details/statics/about.html:234
+#: details/templates/details/statics/about.html:245
+#: details/templates/details/statics/home.html:327
+#: details/templates/details/statics/home.html:349
+#: details/templates/details/statics/home.html:360
+msgid "توسعه دهنده وب"
+msgstr "Web Developer"
 
 #: details/templates/details/statics/about.html:222
-msgid "جان اسمیت"
-msgstr ""
+msgid "آلین مایک"
+msgstr "Allen Mike"
 
-#: details/templates/details/statics/about.html:224
-#: details/templates/details/statics/about.html:235
-#: details/templates/details/statics/about.html:246
+#: details/templates/details/statics/about.html:223
+msgid "جان اسمیت"
+msgstr "John Smith"
+
+#: details/templates/details/statics/about.html:225
+#: details/templates/details/statics/about.html:236
+#: details/templates/details/statics/about.html:247
 msgid ""
 "برنامه روزانه، هفته یا ماه را پیش ببرید و وضعیت پروژه را در یک نگاه ببینید. "
 "جستجو و فیلتر برای تمرکز بر روی هر چیزی یک پروژه واحد فردی"
 msgstr ""
+"Schedule your daily, weekly or monthly schedule and see project status at a "
+"glance. Search and filter to focus on anything a single individual project"
 
-#: details/templates/details/statics/about.html:232
+#: details/templates/details/statics/about.html:233
 msgid "آردص"
-msgstr ""
+msgstr "Ardes"
 
-#: details/templates/details/statics/about.html:243
+#: details/templates/details/statics/about.html:244
 msgid "داوید وارنر"
-msgstr ""
+msgstr "David Warner"
 
-#: details/templates/details/statics/about.html:317
+#: details/templates/details/statics/about.html:318
 msgid "راه های ارتباطی ما"
-msgstr ""
+msgstr "Our ways of communication"
 
-#: details/templates/details/statics/about.html:325
+#: details/templates/details/statics/about.html:326
 msgid "ارسال ایمیل"
-msgstr ""
+msgstr "send mail"
 
-#: details/templates/details/statics/about.html:336
+#: details/templates/details/statics/about.html:337
 msgid "پیام رسانی"
-msgstr ""
+msgstr "messaging"
 
-#: details/templates/details/statics/about.html:347
+#: details/templates/details/statics/about.html:348
 msgid "توییتر"
-msgstr ""
+msgstr "twitter"
 
-#: details/templates/details/statics/about.html:358
+#: details/templates/details/statics/about.html:359
 msgid "اخبار"
-msgstr ""
+msgstr "News"
 
 #: details/templates/details/statics/contact_us.html:5
-#: details/templates/details/statics/contact_us.html:52
+#: details/templates/details/statics/contact_us.html:53
 msgid "با ما در تماس باشید"
-msgstr ""
+msgstr "Get in touch with us"
 
-#: details/templates/details/statics/contact_us.html:17
+#: details/templates/details/statics/contact_us.html:18
 msgid "ایمیل اینجا"
-msgstr ""
-
-#: details/templates/details/statics/contact_us.html:28
-msgid "اینجا را ببینید"
-msgstr ""
+msgstr "Email here"
 
 #: details/templates/details/statics/contact_us.html:29
+msgid "اینجا را ببینید"
+msgstr "See here"
+
+#: details/templates/details/statics/contact_us.html:30
 msgid "کالیفرنیا/ خیابان تالیس"
-msgstr ""
+msgstr "California / Talisse Street"
 
-#: details/templates/details/statics/contact_us.html:38
+#: details/templates/details/statics/contact_us.html:39
 msgid "اینجا تماس بگیرید"
-msgstr ""
+msgstr "Call here"
 
-#: details/templates/details/statics/contact_us.html:54
+#: details/templates/details/statics/contact_us.html:55
 msgid "همه چیز در ذهن شما. ما خوشحال خواهیم شد که به شما کمک کنیم!"
-msgstr ""
+msgstr "Everything in your mind. We will be happy to help you"
 
-#: details/templates/details/statics/contact_us.html:100
+#: details/templates/details/statics/contact_us.html:101
 msgid "ارسال پیام"
-msgstr ""
+msgstr "send Message"
 
 #: details/templates/details/statics/home.html:31
 msgid "با خیال راحت و مطمن خرید کنید"
-msgstr ""
+msgstr "Buy safely and securely"
 
 #: details/templates/details/statics/home.html:32
 msgid ""
 "محصولات متنوع موجو در سایت ایت امکان را به شما میدهد که از انتخاب زیادی "
 "برخوردار باشید"
 msgstr ""
+"Mojo's various products on the IT site allow you to have a large selection"
 
 #: details/templates/details/statics/home.html:33
 msgid "شروع کنید"
-msgstr ""
+msgstr "start"
 
 #: details/templates/details/statics/home.html:34
 msgid "تماشای ویدیو"
-msgstr ""
+msgstr "Watch the video"
 
-#: details/templates/details/statics/home.html:670
-msgid "جدید ترین محصولات ما"
-msgstr ""
+#: details/templates/details/statics/home.html:80
+msgid "پشتیبانی ۲۴ ساعته "
+msgstr "24-hour support"
 
-#: details/templates/details/statics/home.html:690
-msgid "مشاهده محصول"
-msgstr ""
+#: details/templates/details/statics/home.html:81
+#: details/templates/details/statics/home.html:89
+#: details/templates/details/statics/home.html:97
+#: details/templates/details/statics/home.html:123
+#: details/templates/details/statics/home.html:181
+#: details/templates/details/statics/home.html:209
+#: details/templates/details/statics/home.html:228
+#: details/templates/details/statics/home.html:340
+#: details/templates/details/statics/home.html:351
+#: details/templates/details/statics/home.html:362
 
+msgid ""
+"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+"طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ "
+"و با استفاده از طراحان گرافیک است."
+msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit Graphic designers. "
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+
+#: details/templates/details/statics/home.html:88
+
+msgid "تخفیف های باورنکردنی"
+msgstr "Incredible discounts"
+
+#: details/templates/details/statics/home.html:96
+
+msgid "پیگیری لحظه ای سفارسات خود"
+msgstr "Instantly track your orders"
+
+#: details/templates/details/statics/home.html:126
+
+msgid "محصولات متنوع"
+msgstr "Diverse products"
+
+#: details/templates/details/statics/home.html:127
+msgid "خرید نقد و اقساط"
+msgstr "Buy in cash and installments"
+
+#: details/templates/details/statics/home.html:128
+
+msgid "ارسال رایگان"
+msgstr "free delivery"
+
+#: details/templates/details/statics/home.html:136
+msgid "لوازم جانبی"
+msgstr "accessories"
+
+#: details/templates/details/statics/home.html:141
+msgid "قیمت گذاری صادقانه"
+msgstr "Honest pricing"
+
+#: details/templates/details/statics/home.html:146
+msgid "لپتاپ"
+msgstr "laptop"
+
+#: details/templates/details/statics/home.html:167
+#: details/templates/details/statics/home.html:317
+
+msgid ""
+"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+"طراحان گرافیک است."
+msgstr ""
+"Our ways of communicationLorem ipsum dolor sit amet, consectetur adipiscing "
+"elit.Graphic designers"
+
+#: details/templates/details/statics/home.html:184
+
+msgid "پشتیبانی ۲۴ ساعته"
+msgstr "24-hour support"
+
+#: details/templates/details/statics/home.html:185
+
+msgid "تیم مجرب پشتیبانی"
+msgstr "Experienced support team"
+
+#: details/templates/details/statics/home.html:187
+
+msgid "تماس با تیم مجرب ما"
+msgstr "Contact our experienced team"
+
+#: details/templates/details/statics/home.html:212
+
+msgid "پیگیری سفارشات"
+msgstr "Track orders"
+
+#: details/templates/details/statics/home.html:213
+
+msgid "اضافه کردن محصول به لیست علاقه مندی"
+msgstr "Add product to favorites"
+
+#: details/templates/details/statics/home.html:214
+
+msgid "مشاهده نظرات خود"
+msgstr "View your comments"
+
+#: details/templates/details/statics/home.html:216
+
+msgid "برو به داشبورد"
+msgstr "Go to the dashboard"
+
+#: details/templates/details/statics/home.html:227
 #: details/templates/details/statics/questions.html:5
 msgid "سوالات خود را از ما بپرسید"
-msgstr ""
+msgstr "Ask us your question"
 
-#: details/templates/details/statics/questions.html:13
-msgid "چگونه مجوزها در اینسنت از طریق گوگل پل کار می کنند؟"
+#: details/templates/details/statics/home.html:231
+
+msgid "پاسخگوی شما هستیم"
+msgstr "We are responsible for you"
+
+#: details/templates/details/statics/home.html:260
+
+msgid "با ما بروز باشید"
+msgstr "Stay up to date with us"
+
+#: details/templates/details/statics/home.html:264
+
+msgid "وبلاگ ما"
+msgstr "Our blog"
+
+#: details/templates/details/statics/home.html:276
+msgid "جدید ترین محصولات ما"
+msgstr "Our latest products"
+
+#: details/templates/details/statics/home.html:296
+msgid "مشاهده محصول"
+msgstr "View product"
+
+#: details/templates/details/statics/home.html:326
+
+msgid "آلین"
+msgstr "Allen"
+
+#: details/templates/details/statics/home.html:329
+
+msgid ""
+"لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+"طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ "
+"و با استفاده از طراحان گرافیک است"
 msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit Graphic designers. "
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+
+#: details/templates/details/statics/home.html:337
+
+msgid "آلان اسمیت"
+msgstr "Alan Smith"
+
+#: details/templates/details/statics/home.html:348
+
+msgid "استیون"
+msgstr "Steven "
 
 #: details/templates/details/statics/questions.html:14
-msgid "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با"
-msgstr ""
+msgid "چگونه مجوزها در اینسنت از طریق گوگل پل کار می کنند؟"
+msgstr "How do permissions on Incent work through Google Bridge?"
 
-#: details/templates/details/statics/questions.html:19
-msgid "قفل هوشمند برای برنامه های فوری مورد نیاز است؟"
-msgstr ""
+#: details/templates/details/statics/questions.html:15
+msgid "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
 
 #: details/templates/details/statics/questions.html:20
-#: details/templates/details/statics/questions.html:25
-#: details/templates/details/statics/questions.html:30
-#: details/templates/details/statics/questions.html:35
-#: details/templates/details/statics/questions.html:40
+msgid "قفل هوشمند برای برنامه های فوری مورد نیاز است؟"
+msgstr "Smart lock required for instant apps?"
+
+#: details/templates/details/statics/questions.html:21
+#: details/templates/details/statics/questions.html:26
+#: details/templates/details/statics/questions.html:31
+#: details/templates/details/statics/questions.html:36
+#: details/templates/details/statics/questions.html:41
 msgid ""
 "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
 "طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که "
 "لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود "
 "ابزارهای کاربردی می باشد."
 msgstr ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Printers and texts, "
+"but also newspapers and magazines in columns and rows as needed and for the "
+"current state of technology required and a variety of applications with the "
+"aim of improving practical tools."
 
-#: details/templates/details/statics/questions.html:24
+#: details/templates/details/statics/questions.html:25
 msgid "آیا می توانم فعالیت های متعددی در یک ویژگی واحد داشته باشم؟"
-msgstr ""
+msgstr "Can I have multiple activities in a single attribute?"
 
-#: details/templates/details/statics/questions.html:29
+#: details/templates/details/statics/questions.html:30
 msgid "آیا می توانم منابع بین ویژگی ها را به اشتراک بگذارم؟؟"
-msgstr ""
+msgstr "Can I share resources between features ??"
 
-#: details/templates/details/statics/questions.html:34
+#: details/templates/details/statics/questions.html:35
 msgid "آیا مولتی تکس برای برنامه های فوری پشتیبانی میشود؟"
-msgstr ""
+msgstr "Is Multitax supported for instant applications?"
 
-#: details/templates/details/statics/questions.html:39
+#: details/templates/details/statics/questions.html:40
 msgid "آیا می توانم منابع بین ویژگی ها را به اشتراک بگذارم؟"
-msgstr ""
+msgstr "Can I share resources between features?"
 
-#: details/templates/details/statics/questions.html:46
+#: details/templates/details/statics/questions.html:47
 msgid "سوال خود را از ما بپرسید"
-msgstr ""
+msgstr "Ask us your question"
 
-#: details/templates/details/statics/questions.html:75
+#: details/templates/details/statics/questions.html:76
 msgid "هم اکنون ارسال کن!"
-msgstr ""
+msgstr "Submit now"
 
 #: details/templates/details/statics/success.html:11
-msgid "]پیام شما با موفقیت ارسال شد"
-msgstr ""
 
-#: message/models.py:19 message/models.py:49
-msgid "در انتظار"
-msgstr ""
+msgid "پیام شما با موفقیت ارسال شد"
+msgstr "Your message has been successfully sent"
 
 #: message/models.py:20 message/models.py:50
-msgid "منتشر شده"
-msgstr ""
+msgid "در انتظار"
+msgstr "Waiting"
 
-#: message/models.py:22 message/models.py:53
+#: message/models.py:23 message/models.py:54
 msgid "پیام از بخش"
-msgstr ""
+msgstr "Message from the section"
 
 #: message/templates/message/detailPrivateMessage.html:14
-#: message/templates/message/detailPublicMessage.html:13
+#: message/templates/message/detailPublicMessage.html:14
 msgid "بخش مربوطه"
-msgstr ""
+msgstr "Relevant section"
 
 #: message/templates/message/detailPrivateMessage.html:14
 #, python-format
@@ -1218,147 +1451,153 @@ msgid "%(subject)s"
 msgstr ""
 
 #: message/templates/message/detailPrivateMessage.html:19
-#: message/templates/message/detailPublicMessage.html:18
+#: message/templates/message/detailPublicMessage.html:19
 #, python-format
 msgid "%(body)s"
 msgstr ""
 
-#: myshop/settings.py:166
-msgid "Persion"
-msgstr ""
-
-#: myshop/settings.py:167
+#: myshop/settings.py:195
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: myshop/urls.py:24
+#: myshop/settings.py:196
+msgid "Persion"
+msgstr "persion"
+
+#: myshop/urls.py:25
 msgid "admin/"
 msgstr ""
 
-#: myshop/urls.py:26
+#: myshop/urls.py:27
 msgid "rosetta/"
 msgstr ""
 
-#: myshop/urls.py:28
+#: myshop/urls.py:29
 msgid "products/"
 msgstr ""
 
-#: myshop/urls.py:30
+#: myshop/urls.py:31
 msgid "cart/"
 msgstr ""
 
-#: myshop/urls.py:31
+#: myshop/urls.py:32
 msgid "orders/"
 msgstr ""
 
-#: myshop/urls.py:32
+#: myshop/urls.py:33
 msgid "blog/"
 msgstr ""
 
-#: myshop/urls.py:33
+#: myshop/urls.py:34
 msgid "account/"
 msgstr ""
 
-#: myshop/urls.py:34
+#: myshop/urls.py:35
 msgid "coupons/"
 msgstr ""
 
-#: myshop/urls.py:36
+#: myshop/urls.py:37
 msgid "ckeditor/"
 msgstr ""
 
-#: myshop/urls.py:37
+#: myshop/urls.py:38
 msgid "messages/"
 msgstr ""
 
+#: orders/forms.py:9 orders/templates/orders/order/pdf.html:35
+msgid "آدرس "
+msgstr "Address"
+
 #: orders/models.py:13
 msgid "ادرس"
-msgstr ""
+msgstr "Address"
 
-#: orders/models.py:17 shop/models.py:64
+#: orders/models.py:17 shop/models.py:73
 msgid "تاریخ بروزرسانی"
-msgstr ""
+msgstr "Update date"
 
 #: orders/models.py:18
 msgid "پرداختی"
-msgstr ""
+msgstr "Payment"
 
 #: orders/models.py:21
+
 msgid "تایید سفارش"
-msgstr ""
+msgstr "Order confirmation"
 
 #: orders/models.py:22
+
 msgid "آماده سازی سفارش"
-msgstr ""
+msgstr "Order preparation"
 
 #: orders/models.py:23
 msgid "خروج از مرکز پردازش"
-msgstr ""
+msgstr "Exit from the processing center"
 
 #: orders/models.py:24
 msgid "تحویل به مشتری"
-msgstr ""
+msgstr "Delivery to customer"
 
 #: orders/models.py:28 orders/models.py:46
 msgid "سفارش"
-msgstr ""
+msgstr "Order"
 
-#: orders/models.py:29
+#: orders/models.py:29 orders/templates/orders/order/orderTracking.html:6
 msgid "سفارشات"
-msgstr ""
+msgstr "Orders"
 
 #: orders/models.py:47
 msgid "محضول"
-msgstr ""
+msgstr "Product"
 
 #: orders/templates/orders/order/create.html:4
 #: orders/templates/orders/order/create.html:5
 msgid "صورت حساب"
-msgstr ""
+msgstr "Bill"
 
 #: orders/templates/orders/order/create.html:15
 msgid "جزئیات صورتحساب"
-msgstr ""
+msgstr "Invoice details"
 
 #: orders/templates/orders/order/create.html:63
 msgid "سفارش شما"
-msgstr ""
+msgstr "Your order"
 
 #: orders/templates/orders/order/create.html:70
 msgid "نام محصول"
-msgstr ""
+msgstr "Product Name"
 
 #: orders/templates/orders/order/create.html:84
 msgid "عدد"
-msgstr ""
+msgstr "number"
 
 #: orders/templates/orders/order/create.html:115
 msgid "میزان تخفیف"
-msgstr ""
+msgstr "Discount rate"
 
 #: orders/templates/orders/order/create.html:134
 msgid "محل سفارش"
-msgstr ""
+msgstr "Place of order"
 
 #: orders/templates/orders/order/created.html:4
 msgid "تایید صورت حساب"
-msgstr ""
+msgstr "Billing approval"
 
 #: orders/templates/orders/order/created.html:5
 msgid "ممنون از شما"
-msgstr ""
+msgstr "thank you"
 
 #: orders/templates/orders/order/created.html:15
 msgid "خرید شما با موفقیت ثبت شد"
-msgstr ""
+msgstr "Your purchase has been successfully registered"
 
 #: orders/templates/orders/order/detailOrderTracking.html:5
 msgid "پیگیری سفارش"
-msgstr ""
+msgstr "Order tracking"
 
 #: orders/templates/orders/order/detailOrderTracking.html:33
 msgid "قیمت پرداختی"
-msgstr ""
+msgstr "Price paid"
 
 #: orders/templates/orders/order/detailOrderTracking.html:41
 #: shop/templates/shop/detail.html:28
@@ -1366,169 +1605,358 @@ msgstr ""
 msgid "%(name)s"
 msgstr ""
 
-#: orders/templates/orders/order/orderTracking.html:23
-msgid "شناسه کالا"
-msgstr ""
-
 #: orders/templates/orders/order/orderTracking.html:24
-msgid "تاریخ ثبت خرید"
-msgstr ""
+msgid "شناسه کالا"
+msgstr "Product id"
 
 #: orders/templates/orders/order/orderTracking.html:25
-#: orders/templates/orders/order/pdf.html:46
-msgid "قیمت کل"
-msgstr ""
+msgid "تاریخ ثبت خرید"
+msgstr "Date of purchase registration"
 
 #: orders/templates/orders/order/orderTracking.html:26
-msgid "مشاهده جزییات"
-msgstr ""
+#: orders/templates/orders/order/pdf.html:47
+msgid "قیمت کل"
+msgstr "Total price"
 
 #: orders/templates/orders/order/orderTracking.html:27
-msgid "مشاهده فاکتور"
-msgstr ""
+msgid "مشاهده جزییات"
+msgstr "See details"
 
-#: orders/templates/orders/order/orderTracking.html:53
+#: orders/templates/orders/order/orderTracking.html:28
+msgid "مشاهده فاکتور"
+msgstr "Invoice number"
+
+#: orders/templates/orders/order/orderTracking.html:54
 msgid "فاکتور"
-msgstr ""
+msgstr "Invoice number"
+
+#: orders/templates/orders/order/orderTracking.html:64
+
+msgid "سفارشی ثبت نشده است"
+msgstr "Custom not registered"
 
 #: orders/templates/orders/order/pdf.html:16
 msgid "خرید من"
-msgstr ""
-
-#: orders/templates/orders/order/pdf.html:22
-msgid "شماره فاکتور"
-msgstr ""
+msgstr "My Purchases"
 
 #: orders/templates/orders/order/pdf.html:23
+msgid "شماره فاکتور"
+msgstr "Invoice number"
+
+#: orders/templates/orders/order/pdf.html:24
 msgid "تاریخ سفارش"
-msgstr ""
+msgstr "order date"
 
-#: orders/templates/orders/order/pdf.html:27
+#: orders/templates/orders/order/pdf.html:28
 msgid "پرداخت شده"
-msgstr ""
+msgstr "Payment"
 
-#: orders/templates/orders/order/pdf.html:27
+#: orders/templates/orders/order/pdf.html:28
 msgid "پرداخت نشده"
-msgstr ""
+msgstr "unpaid"
 
-#: orders/templates/orders/order/pdf.html:31
+#: orders/templates/orders/order/pdf.html:32
 msgid "مشخصات خریدار"
-msgstr ""
+msgstr "Buyer details"
 
-#: orders/templates/orders/order/pdf.html:34
-msgid "آدرس "
-msgstr ""
-
-#: orders/templates/orders/order/pdf.html:41
+#: orders/templates/orders/order/pdf.html:42
 msgid "اقلام خریداری شده"
-msgstr ""
+msgstr "Purchased items"
 
-#: orders/templates/orders/order/pdf.html:62
+#: orders/templates/orders/order/pdf.html:63
 msgid "مجموع قیمت خرید"
-msgstr ""
+msgstr "Total purchase price"
 
-#: shop/models.py:11 shop/models.py:28
+#: shop/models.py:13 shop/models.py:29
 msgid "اسلاگ"
-msgstr ""
+msgstr "slug"
 
-#: shop/models.py:16
+#: shop/models.py:17
 msgid "دسته بندی ها"
-msgstr ""
+msgstr "categories"
 
-#: shop/models.py:29
+#: shop/models.py:30
 msgid "عکس"
-msgstr ""
-
-#: shop/models.py:32
-msgid "تعداد موجودی"
-msgstr ""
+msgstr "Image"
 
 #: shop/models.py:33
+msgid "تعداد موجودی"
+msgstr "Number of inventory"
+
+#: shop/models.py:34
 msgid "تگ ها"
-msgstr ""
+msgstr "tags"
 
-#: shop/models.py:36
+#: shop/models.py:37
 msgid "تاریخ اپدیت"
-msgstr ""
+msgstr "update date"
 
-#: shop/models.py:62
+#: shop/models.py:71
 msgid "متن پیام"
-msgstr ""
+msgstr "Message text"
 
-#: shop/models.py:65
+#: shop/models.py:74
 msgid "فعال/غیرفعال"
-msgstr ""
-
-#: shop/models.py:69
-msgid "کامنت"
-msgstr ""
-
-#: shop/models.py:70
-msgid "کامنت ها"
-msgstr ""
+msgstr "Active/Passive"
 
 #: shop/models.py:80
+msgid "کامنت"
+msgstr "comment"
+
+#: shop/models.py:81
+msgid "کامنت ها"
+msgstr "comments"
+
+#: shop/models.py:91
 msgid "عکس گالری"
-msgstr ""
+msgstr "Photo Gallery"
 
-#: shop/models.py:83
+#: shop/models.py:94
 msgid "عکس های محصول"
-msgstr ""
+msgstr "Product photos"
 
-#: shop/models.py:84
+#: shop/models.py:95
 msgid "عکس های محصولات"
-msgstr ""
+msgstr "Product photos"
 
-#: shop/templates/shop/detail.html:34
+#: shop/templates/shop/detail.html:33
 msgid "دسته بندی ها:"
-msgstr ""
+msgstr "categories:"
 
-#: shop/templates/shop/detail.html:41
+#: shop/templates/shop/detail.html:40
 msgid "حذف از لیست علاقه مندی ها"
-msgstr ""
+msgstr "Remove from Favorites"
 
-#: shop/templates/shop/detail.html:43
+#: shop/templates/shop/detail.html:42
 msgid "افزودن به لیست علاقه مندی ها"
-msgstr ""
+msgstr "Add to Wishlist"
 
-#: shop/templates/shop/detail.html:46
+#: shop/templates/shop/detail.html:45
 msgid "افزودن به لیست علاقه مندیها"
-msgstr ""
+msgstr "Add to favorites"
 
-#: shop/templates/shop/detail.html:50
+#: shop/templates/shop/detail.html:49
 msgid "عدد در انبار موجود است"
-msgstr ""
+msgstr "The number is in stock"
 
-#: shop/templates/shop/detail.html:59 shop/templates/shop/detail.html:212
-#: shop/templates/shop/list.html:24
+#: shop/templates/shop/detail.html:58 shop/templates/shop/detail.html:225
+#: shop/templates/shop/list.html:25
 msgid "افزودن به سبد خرید"
-msgstr ""
+msgstr "Add to cart"
 
-#: shop/templates/shop/detail.html:61
+#: shop/templates/shop/detail.html:60
 msgid "این محصول در انبار موجود نمیباشد"
-msgstr ""
+msgstr "This product is not available in stock"
 
-#: shop/templates/shop/detail.html:117
+#: shop/templates/shop/detail.html:116
 msgid "پیام شما با موفقیت ثبت شد"
-msgstr ""
+msgstr "Your message has been successfully registered"
 
-#: shop/templates/shop/detail.html:130
+#: shop/templates/shop/detail.html:141
 msgid "ارسال"
-msgstr ""
+msgstr "send"
 
-#: shop/templates/shop/detail.html:199
+#: shop/templates/shop/detail.html:159
+
+msgid "برچسب ها"
+msgstr "Labels"
+
+#: shop/templates/shop/detail.html:212
 msgid "محصولات مرتبط"
-msgstr ""
+msgstr "Related products"
 
-#: shop/templates/shop/list.html:83
+#: shop/templates/shop/list.html:5
+msgid ""
+"هر آنچه که نیاز دارید با بهترین قیمت از کراکی بخرید! جدیدترین انواع گوشی "
+"موبایل، لپ تاپ و سار محصولات"
+msgstr "Buy everything you need at the best price from craki! The latest types of mobile phones, laptops and star products"
+
+#: shop/templates/shop/list.html:84
 msgid "دسته بندی محصولات"
-msgstr ""
+msgstr "products categorization"
 
-#: shop/templates/shop/list.html:92
+#: shop/templates/shop/list.html:93
 #, python-format
 msgid " %(name)s "
 msgstr ""
 
-#: shop/templates/shop/list.html:98
+#: shop/templates/shop/list.html:99
 msgid "جدیدترین محصولات"
-msgstr ""
+msgstr "latest products"
+
+#~ msgid ""
+#~ "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+#~ "طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت."
+#~ msgstr ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit Graphic "
+#~ "designers. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+
+#~ msgid ""
+#~ "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+#~ "طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سا."
+#~ msgstr ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Graphic designers"
+
+#~ msgid " تغییر رمز عبور"
+#~ msgstr "Change password"
+
+#~ msgid "مرتب سازی بر اساس محبوبیت"
+#~ msgstr "Sort by popularity"
+
+#~ msgid "مرتب سازی بر اساس میانگین امتیاز"
+#~ msgstr "Sort by average score"
+
+#~ msgid "مرتب سازی بر اساس آخرین"
+#~ msgstr "Sort by last"
+
+#~ msgid "مرتب سازی بر اساس قیمت: کم به زیاد"
+#~ msgstr "Sort by price: low to high"
+
+#~ msgid "مرتب سازی بر اساس قیمت: از بالا به پایین"
+#~ msgstr "Sort by price: top to bottom"
+
+#~ msgid "مرتب سازی بر اساس جدید"
+#~ msgstr "New sort"
+
+#~ msgid "تعامل با کاربران خود در هر پلتفرم های متفاوت"
+#~ msgstr "Interact with your users on each different platform"
+
+#~ msgid "تماس با من"
+#~ msgstr "Contact Me"
+
+#~ msgid "ویترین خیره کننده"
+#~ msgstr "Stunning showcase"
+
+#~ msgid "کاملا قابل برنامه ریزی"
+#~ msgstr "Fully programmable"
+
+#~ msgid "تورهای جذاب"
+#~ msgstr "Attractive tours"
+
+#~ msgid "طراحی جذاب"
+#~ msgstr "Attractive design"
+
+#~ msgid "ما برای ساختن بهترین محصول اینجا هستیم"
+#~ msgstr "We are here to make the best product"
+
+#~ msgid ""
+#~ "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+#~ "طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صن"
+#~ msgstr ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit Graphic "
+#~ "designers. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+
+#~ msgid ""
+#~ "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+#~ "طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت "
+#~ "چاپ و با استفاده از طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید "
+#~ "سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است."
+#~ msgstr ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit Graphic "
+#~ "designers. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+
+#~ msgid "پربازدیدترین ترین محصولات ما"
+#~ msgstr "Our most visited products"
+
+#~ msgid "چگونه ما میتوانیم به شما کمک کنیم"
+#~ msgstr "How we can help you"
+
+#~ msgid "فیلتر دوربین"
+#~ msgstr "Camera filter"
+
+#~ msgid "سریع و بهینه شده"
+#~ msgstr "Fast and optimized"
+
+#~ msgid "دراگ و دراپ"
+#~ msgstr "Drag and drop"
+
+#~ msgid "خدمات تلفن رایگان"
+#~ msgstr "Free telephone service"
+
+#~ msgid ""
+#~ "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+#~ "طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان "
+#~ "که لازم است"
+#~ msgstr ""
+#~ "Lorem ipsum dolor sit amet, consectetur adipiscing elit Graphic "
+#~ "designers. Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+
+#~ msgid "هدیه رایگان روزانه"
+#~ msgstr "Free daily gifts"
+
+#~ msgid "اسکنر QR کد"
+#~ msgstr "QR code scanner"
+
+#~ msgid "برای ثبت سفارش اطلاعات خود را وارد کنید"
+#~ msgstr "Enter your information to place an order"
+
+#~ msgid "دریافت PDF"
+#~ msgstr "Download PDF"
+
+#~ msgid "Paid"
+#~ msgstr "Paid"
+
+#~ msgid "Pending payment"
+#~ msgstr "Pending payment"
+
+#~ msgid "پست های اخیر"
+#~ msgstr "Recent Posts"
+
+#~ msgid ""
+#~ "بار وارد کنید تا بتوانیم تأیید کنیم که شما آن را به درستی تایپ کرده اید. "
+#~ "لطفاً به خاطر امنیت رمزعبور قدیمی خود را وارد کرده و رمز عبور جدید خود را "
+#~ "دو"
+#~ msgstr ""
+#~ "Enter a load so we can verify that you typed it correctly. Please enter "
+#~ "your old password for security and double your new password "
+
+#~ msgid "کاربری"
+#~ msgstr "user"
+
+#~ msgid "پیغام ها"
+#~ msgstr "messages"
+
+#~ msgid ""
+#~ " و با استفاده از طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی "
+#~ "نامفهوم از صنعت چاپ و با استفاده از"
+#~ msgstr ""
+#~ "And using graphic designers. Lorem ipsum dolor sit amet, consectetur "
+#~ "adipiscing elit."
+
+#~ msgid ""
+#~ " طراحان گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت."
+#~ "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از "
+#~ msgstr ""
+#~ "Graphic designers. Lorem ipsum dolor sit amet, consectetur adipiscing "
+#~ "elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#~ msgid ""
+#~ " طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت "
+#~ "چاپ و با استفاده از"
+#~ msgstr ""
+#~ "Graphic designers. Lorem ipsum dolor sit amet, consectetur adipiscing "
+#~ "elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#~ msgid ""
+#~ "طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سا.لورم ایپسوم متن "
+#~ "ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از"
+#~ msgstr ""
+#~ "Graphic designers. Lorem ipsum dolor sit amet, consectetur adipiscing "
+#~ "elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+
+#~ msgid ""
+#~ "طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان "
+#~ "کهلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده "
+#~ "از"
+#~ msgstr ""
+#~ "Graphic designers. Printers and texts, but also newspapers and magazines "
+#~ "in columns and rows."
+
+#~ msgid ""
+#~ " لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف "
+#~ "بهبودلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با "
+#~ "استفاده از"
+#~ msgstr ""
+#~ "It is necessary for the current situation of the required technology and "
+#~ "various applications with the aim of improving the Epsom fake text by "
+#~ "producing incomprehensible simplicity from the printing industry and using"

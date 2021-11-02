@@ -5,6 +5,7 @@ from django.urls import reverse
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
+from translated_fields import TranslatedField
 
 
 # model manager
@@ -19,10 +20,10 @@ class PublicMassages(models.Model):
         ('draft', _('در انتظار')),
         ('published', _('منتشر شده')),
     )
-    section           = models.CharField(_('پیام از بخش'), max_length=250)
-    subject           = models.CharField(_('موضوع'), max_length=250)
-    short_description = models.TextField(_('توضیحات مختصر'), blank=True, null=True)
-    long_description  = RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True)
+    section           =TranslatedField(   models.CharField(_('پیام از بخش'), max_length=250) )
+    subject           =TranslatedField(   models.CharField(_('موضوع'), max_length=250) )
+    short_description =TranslatedField(   models.TextField(_('توضیحات مختصر'), blank=True, null=True) )
+    long_description  =TranslatedField(   RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True) )
     publish           = models.DateField(_('تاریخ انتشار'), default=timezone.now)
     created           = models.DateTimeField(_('زمان ساخت'), auto_now_add=True, blank=True, null=True)
     updated           = models.DateTimeField(_('زمان به روز رسانی'), auto_now=True, blank=True, null=True)
@@ -50,10 +51,10 @@ class PrivateMassages(models.Model):
         ('published', _('منتشر شده')),
     )
     user              = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_('کاربر'))
-    section           = models.CharField(_('پیام از بخش'), max_length=250)
-    subject           = models.CharField(_('موضوع'), max_length=250)
-    short_description = models.TextField(_('توضیحات مختصر'), blank=True, null=True)
-    long_description  = RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True)
+    section           =TranslatedField(   models.CharField(_('پیام از بخش'), max_length=250) )
+    subject           =TranslatedField(   models.CharField(_('موضوع'), max_length=250) )
+    short_description =TranslatedField(   models.TextField(_('توضیحات مختصر'), blank=True, null=True) )
+    long_description  =TranslatedField(   RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True) )
     publish           = models.DateField(_('تاریخ انتشار'), default=timezone.now)
     created           = models.DateTimeField(_('زمان ساخت'), auto_now_add=True, blank=True, null=True)
     updated           = models.DateTimeField(_('زمان به روز رسانی'), auto_now=True, blank=True, null=True)

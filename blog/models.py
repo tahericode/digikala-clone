@@ -1,17 +1,20 @@
+from typing import DefaultDict
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import gettext_lazy as _
+from translated_fields import TranslatedField
+
+
 
 # Create PostCategory Model
 class PostCategory(models.Model):
-    name = models.CharField(_('نام دسته بندی'), max_length=200, db_index=True)
-    slug = models.SlugField(_('slug'), max_length=200, unique=True)
+    name =TranslatedField( models.CharField(_('نام دسته بندی'), max_length=200, db_index=True, default='') )
+    slug =models.SlugField(_('slug'), max_length=200, unique=True, default='')
 
     class Meta:
-        ordering = ('name',)
         verbose_name =  _('دسته بندی پست')
         verbose_name_plural = _('دسته بندی پست ها')
 
@@ -34,13 +37,13 @@ class Post(models.Model):
         ('published', 'منتشر شده'),
     )
     category = models.ForeignKey(PostCategory, on_delete=models.CASCADE, related_name='blogs', verbose_name=_('دسته بندی'))
-    title = models.CharField(_('عنوان'), max_length=250)
-    slug = models.SlugField(_('slug'), max_length=250, unique_for_date='publish')
-    author = models.CharField(_('نویسنده'), max_length=250)
+    title =TranslatedField( models.CharField(_('عنوان'), max_length=250, default='') )
+    slug = models.SlugField(_('slug'), max_length=250, unique_for_date='publish', default='')
+    author =TranslatedField( models.CharField(_('نویسنده'), max_length=250, default='') )
     image = models.ImageField(_('عکس اصلی'), upload_to='blog/%Y/%m/%d', blank=True)
-    short_description = RichTextUploadingField(_('توضیحات مختصر'), blank=True, null=True)
-    long_description = RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True)
-    publish = models.DateTimeField(_('تاریخ انتشار'), default=timezone.now)
+    short_description =TranslatedField( RichTextUploadingField(_('توضیحات مختصر'), blank=True, null=True,) )
+    long_description =TranslatedField( RichTextUploadingField(_('توضیحات جامع'), blank=True, null=True) )
+    publish = models.DateTimeField(_('تاریخ انتشار'), default=timezone.now) 
     created = models.DateTimeField(_('زمان ساخت'), auto_now_add=True)
     updated = models.DateTimeField(_('زمان به روز رسانی'), auto_now=True)
     status = models.CharField(_('وضعیت انتشار'), max_length=10, choices=STATUS_CHOICES, default='draft')
@@ -48,13 +51,12 @@ class Post(models.Model):
     objects = models.Manager() # the default manager
     published = PublishedManager() # Our custom manager
     #Seo fields
-    meta_title = models.CharField(_('meta_title'), max_length=350, blank=True, null=True)
-    meta_description = models.TextField(_('meta_description'), max_length=350, blank=True, null=True)
-    meta_keywords = models.TextField(_('meta_keywords'), max_length=350, blank=True, null=True)
-    alt_image = models.TextField(_('alt_image'), max_length=350, blank=True, null=True)
+    meta_title =TranslatedField( models.CharField(_('meta_title'), max_length=350, blank=True, null=True) )
+    meta_description =TranslatedField( models.TextField(_('meta_description'), max_length=350, blank=True, null=True) )
+    meta_keywords =TranslatedField( models.TextField(_('meta_keywords'), max_length=350, blank=True, null=True) )
+    alt_image =TranslatedField( models.TextField(_('alt_image'), max_length=350, blank=True, null=True) )
     
     class Meta:
-        ordering = ('-publish',)
         verbose_name =  _('پست')
         verbose_name_plural = _('پست ها')
     

@@ -13,7 +13,7 @@
             <div class="userComment-information">
                 <div class="userComment-row1">
                     <h3><a href="{{userComment.product.get_absolute_url}}">{{userComment.product.name}}</h3>
-                    <p class="userComment-condition" style="background-color: {% if userComment.active %}rgba(20, 100, 20, 0.356); {% else %}background-color: rgba(243, 162, 95, 0.616);{% endif %}">{% if userComment.active %}منتشر شده {% else %} در انتظار بررسی {% endif %}</p>
+                    <p class="userComment-condition" style="background-color: {% if userComment.active %}rgba(20, 100, 20, 0.356); {% else %}background-color: rgba(243, 162, 95, 0.616);{% endif %}">{% if userComment.active %}{% trans "منتشر شده" %} {% else %} {% trans "در انتظار بررسی" %} {% endif %}</p>
                 </div>
                 
                 <p>{{userComment.body}}</p>
@@ -27,7 +27,7 @@
             <div class="userComment-information">
                 <div class="userComment-row1">
                     <h3><a href="{{userComment.post.get_absolute_url}}">{{userComment.post.title}}</h3>
-                    <p class="userComment-condition" style="background-color: {% if userComment.active %}rgba(20, 100, 20, 0.356); {% else %}background-color: rgba(243, 162, 95, 0.616);{% endif %}">{% if userComment.active %}منتشر شده {% else %} در انتظار بررسی {% endif %}</p>
+                    <p class="userComment-condition" style="background-color: {% if userComment.active %}rgba(20, 100, 20, 0.356); {% else %}background-color: rgba(243, 162, 95, 0.616);{% endif %}">{% if userComment.active %}{% trans "منتشر شده" %} {% else %} {% trans "در انتظار بررسی" %} {% endif %}</p>
                 </div>
                 
                 <p>{{userComment.body}}</p>

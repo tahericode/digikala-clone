@@ -3,6 +3,7 @@
 {% load static jalali_tags %}
 {% load i18n %}
 {% block page_title %}پیگیری سفارش{% endblock page_title %}
+{% block title %}{% trans "سفارشات" %}{% endblock title %}
 {% block dashboard %}
 
 
@@ -60,7 +61,7 @@
                             {% else %}
                             <tr>
                                 <td class="product-name" colspan="5">
-                                    <p >سفارشی ثبت نشده است</p>
+                                    <p >{% trans "سفارشی ثبت نشده است" %}</p>
                                 </td>
                             </tr>
                             {% endif %}

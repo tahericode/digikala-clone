@@ -3,7 +3,7 @@
 	jQuery(document).on('ready', function () {
         // Mean Menu
 		jQuery('.mean-menu').meanmenu({
-			meanScreenWidth: "991"
+			meanScreenWidth: "1200"
 		});
 
 		// Header Search
