@@ -27,7 +27,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row display-user-information">
                         <div class="col-lg-12 col-md-12">
 
                         </div>
@@ -71,7 +71,7 @@
 
                         <div class="col-lg-12 col-md-6 user-info">
                             <div class="form-group">
-                                <p class="user-info-item"><span class="user-info-label">{% trans "تاریخ تولد" %}: </span>{{request.user.profile.date_of_birth|to_jalali:'%Y/%m/%d'}}</p>
+                                <p class="user-info-item"><span class="user-info-label">{% trans "تاریخ تولد" %}: </span>{% if LANGUAGE_CODE == 'fa' %}{{request.user.profile.date_of_birth|to_jalali:'%Y/%m/%d'}} {%else%} {{request.user.profile.date_of_birth|date:'Y/m/d'}} {% endif %}</p>
                             </div>
                         </div>
 
@@ -82,14 +82,14 @@
     </div>
    
     {% if request.user.is_authenticated %}
-    {% if messages %}
+    
     
     <section class="cart-area ptb-100">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="cart-table table-responsive">
-                        <b><h3 style="margin-bottom: 30px; text-align: center;margin-top: -5px;font-size: 22px; font-weight: 700;">پیام های عمومی</h3></b>
+                        <b><h3 style="margin-bottom: 30px; text-align: center;margin-top: -2px;font-size: 22px; font-weight: 700;">{% trans "پیام های عمومی" %}</h3></b>
                         <!-- ============ New Table for public messages -->
                         <table class="table message-table" role="grid">
                             <thead>
@@ -115,7 +115,7 @@
                                     </td>
 
                                     <td class="product-quantity">
-                                        <p>{{message.publish|to_jalali:'%Y/%m/%d '}}</p>
+                                        <p>{% if LANGUAGE_CODE == 'fa' %}{{message.publish|to_jalali:'%Y/%m/%d '}} {%else%} {{message.publish|date:'Y/m/d '}} {% endif %}</p>
                                     </td>
                     
                                     <td class="product-quantity">
@@ -127,7 +127,7 @@
                                 {% else %}
                                 <tr>
                                     <td class="product-name" colspan="4">
-                                        <p >پیامی در دسترس نیست</p>
+                                        <p >{% trans "پیامی در دسترس نیست" %}</p>
                                     </td>
                                 </tr>
                                 {% endif %}
@@ -139,7 +139,7 @@
             </div>
         </div>
     </section>
-    {% endif %}
+    
     {% else %}
     <div class="blog-details-area">
     <div class="navbar navbar-expand-md navbar-light">  

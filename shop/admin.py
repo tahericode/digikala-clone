@@ -2,9 +2,7 @@ from django.contrib import admin
 from .models import Category, Product, Comment, ProductImages
 # for Category
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
-    # prepopulated slug with name
-    prepopulated_fields = {'slug':('name',)}
+    list_display = [ 'slug']
 admin.site.register(Category,CategoryAdmin)
 
 # To be placed ProductAdmin inline
@@ -23,10 +21,9 @@ class CommentInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'category', 'price', 'stock', 'available', 'created', 'updated']
+    list_display = [ 'slug', 'category', 'price', 'stock', 'available', 'created', 'updated']
     list_filter = ['available', 'created', 'updated', 'category']
     list_editable = ['price', 'stock', 'available']
-    prepopulated_fields = {'slug':('name',)}
     # Commentline & ProductImagesInline  is ProductAdmin inline
     inlines = [ProductImagesInline, CommentInline]
 admin.site.register(Product, ProductAdmin)

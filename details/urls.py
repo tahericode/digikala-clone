@@ -11,5 +11,6 @@ urlpatterns = [
     # about us
     path('about-us', views.about_us, name='about_us'),
     # questions
-    path('questions', views.questions, name='questions')
+    path('questions', views.questions, name='questions'),
+    
 ]

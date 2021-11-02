@@ -188,14 +188,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # import gettext_lazy 
 from django.utils.translation import gettext_lazy as _
-# language code 
-LANGUAGE_CODE = 'fa'
+
 
 # languge for Bilingual
 LANGUAGES = (
     ('en',_('English')),
     ('fa', _('Persion')),
 )
+
+
+# language code 
+LANGUAGE_CODE = 'fa-ir'
+
+
 
 
 # locale paths in rootdirectory

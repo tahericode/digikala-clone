@@ -114,18 +114,15 @@ img {
 .d-table {
   width: 100%;
   height: 100%;
-  direction: rtl;
 }
 
 .d-table-cell {
   vertical-align: middle;
-  direction: rtl;
 }
 
 .ptb-100 {
   padding-top: 100px;
   padding-bottom: 100px;
-  direction: rtl;
 }
 
 .bg-gray {
@@ -440,12 +437,10 @@ Navbar CSS
   background: transparent;
   position: absolute;
   top: 0;
-  right: 0;
   padding-top: 15px;
   width: 100%;
   z-index: 666;
   height: auto;
-  direction: rtl;
 }
 
 .crake-nav nav .navbar-brand img {
@@ -2215,13 +2210,11 @@ About CSS
 =================================================*/
 .about-content .section-title {
   margin-bottom: 15px;
-  text-align: right;
 }
 
-.about-content .section-title .bar {
-  margin-left: 0;
-  margin-right: 0;
-}
+/* .about-content .section-title .bar {
+ 
+} */
 
 .about-content .section-title p {
   margin-left: 0;
@@ -6206,7 +6199,6 @@ Product Details CSS
 }
 
 .shop-related-prodcut .section-title {
-  text-align: right;
   margin-right: 0;
   margin-left: 0;
 }
@@ -6300,7 +6292,6 @@ Sidebar CSS
 
 .sidebar-area .widget.widget-search form button {
   position: absolute;
-  left: 0;
   top: 0;
   height: 100%;
   width: 55px;
@@ -7026,7 +7017,6 @@ Cart CSS
 }
 
 .cart-totals ul li span {
-  float: left;
   color: #000000;
 }
 
@@ -7127,7 +7117,6 @@ Checkout CSS
 
 .order-details .order-table table {
   margin-bottom: 0;
-  text-align: right;
 }
 
 .order-details .order-table table thead tr th {
@@ -7530,7 +7519,6 @@ Back To Top CSS
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  direction: rtl;
   padding: 1em;
   margin: 1em;
 }
@@ -7615,7 +7603,6 @@ Back To Top CSS
 .en {
   width: 30px;
   height: 16px;
-  margin-left: 8px;
 }
 
 .languages ul li {
@@ -7730,7 +7717,6 @@ Back To Top CSS
 
 .userComment-information {
   width: 100%;
-  margin-right: 3rem;
   display: inline-block;
   align-items: center;
 }
@@ -7916,3 +7902,44 @@ td {
     order: 2;
   }
 }
+
+
+.social-box{
+  display: flex;
+  margin: 30px 0;
+  
+}
+
+.social-link{
+  font-size: 1.5rem;
+  margin-left: 11px;
+  cursor: pointer;
+}
+
+.social-box :nth-child(2){
+  color: #50a1ff;
+}
+
+.social-box :nth-child(3){
+  color: #5053ff;
+}
+
+.social-box :nth-child(4){
+  color: #5053ff;
+  background: #02be66;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100%;
+  padding: -4px;
+  color: #fff;
+
+}
+
+.edit-user-information{
+  direction: rtl;
+}
+
+.billing-details .row{
+  direction: rtl;
+}
+

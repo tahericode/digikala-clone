@@ -22,7 +22,7 @@ def post_list(request, category_slug=None):
     # if query exists
     if query:
         # filter post objects with title or category__name using Q
-        posts = posts.filter(Q(title__icontains=query) | Q(category__name__icontains=query)).distinct()   
+        posts = posts.filter(Q(title_en__icontains=query) | Q(category__name_en__icontains=query)|Q(title_fa__icontains=query) | Q(category__name_fa__icontains=query)).distinct()   
     #last added post for show in Recent posts
     last_posts = posts[:8]
     # add Paginator

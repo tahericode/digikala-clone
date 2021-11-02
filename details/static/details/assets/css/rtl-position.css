@@ -1,0 +1,364 @@
+.d-table,
+.d-table-cell,
+.ptb-100,
+.crake-nav,
+.crake-nav nav .others-option .navbar-nav,
+.header-search.open,
+.features-area,
+.overview-section,
+.saas-tools,
+.app-funfacts-area .single-funfact,
+.pricing-area,
+.how-app-work,
+.single-feedback-box p,
+.feedback-slides .owl-item .single-feedback,
+.single-blog-post .blog-post-content,
+.single-blog-post .blog-post-content p,
+.publicMessages .row,
+.containerr,
+.orderTracking,
+.userComment-container,
+.item-row,
+.form-control,
+.row {
+  direction: rtl;
+}
+
+.about-content .section-title .bar {
+  /* margin-left: 0; */
+  margin-right: 0;
+}
+
+.crake-nav {
+  right: 0;
+}
+
+.row {
+  direction: ltr;
+}
+
+.dashboard-icon {
+  font-size: 20px;
+  padding-right: -25px;
+}
+
+.item-row {
+  direction: rtl;
+}
+
+.product-area .container .row {
+  direction: rtl;
+}
+
+.product-area .main-list-procduct__section .row {
+  direction: rtl;
+}
+
+
+
+
+
+/* ========== about us ============ */
+
+.about-content {
+  text-align: right;
+}
+
+.about-content .section-title {
+  text-align: right;
+  direction: rtl;
+}
+
+/* .about-content .section-title p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: right;
+  } */
+
+/* ======= questions =========== */
+
+.faq-accordion .accordion .accordion-item .accordion-content {
+  text-align: right;
+  direction: rtl;
+}
+
+.faq-accordion .accordion .accordion-item .accordion-content {
+  direction: rtl;
+  text-align: right;
+}
+
+
+.faq-contact {
+    direction: rtl;
+    text-align: right;
+}
+
+
+
+/* ========= Blog sidebar =========== */
+
+.col-lg-3 .sidebar-area {
+  direction: rtl;
+  text-align: right;
+}
+
+.sidebar-area .widget.widget-search form button {
+  left: 0;
+}
+
+/* ======= detail BLOG ======= */
+
+.blog-details-area .container .row {
+  direction: rtl;
+}
+
+.blog-details-area .blog-details .article-content {
+  direction: rtl;
+}
+
+
+
+.blog-details-area .blog-details .article-content {
+  text-align: right;
+  direction: rtl;
+}
+
+
+.blog-details-area .leave-a-reply {
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+.blog-details-area .post-comments {
+  direction: rtl;
+  text-align: right;
+}
+
+
+.blog-details-area .post-comments .single-comment {
+  padding-right: 95px;
+}
+
+
+.single-comment .comment-content{
+  margin-right: 15px;
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+/* ======= login ========= */
+
+.login-form{
+    direction: rtl;
+    text-align: right;
+}
+
+.login-form form .forgot-password a {
+    direction: rtl;
+}
+
+
+/* ===== register ==== */
+.login-form form span {
+    direction: rtl;
+}
+
+
+/* ===== Contact us ===== */
+.col-lg-6 form{
+    text-align: right;
+}
+
+/* ===== cart ===== */
+.cart-totals {
+    text-align: right;
+}
+
+.cart-totals ul li {
+    direction: rtl;
+}
+
+
+.cart-totals ul li span {
+    float: left;
+    direction: rtl;
+}
+
+
+
+
+/* ====== detail shop ====== */
+.container .shop-details .row{
+    direction: rtl;
+}
+
+.col-lg-8 .product-entry-summary{
+    direction: rtl;
+    text-align: right;
+}
+
+.shop-details .shop-details-tabs {
+    text-align: right;
+    direction: rtl;
+}
+
+.sidebar-area .widget:last-child {
+    margin-bottom: 0;
+    direction: rtl;
+    text-align: right;
+}
+
+
+.shop-related-prodcut .section-title {
+    text-align: right;
+}
+
+.shop-related-prodcut .container .row{
+    direction: rtl;
+}
+
+
+.main-list-procduct__section .row .col-lg-9 .row{
+    justify-content: flex-end;
+}
+
+
+/*  ====== display user information */
+.roww{
+  text-align: right;
+  direction: rtl;
+}
+
+.form-group {
+  direction: rtl;
+}
+
+
+/* ======= edit profile ======= */
+.col-lg-6 .form-group label{
+  direction: rtl;
+  text-align: right;
+}
+
+.order-details .order-table table tbody tr td {
+  text-align: right;
+}
+
+.order-details {
+  direction: rtl;
+  text-align: right;
+}
+
+
+.show-bar{
+  direction: rtl;
+text-align: right;
+
+}
+
+/* ===== list of blogs */
+.single-product { 
+  text-align: right;
+  direction: rtl;
+}
+
+.product-area .container .row .col-lg-9 .row{
+  direction: ltr;
+  align-items: flex-start;
+}
+
+
+
+
+
+/* ==== tables =====*/
+.cart-table table {
+  direction: rtl;
+}
+
+/* ====== created table ========= */
+.order-details .order-table table {
+  text-align: right;
+  direction: rtl;
+}
+
+
+
+/*  ======= detial messages ======= */
+.message-inner-row {
+  direction: rtl;
+  text-align: right;
+}
+
+
+/* list of product */
+
+.main-list-procduct__section .container .row .col-lg-9 .row{
+  direction: rtl;
+  align-items: flex-start;
+}
+
+
+/* ======== show user comments ========= */
+.userComment-row {
+  direction: rtl;
+  text-align: right;
+}
+
+.userComment-information {
+  margin-right:3rem; 
+}
+
+.features-inner-area .features-inner-content {
+  direction: rtl;
+  text-align: right;
+}
+
+
+.overview-box .justify-content-center{
+  direction: rtl;
+  text-align: right;
+}
+
+
+.overview-box .overview-content ul li::before {
+  content: "";
+  position: absolute;
+  right: 0;
+}
+
+
+
+.overview-box .overview-content ul li {
+  color: #818992;
+  padding-left: 18px;
+}
+
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  direction: rtl;
+}
+
+/*  ======= flags ========= */
+.en {
+  margin-left: 8px;
+}
+
+.crake-nav nav .navbar-nav li .dropdown_menu {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ==== landing ======= */
+.features-inner-area .features-inner-content .features-item {
+  padding-right: 90px;
+}
+
+.features-inner-area .features-inner-content .features-item .icon {
+  right: 0;
+}

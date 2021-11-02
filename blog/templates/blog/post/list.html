@@ -13,12 +13,9 @@
 <meta name="keywords" content="وبلاگ"> {% endblock meta %}
 <!-- End meta tags -->
 
-
-
 <!-- add header -->
 {% block header %} {% trans "وبلاگ" %}  {% endblock header %}
 <!-- End header -->
-
 
 <!-- Start blog Area -->
 
@@ -88,7 +85,7 @@
                     <div class="widget widget-search">
                         <form action="{% url 'blog:post_list' %}" method="get">
 
-                            <input name="q" type="search" class="form-control" placeholder="جستجو">
+                            <input name="q" type="search" class="form-control" placeholder="{% trans "جستجو" %}">
                             <button type="submit"><i class="icofont-search-2"></i></button>
                         </form>
                     </div>

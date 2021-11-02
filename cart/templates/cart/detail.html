@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 {% block title %}{% trans "سبد خرید" %}{% endblock title %}
-{% block page_title %} سبد خرید {% endblock page_title %}
+{% block page_title %} {% trans "سبد خرید" %} {% endblock page_title %}
 {% block content %}
 
 <!-- Start Cart Area -->
@@ -60,7 +60,7 @@
                             {% else %}
                                 <tr>
                                     <td class="product-name" colspan="6">
-                                        <a href="#">محصولی به سبد خرید اضافه نشده</a>
+                                        <a href="#">{% trans "محصولی به لیست اضافه نکرده اید" %}</a>
                                     </td>
                                 </tr>
                             {% endif %}

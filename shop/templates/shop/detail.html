@@ -27,7 +27,6 @@
                     <div class="product-entry-summary">
                         <h3> {% blocktrans with name=product.name %}{{name}}{% endblocktrans %} </h3>
                         <h4>{{product.price}} {% trans "تومان" %}</h4>
-
                         <p> {% blocktrans with desc=product.description|safe %}{{desc}}{% endblocktrans %}</p>
 
                         <ul class="product-categories">
@@ -102,7 +101,7 @@
                                         <div class="comment-content">
                                             <h4>{{ comment.user.first_name }} {{ comment.user.last_name }}</h4>
                                             <p>{{ comment.body|linebreaks }}</p>
-                                            <span> {% trans "زمان ثبت دیدگاه" %} : {{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}}</span>
+                                            <span> {% trans "زمان ثبت دیدگاه" %} :{% if LANGUAGE_CODE == 'fa' %}{{ comment.created|to_jalali:'%Y/%m/%d ساعت %H:%M:%S'}} {%else%} {{ comment.created}} {% endif %} </span>
                                         </div>
                                     </div>
                                     <hr> {% endfor %}
@@ -112,6 +111,7 @@
                                 {% if user.is_authenticated %}
                                  {% if new_comment %}
                                 <div class="leave-a-reply">
+                                <br/>
                                 <br/>
                                 <p>{% trans "پیام شما با موفقیت ثبت شد" %}</p>
                                 </div>
@@ -141,6 +141,7 @@
                                             <button type="submit" class="btn btn-primary">{% trans "ارسال" %}</button>
                                         </div>
                                     </div>
+
                                 </form>
                                 {% endif %}
                                 {% else %}
@@ -152,9 +153,10 @@
                         </div>
                     </div>
                     <br/>
+                    <br/>
                     <div class="sidebar-area">
                         <div class="widget widget_tag_cloud">
-                            <h3 class="widget-title">برچسب ها</h3>
+                            <h3 class="widget-title">{% trans "برچسب ها" %}</h3>
                             <div class="bar"></div>
 
                             <div class="tagcloud">

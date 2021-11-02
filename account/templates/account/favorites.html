@@ -53,7 +53,7 @@
                                 {% else %}
                                 <tr>
                                     <td class="product-name" colspan="4">
-                                        <p >محصولی به لیست اضافه نکرده اید <a href="{% url 'shop:product_list' %}">رفتن به فروشگاه</a></p>
+                                        <p >{% trans "محصولی به لیست اضافه نکرده اید" %} <a href="{% url 'shop:product_list' %}">{% trans "رفتن به فروشگاه" %}</a></p>
                                     </td>
                                 </tr>
                                 {% endif %}

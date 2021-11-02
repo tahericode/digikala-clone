@@ -1,7 +1,9 @@
 {% load static %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!doctype html>
 <html lang="en">
+
 
 <head>
 	<!-- Required meta tags -->
@@ -31,6 +33,19 @@
 	<link rel="stylesheet" href="{% static 'details/assets/css/owl.carousel.min.css' %}">
 	<!-- NiceSelect Min CSS -->
 	<link rel="stylesheet" href="{% static 'details/assets/css/nice-select.css' %}">
+	{% if LANGUAGE_CODE == 'en' %}
+		<link rel="stylesheet" href="{% static 'details/assets/css/ltr-position.css' %}">  
+	{% endif %}
+
+
+	{% if LANGUAGE_CODE == 'fa' %}
+		<link rel="stylesheet" href="{% static 'details/assets/css/rtl-position.css' %}">  
+	{% endif %}
+
+	
+
+	
+
 	<!-- Style CSS -->
 	<link rel="stylesheet" href="{% static 'details/assets/css/style.css' %}">
 	<!-- Responsive CSS -->
@@ -55,7 +70,7 @@
 
 	<!-- Start Navbar Area -->
 	<header id="header">
-		<div class="crake-mobile-nav">
+		<div class="crake-mobile-nav mean-container">
 			<div class="logo">
 				<img src="{% static 'details/assets/img/logo.png' %}" alt="">
 			</div>
@@ -64,12 +79,8 @@
 
 		<div class="crake-nav">
 
-
-					
-
-
 			<div class="container">
-				<nav class="navbar navbar-expand-md navbar-light">
+				<nav class="navbar navbar-expand-xl">
 					<a class="navbar-brand" href="{% url 'details:homePage' %}"><img src="{% static 'details/assets/img/logo.png' %}" alt="logo"></a>
 
 
@@ -102,7 +113,7 @@
 							<li class="nav-item"><a href="{% url 'login' %}" class="nav-link">{% trans "ورود" %}</a></li>
 							<li class="nav-item"><a href="{% url 'register' %}" class="nav-link">{% trans "ثبت نام" %}</a></li>
 							{% endif %}
-							{% if request.user.is_authenticated %}
+							{% comment %} {% if request.user.is_authenticated %}
 							<ul class="navbar-nav nav ml-auto">
 								<li class="nav-item"><a style="color: #fff;" href="#"><i class="fas fa-envelope"></i></a>
 									<ul class="dropdown_menu">
@@ -114,7 +125,23 @@
 								</li>
 							</ul>
 							
-							{% endif %}
+							{% endif %} {% endcomment %}
+							<ul class="navbar-nav nav ml-auto">
+								<li class="nav-item"><a style="color: #fff;" href="#"><i class="fas fa-globe-americas"></i></a>
+									<ul style="width: 180px;" class="dropdown_menu">
+										{% get_available_languages as LANGUAGES %}
+										{% get_language_info_list for LANGUAGES as languages %}
+											<li class="nav-item" id="lang-change2">
+												<a href="{% url 'change_lang' %}?lang=fa&next=/fa/{{request.path|slice:'4:'}}" class="selected"><img class="icon-flag" src="{% static 'details/assets/img/iran-flag-wave-icon-16 (2).png' %}" alt=""> &emsp; {% trans "فارسی" %}</a>
+								
+											</li>
+
+											<li class="nav-item" id="lang-change2">
+											<a href="{% url 'change_lang' %}?lang=en&next=/en/{{request.path|slice:'4:'}}" class=""><img class="icon-flag en" src="{% static 'details/assets/img/united-kingdom-flag-wave-icon-256 (1).png' %}" alt=""> &ensp; {% trans "English" %}</a>
+											</li>
+									</ul>
+								</li>
+							</ul>
 
 						</ul>
 					</div>
@@ -145,25 +172,6 @@
 
 
 				</nav>
-
-
-					{% get_current_language as LANGUAGE_CODE %}
-					{% get_available_languages as LANGUAGES %}
-					{% get_language_info_list for LANGUAGES as languages %}
-					<div class="languages">
-						<ul class="languagess">
-							<li id="lang-change2">
-								<a href="/en/" class="selected"><img class="icon-flag" src="{% static 'details/assets/img/iran-flag-wave-icon-16 (2).png' %}" alt=""> </a>
-								
-							</li>
-
-							<li id="lang-change2">
-								<a href="/fa/" class=""><img class="icon-flag en" src="{% static 'details/assets/img/united-kingdom-flag-wave-icon-256 (1).png' %}" alt=""></a>
-							</li>
-						</ul>
-					</div>
-
-
 
 			</div>
 		</div>
@@ -380,6 +388,20 @@
 		}
 	})
 	</script>
+
+	<script>
+		function copyToClipboard(text) {
+		var inputc = document.body.appendChild(document.createElement("input"));
+		inputc.value = window.location.href;
+		inputc.focus();
+		inputc.select();
+		document.execCommand('copy');
+		inputc.parentNode.removeChild(inputc);
+		alert("کپی شد");
+		}
+	</script>
+
+
 	<script src="{% static 'details/assets/js/jquery.min.js' %}"></script>
 
 	<script src="{% static 'admin/js/django_jalali.min.js' %}"></script>

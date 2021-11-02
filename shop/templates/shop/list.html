@@ -1,7 +1,7 @@
 {% extends 'details/base.html' %}
 {% load static %}
 {% load i18n %}
-{% block title %} {% if category %}{{category.name}}{% else %}Products{% endif %} {% endblock title %} 
+{% block title %} {% if category %}{{category.name}}{% else %}{% trans "فروشگاه" %}{% endif %} {% endblock title %} 
 {% block page_title %}<b>{% trans "محصولات" %}</b><p style="color: #fff; margin-top: 15px; font-size: 18px;">{% blocktrans %}هر آنچه که نیاز دارید با بهترین قیمت از کراکی بخرید! جدیدترین انواع گوشی موبایل، لپ تاپ و سار محصولات{% endblocktrans %}</p>{% endblock page_title %}
 
 {% block content %}
@@ -10,13 +10,14 @@
 <!-- Start Product Area -->
 <section class="product-area ptb-100 product-list__prefix main-list-procduct__section">
     <div class="main-list-procduct__section">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-9 col-md-12">
                 <div class="row">
                     
 
                     {% for product in products %}
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="single-product">
                             <div class="product-img">
                                 <img src="{% if product.image %}{{product.image.url}}{%else%}{%static 'details/assets/img/marketing-shape/no_image.png'%}{%endif%}" alt="item">
@@ -74,7 +75,7 @@
                     <div class="widget widget-search">
                         <form action="{% url 'shop:product_list' %}" method="get">
 
-                            <input name="q" type="search" class="form-control" placeholder="جستجو">
+                            <input name="q" type="search" class="form-control" placeholder="{% trans "جستجو" %}">
                             <button type="submit"><i class="icofont-search-2"></i></button>
                         </form>
                     </div>
@@ -120,6 +121,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- End Product Area -->

@@ -33,7 +33,7 @@ class CustomResetPassForm(SetPasswordForm):
 
 #Registeration 
 class UserRegistrationForm(forms.ModelForm):
-    username = forms.CharField(max_length=50, label=_('نام کاربری'), widget=forms.TextInput(attrs={'placeholder':_('نام کاربری')}))
+    username = forms.CharField(max_length=50, label=False, widget=forms.TextInput(attrs={'placeholder':_('نام کاربری')}))
     email = forms.EmailField(label=_(''), widget=forms.TextInput(attrs={'placeholder':_('ایمیل')}))
     password = forms.CharField(label=_(''), widget=forms.PasswordInput(attrs={'placeholder': _('رمز عبور')}))
     password2 = forms.CharField(label=_(''), widget=forms.PasswordInput(attrs={'placeholder':_("تایید رمز عبور")}))

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from details.views import change_lang
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
@@ -35,6 +36,7 @@ urlpatterns = i18n_patterns(
     #CkEditor url for upload 
     path(_('ckeditor/'), include('ckeditor_uploader.urls')),
     path(_('messages/'), include('message.urls', namespace='message')),
+    path('change_lang', change_lang, name='change_lang')
     
 )
 

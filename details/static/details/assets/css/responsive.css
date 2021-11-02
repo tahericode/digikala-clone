@@ -3,7 +3,7 @@
     font-size: 14px;
     padding: 14px 27px;
     -webkit-box-shadow: 0 5px 27px 0 rgba(163, 48, 53, 0.25);
-            box-shadow: 0 5px 27px 0 rgba(163, 48, 53, 0.25);
+    box-shadow: 0 5px 27px 0 rgba(163, 48, 53, 0.25);
   }
   .ptb-100 {
     padding-top: 50px;
@@ -84,7 +84,8 @@
   .main-banner .saas-image img:last-child {
     display: block;
   }
-  .main-banner.saas-home .shape1, .main-banner.saas-home .shape3 {
+  .main-banner.saas-home .shape1,
+  .main-banner.saas-home .shape3 {
     display: none;
   }
   .main-banner.saas-home .shape3 {
@@ -92,7 +93,7 @@
     right: 0;
   }
   .main-banner.saas-home .shape-1 {
-    opacity: .2;
+    opacity: 0.2;
   }
   .main-banner .product-image {
     margin-top: 40px;
@@ -112,7 +113,9 @@
     font-size: 15px;
     padding-top: 18px;
   }
-  .main-banner.product-home .shape1, .main-banner.product-home .shape4, .main-banner.product-home .shape6 {
+  .main-banner.product-home .shape1,
+  .main-banner.product-home .shape4,
+  .main-banner.product-home .shape6 {
     display: none;
   }
   .main-banner.product-home .shape3 {
@@ -120,7 +123,7 @@
     right: 0;
   }
   .main-banner.product-home .shape-1 {
-    opacity: .2;
+    opacity: 0.2;
   }
   .main-banner.app-home .shape4 {
     display: none;
@@ -135,7 +138,8 @@
   .main-banner.marketing-home {
     background: #ffffff url(../img/bg-point.png) no-repeat fixed right -700px center/auto;
   }
-  .main-banner.marketing-home .shape4, .main-banner.marketing-home .shape2 {
+  .main-banner.marketing-home .shape4,
+  .main-banner.marketing-home .shape2 {
     display: none;
   }
   .main-banner.marketing-home .shape1 {
@@ -155,10 +159,14 @@
   .main-banner.marketing-home .marketing-image img:last-child {
     display: block;
   }
-  .main-banner.marketing-home .bubble-animate, .main-banner.marketing-home .shape6 {
+  .main-banner.marketing-home .bubble-animate,
+  .main-banner.marketing-home .shape6 {
     display: none;
   }
-  .main-banner.software-home .shape4, .main-banner.software-home .shape2, .main-banner.software-home .shape1, .main-banner.software-home .shape6 {
+  .main-banner.software-home .shape4,
+  .main-banner.software-home .shape2,
+  .main-banner.software-home .shape1,
+  .main-banner.software-home .shape6 {
     display: none;
   }
   .main-banner.software-home .shape3 {
@@ -176,14 +184,18 @@
     bottom: 0;
     right: 0;
   }
-  .main-banner.book-home .shape9, .main-banner.book-home .shape2 {
+  .main-banner.book-home .shape9,
+  .main-banner.book-home .shape2 {
     display: none;
   }
   .main-banner.book-home .hero-content span {
     font-size: 15px;
     margin-bottom: 15px;
   }
-  .main-banner.payment-processing-home .shape9, .main-banner.payment-processing-home .shape1, .main-banner.payment-processing-home .shape3, .main-banner.payment-processing-home .shape6 {
+  .main-banner.payment-processing-home .shape9,
+  .main-banner.payment-processing-home .shape1,
+  .main-banner.payment-processing-home .shape3,
+  .main-banner.payment-processing-home .shape6 {
     display: none;
   }
   .main-banner .paymant-processing-image {
@@ -206,17 +218,25 @@
   .main-banner .startup-image img:last-child {
     display: block;
   }
-  .startup-home .main-banner .shape1, .startup-home .main-banner .shape, .startup-home .main-banner .shape6, .startup-home .main-banner .shape3, .startup-home .main-banner .shape9, .startup-home .main-banner .shape2 {
+  .startup-home .main-banner .shape1,
+  .startup-home .main-banner .shape,
+  .startup-home .main-banner .shape6,
+  .startup-home .main-banner .shape3,
+  .startup-home .main-banner .shape9,
+  .startup-home .main-banner .shape2 {
     display: none;
   }
-  .startup-home.owl-theme .owl-nav [class*=owl-] {
+  .startup-home.owl-theme .owl-nav [class*="owl-"] {
     top: auto;
     bottom: 10px;
   }
   .creative-shape {
     bottom: -5px;
   }
-  .features-area .shape10, .features-area .shape11, .features-area .shape6, .features-area .shape3 {
+  .features-area .shape10,
+  .features-area .shape11,
+  .features-area .shape6,
+  .features-area .shape3 {
     display: none;
   }
   .features-area.marketing-features .features-inner-area {
@@ -264,7 +284,9 @@
     margin-bottom: 40px;
     margin-top: 0;
   }
-  .features-area.payment-processing-features .features-inner-area .features-image {
+  .features-area.payment-processing-features
+    .features-inner-area
+    .features-image {
     margin-bottom: 0;
     margin-top: 30px;
   }
@@ -336,25 +358,27 @@
   .boxes-area .single-box h3 {
     font-size: 20px;
   }
-  .overview-section .shape3, .overview-section .shape11, .overview-section .shape6 {
+  .overview-section .shape3,
+  .overview-section .shape11,
+  .overview-section .shape6 {
     display: none;
   }
   .overview-section .shape7 {
-    opacity: .4;
+    opacity: 0.4;
   }
   .overview-box {
     margin-bottom: 40px;
   }
   .overview-box .overview-img {
     -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    -ms-flex-order: 1;
+    order: 1;
     margin-bottom: 30px;
   }
   .overview-box .overview-content {
     -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    -ms-flex-order: 2;
+    order: 2;
   }
   .overview-box .overview-content .icon {
     width: 45px;
@@ -394,8 +418,8 @@
   }
   .overview-box.modern-flexible .overview-img {
     -webkit-box-ordinal-group: unset;
-        -ms-flex-order: unset;
-            order: unset;
+    -ms-flex-order: unset;
+    order: unset;
     margin-top: 30px;
   }
   .overview-box.modern-flexible .single-item {
@@ -448,7 +472,8 @@
     padding: 20px;
     margin-bottom: 30px;
   }
-  .single-holder-box.mt-30, .single-holder-box.mt-50 {
+  .single-holder-box.mt-30,
+  .single-holder-box.mt-50 {
     margin-top: 0;
   }
   .single-holder-box h3 {
@@ -464,7 +489,8 @@
   .contact-info-area {
     padding-bottom: 40px;
   }
-  .saas-tools .shape1, .saas-tools .shape2 {
+  .saas-tools .shape1,
+  .saas-tools .shape2 {
     display: none;
   }
   .tab {
@@ -763,7 +789,10 @@
     top: 5%;
     left: 0;
   }
-  .page-title-banner .shape1, .page-title-banner .shape3, .page-title-banner .shape9, .page-title-banner .shape2 {
+  .page-title-banner .shape1,
+  .page-title-banner .shape3,
+  .page-title-banner .shape9,
+  .page-title-banner .shape2 {
     display: none;
   }
   .page-title-banner h2 {
@@ -909,42 +938,42 @@
     margin-top: 0;
   }
   .screenshot-slides.owl-theme .owl-controls {
-    line-height: .01;
+    line-height: 0.01;
   }
   .screenshot-slides.owl-theme .owl-controls .owl-nav {
     margin-top: 30px;
     margin-bottom: -8px;
   }
   .team-slides.owl-theme .owl-controls {
-    line-height: .01;
+    line-height: 0.01;
   }
   .team-slides.owl-theme .owl-controls .owl-nav {
     margin-top: 0;
     margin-bottom: 22px;
   }
   .feedback-slides.owl-theme .owl-controls {
-    line-height: .01;
+    line-height: 0.01;
   }
   .feedback-slides.owl-theme .owl-controls .owl-nav {
     margin-top: 0;
     margin-bottom: -8px;
   }
   .blog-slides.owl-theme .owl-controls {
-    line-height: .01;
+    line-height: 0.01;
   }
   .blog-slides.owl-theme .owl-controls .owl-nav {
     margin-top: 0;
     margin-bottom: -8px;
   }
   .project-slides.owl-theme .owl-controls {
-    line-height: .01;
+    line-height: 0.01;
   }
   .project-slides.owl-theme .owl-controls .owl-nav {
     margin-top: 0;
     margin-bottom: -8px;
   }
   .product-slides.owl-theme .owl-controls {
-    line-height: .01;
+    line-height: 0.01;
   }
   .product-slides.owl-theme .owl-controls .owl-nav {
     margin-top: 0;
@@ -1147,13 +1176,13 @@
   }
   .main-banner.saas-home .col-lg-6:first-child {
     -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+    -ms-flex-order: 2;
+    order: 2;
   }
   .main-banner.saas-home .col-lg-6:last-child {
     -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+    -ms-flex-order: 1;
+    order: 1;
   }
   .main-banner.saas-home .saas-image {
     text-align: center;
@@ -1222,7 +1251,8 @@
     display: block;
     margin: 0 auto;
   }
-  .main-banner.marketing-home .shape3, .main-banner.marketing-home .shape1 {
+  .main-banner.marketing-home .shape3,
+  .main-banner.marketing-home .shape1 {
     display: none;
   }
   .main-banner.marketing-home .marketing-image {
@@ -1236,7 +1266,10 @@
     display: block;
     margin: 0 auto;
   }
-  .startup-home .main-banner .shape6, .startup-home .main-banner .shape2, .startup-home .main-banner .shape3, .startup-home .main-banner .shape9 {
+  .startup-home .main-banner .shape6,
+  .startup-home .main-banner .shape2,
+  .startup-home .main-banner .shape3,
+  .startup-home .main-banner .shape9 {
     display: none;
   }
   .shape4 {
@@ -1287,7 +1320,9 @@
   .features-area.payment-processing-features .features-inner-area {
     margin-top: 55px;
   }
-  .features-area.payment-processing-features .features-inner-area .features-image {
+  .features-area.payment-processing-features
+    .features-inner-area
+    .features-image {
     margin-bottom: 0;
     margin-top: 45px;
   }
@@ -1305,7 +1340,10 @@
     margin-bottom: 0;
     margin-top: 45px;
   }
-  .features-area .shape10, .features-area .shape6, .features-area .shape11, .features-area .shape3 {
+  .features-area .shape10,
+  .features-area .shape6,
+  .features-area .shape11,
+  .features-area .shape3 {
     display: none;
   }
   .single-features h3 {
@@ -1326,7 +1364,10 @@
   .single-app-works h3 {
     font-size: 21px;
   }
-  .overview-section .shape6, .overview-section .shape10, .overview-section .shape3, .overview-section .shape11 {
+  .overview-section .shape6,
+  .overview-section .shape10,
+  .overview-section .shape3,
+  .overview-section .shape11 {
     display: none;
   }
   .overview-box .overview-content .icon {
@@ -1674,11 +1715,12 @@
     right: 45px;
     width: 350px;
   }
-  .main-banner .shape4, .main-banner .shape1 {
+  .main-banner .shape4,
+  .main-banner .shape1 {
     display: none;
   }
   .main-banner .shape6 {
-    opacity: .3;
+    opacity: 0.3;
   }
   .app-download .download-image {
     bottom: 200px;
@@ -1774,7 +1816,7 @@
   }
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1200px) {
   .crake-mobile-nav {
     display: block;
     position: relative;

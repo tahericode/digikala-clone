@@ -8,15 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+{% get_current_language as LANGUAGE_CODE %}
     
       
 
-<div class="containerrr" style="display: block;align-items: flex-start; direction: rtl; background-color: #f6f6f6; padding: 10px 20px 20px; border-radius: 15px;">
+<div class="containerrr"{% if LANGUAGE_CODE == 'fa' %} style="display: block;align-items: flex-start; direction: rtl; background-color: #f6f6f6; padding: 10px 20px 20px; border-radius: 15px;" {%else%} style="display: block;align-items: flex-start; direction: ltr; background-color: #f6f6f6; padding: 10px 20px 20px; border-radius: 15px;" {% endif %}>
     <div class="title" style="text-align: center ;">
         <h1 style="border-radius: 5px; font-family: IRANSans;">{% trans "خرید من" %}</h1> 
     </div>
     <div style="display: inline; margin-bottom: 25px ;  direction: ltr;">
-        <a style="color: black; background-color: #ddd; border-radius: 5px; padding: 5px 8px;" href="{% url 'orders:order_pdf' order.id%}" download>دریافت فاکتور</a>
+        <a style="color: black; background-color: #ddd; border-radius: 5px; padding: 5px 8px;" href="{% url 'orders:order_pdf' order.id%}" >دریافت فاکتور</a>
+    
     </div>
     <div class="shopInfo">
         <p>{% trans "شماره فاکتور" %} : {{ order.id }}</p>
@@ -40,8 +42,8 @@
         <div class="itemboughtTitle" style="text-align: center;">
             <h1>{% trans "اقلام خریداری شده" %}</h1>  
         </div>
-        <table >
-            <thead style="direction: ltr;">
+        <table {% if LANGUAGE_CODE == 'fa' %}style="direction: rtl;"{%else%}style="direction: ltr;"{% endif %}>
+            <thead style="direction: rtl;">
                 <tr>
                     <th>{% trans "قیمت کل" %}</th>
                     <th>{% trans "تعداد" %}</th>
@@ -51,7 +53,7 @@
             </thead>
             <tbody>
                 {% for item in order.items.all %}
-                <tr  >
+                <tr>
                     <td>{% trans "تومان" %}{{ item.get_cost }}</td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.price }}</td>

@@ -1,0 +1,356 @@
+.d-table, .d-table-cell,
+.ptb-100, .crake-nav,
+.crake-nav nav .others-option .navbar-nav,
+.header-search.open, .features-area,
+.overview-section, .saas-tools, .app-funfacts-area .single-funfact,
+.pricing-area, .how-app-work,
+.single-feedback-box p, .feedback-slides .owl-item .single-feedback,
+.single-blog-post .blog-post-content, .single-blog-post .blog-post-content p,
+.publicMessages .row, .containerr, .orderTracking, .userComment-container,
+.item-row, .form-control{
+    direction: ltr;
+}
+
+
+.about-content .section-title .bar {
+    margin-left: 0;
+    /* margin-right: 0; */
+}
+
+.crake-nav {
+    left: 0;
+  }
+
+.row{
+    direction: rtl;
+}
+
+
+.dashboard-icon {
+    font-size: 20px;
+    padding-right: 25px;
+}
+
+
+.item-row {
+    direction: ltr;
+}
+
+
+.product-area  .container .row{
+    direction: ltr;
+}
+
+.product-area .container .row .col-lg-9 .row {
+    direction: ltr;
+    align-items: flex-start;
+}
+
+.product-area .main-list-procduct__section .row{
+    direction: ltr;
+}
+
+
+/* ========== about us ============ */
+
+
+.about-content{
+    text-align: left;
+}
+
+
+.about-content .section-title { 
+    text-align: left;
+    direction: ltr;
+}
+
+
+/* .about-content .section-title p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  } */
+
+
+
+/* ======= questions =========== */
+
+.faq-accordion .accordion .accordion-item .accordion-content.show {
+    text-align: left;
+    direction: ltr;
+}
+
+
+.faq-accordion .accordion .accordion-item .accordion-content {
+    direction: ltr;
+    text-align: left;
+}
+
+.faq-contact {
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* ========= Blog sidebar =========== */
+
+.col-lg-3 .sidebar-area{
+    direction: ltr;
+    text-align: left;
+}
+
+.sidebar-area .widget.widget-search form button {
+    right: 0;
+}
+
+
+/* ======= detail BLOG ======= */
+
+.blog-details-area .container .row{
+    direction: ltr;
+}
+
+.blog-details-area .blog-details .article-content {
+    direction: ltr;
+}
+
+
+.blog-details-area .blog-details .article-content {
+    text-align: left;
+    direction: ltr;
+}
+
+
+.blog-details-area .leave-a-reply {
+    direction: ltr;
+    text-align: left;
+}
+
+
+.blog-details-area .post-comments {
+    direction: ltr;
+    text-align: left;
+}
+
+
+.blog-details-area .post-comments .single-comment {
+    padding-left: 95px;
+}
+
+
+
+.single-comment .comment-content{
+    margin-left: 15px;
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* ======= login ========= */
+
+.login-form{
+    direction: ltr;
+    text-align: left;
+}
+
+.login-form form .forgot-password a {
+    direction: ltr;
+}
+
+
+/* ===== register ==== */
+.login-form form span {
+    direction: ltr;
+}
+
+
+/* ===== Contact us ===== */
+.col-lg-6 form{
+    text-align: left;
+}
+
+/* ===== cart ===== */
+.cart-totals {
+    text-align: left;
+}
+
+.cart-totals ul li {
+    direction: ltr;
+}
+
+.cart-totals ul li span {
+    float: right;
+    direction: ltr;
+}
+
+
+  
+
+/* ====== detail shop ====== */
+.container .shop-details .row{
+    direction: ltr;
+}
+
+.col-lg-8 .product-entry-summary{
+    direction: ltr;
+    text-align: left;
+}
+
+.shop-details .shop-details-tabs {
+    text-align: left;
+    direction: ltr;
+}
+
+.sidebar-area .widget:last-child {
+    margin-bottom: 0;
+    direction: ltr;
+    text-align: left;
+}
+
+
+.shop-related-prodcut .section-title {
+    text-align: left;
+}
+
+.shop-related-prodcut .container .row{
+    direction: ltr;
+}
+
+
+.main-list-procduct__section .row .col-lg-9 .row{
+    justify-content: flex-end;
+}
+
+
+/*  ====== display user information */
+.roww{
+    text-align: left;
+    direction: ltr;
+  }
+
+  .form-group {
+    direction: ltr;
+}
+
+
+/* ======= edit profile ======= */
+.col-lg-6 .form-group label{
+    direction: ltr;
+    text-align: left;
+  }
+
+.order-details .order-table table tbody tr td {
+text-align: left;
+}
+
+.order-details {
+    direction: ltr;
+    text-align: left;
+}
+
+
+.show-bar{
+    direction: ltr;
+  text-align: left;
+  
+  }
+  
+
+/* ===== list of blogs */
+.single-product { 
+    text-align: left;
+    direction: ltr;
+}
+
+.product-area .container .row .col-lg-9 .row{
+    direction: rtl;
+    align-items: flex-start;
+}
+
+/* ==== tables =====*/
+.cart-table table {
+    direction: ltr;
+}
+
+/* ====== created table ========= */
+.order-details .order-table table {
+    text-align: left;
+    direction: ltr;
+}
+
+
+/*  ======= detial messages ======= */
+.message-inner-row {
+    direction: ltr;
+    text-align: left;
+  }
+
+
+
+/* list of product */
+
+.main-list-procduct__section .container .row .col-lg-9 .row{
+    direction: ltr;
+    align-items: flex-start;
+  }
+
+/* ======== show user comments ========= */
+.userComment-row {
+    direction: ltr;
+    text-align: left;
+}
+
+.userComment-information {
+    margin-left: 3rem;
+}
+
+
+.features-inner-area .features-inner-content {
+    direction: ltr;
+    text-align: left;
+}
+
+.overview-box .justify-content-center{
+    direction: ltr;
+    text-align: left;
+}
+
+
+.overview-box .overview-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+
+.overview-box .overview-content ul li {
+    color: #818992;
+    padding-left: 18px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    direction: ltr;
+}
+
+/*  ======= flags ========= */
+.en {
+    margin-left: 0px;
+}
+
+
+.crake-nav nav .navbar-nav li .dropdown_menu {
+    direction: ltr;
+    text-align: left;
+}
+
+
+/* ==== landing ======= */
+.features-inner-area .features-inner-content .features-item {
+    padding-left: 90px;
+}
+
+
+.features-inner-area .features-inner-content .features-item .icon {
+    left: 0;
+}
